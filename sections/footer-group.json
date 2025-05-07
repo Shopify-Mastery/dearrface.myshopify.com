@@ -30,65 +30,9 @@
         "padding_left_desktop": 0,
         "padding_right_desktop": 0
       }
-    },
-    "footer": {
-      "type": "footer",
-      "blocks": {
-        "image_HT4cGQ": {
-          "type": "image",
-          "settings": {
-            "image": "shopify://shop_images/dearface_-_White_1_2.png",
-            "image_width": 200,
-            "alignment": "center"
-          }
-        },
-        "text_VQ4Fnk": {
-          "type": "text",
-          "settings": {
-            "heading": "<strong>Contact Information</strong>",
-            "subtext": "<p>Share contact information, store details, and brand content with your customers.</p>"
-          }
-        },
-        "link_list_Xnn7Tz": {
-          "type": "link_list",
-          "settings": {
-            "heading": "<strong>Quick links</strong>",
-            "menu": "footer-quick-links"
-          }
-        },
-        "link_list_Lt4QJL": {
-          "type": "link_list",
-          "settings": {
-            "heading": "<strong>Quick links</strong>",
-            "menu": "footer-brand-policies"
-          }
-        }
-      },
-      "block_order": [
-        "image_HT4cGQ",
-        "text_VQ4Fnk",
-        "link_list_Xnn7Tz",
-        "link_list_Lt4QJL"
-      ],
-      "disabled": true,
-      "settings": {
-        "color_scheme": "scheme-f6140e01-26ff-4b71-9176-5f33f84a4f5f",
-        "newsletter_enable": true,
-        "newsletter_heading": "Subscribe to our emails",
-        "enable_follow_on_shop": true,
-        "show_social": true,
-        "enable_country_selector": true,
-        "enable_language_selector": true,
-        "payment_enable": true,
-        "show_policy": true,
-        "margin_top": 0,
-        "padding_top": 36,
-        "padding_bottom": 36
-      }
     }
   },
   "order": [
-    "footer_custom_LUBYYw",
-    "footer"
+    "footer_custom_LUBYYw"
   ]
 }
