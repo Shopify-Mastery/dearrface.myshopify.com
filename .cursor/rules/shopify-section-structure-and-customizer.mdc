@@ -1,0 +1,64 @@
+---
+description: 
+globs: 
+alwaysApply: false
+---
+# Shopify Section Structure & Customizer Rule
+
+## Section Structure & Design
+- Start with a main parent `<div>` that wraps the entire section.
+- Inside the parent, add a direct child `<div>` with the class `page-width` (Shopify Dawn theme class).
+- Build all content and layout elements inside the `page-width` div.
+- Use mobile-first design as the base, and ensure layout adapts for these breakpoints:
+  - 0px–767px (mobile)
+  - 768px–1023px (tablet)
+  - 1024px–1439px (small desktop)
+  - 1440px and above (large desktop)
+
+## CSS & HTML Coding
+- Write CSS styles first using the Shopify Liquid `{% style %}` tag.
+- Use BEM (Block Element Modifier) naming for all CSS classes.
+- Do not include any comments in the code (CSS, HTML, or schema).
+- Do not refer to or use any global CSS variables.
+- Use `rem` units for all font-size, margin, gap, and padding properties in CSS (except for media query breakpoints, which should use `px`).
+- Do not set font families explicitly. Inherit fonts from the theme's global settings:
+  - Headings: inherit from `settings.type_header_font`
+  - Body: inherit from `settings.type_body_font`
+- Always use a mobile-first approach for all CSS in sections.
+- All media queries for breakpoints must use `min-width` (not `max-width`).
+- The required breakpoints are:
+  - `@media (min-width: 768px)` for tablet and up
+  - `@media (min-width: 1024px)` for small desktop and up
+  - `@media (min-width: 1440px)` for large desktop and up
+- Do not use `max-width` in media queries.
+- All base styles should target mobile (0–767px) by default, with overrides for larger screens using the above `min-width` breakpoints.
+- Make all CSS selectors unique to the section or block by including the section or block id (e.g., `.section-{{ section.id }}-padding {}`) so that styles do not affect other sections or instances of the same section.
+
+## JavaScript Coding
+- Always write all JavaScript code using the Shopify Liquid `{% javascript %}` tag. Do not use `<script>` or other methods for section or block JavaScript.
+- Always use modern JavaScript (ES6+) features and syntax, such as `const`, `let`, arrow functions, template literals, destructuring, and modules where possible.
+
+## Shopify Customizer Settings
+- Add a setting to change the background color of the parent div that wraps the entire section.
+- Add settings to control top and bottom padding of the section.
+- Add settings to control left and right padding of the section.
+- Allow padding to be set separately for mobile and desktop.
+- Use `px` units (not `rem`) for all customizer padding settings.
+
+## Schema & Liquid
+- After CSS and HTML, always include the section schema for Shopify section configuration.
+- Ensure all customizer settings are included in the schema as per the requirements above.
+
+## Section Settings Grouping
+- When applicable and required, group settings in the section schema in the following logical order:
+  1. Text Content & Styling (including text color, alignment, formatting, etc)
+  2. Image / Video Options
+  3. Layout & Styling (background color, container color scheme, max width, etc.)
+  4. Section Padding (Mobile, then Desktop)
+  5. Advanced/Custom Code
+
+## General
+- Do not miss or skip any of the requirements.
+- Always act as a Senior Shopify Liquid Developer highly experienced in HTML, CSS, JS & Liquid.
+- Never touch the original files. Always create new files or copy the existing ones to use as a starting point.
+- Try your best (not mandatory) to make the section or block code self-contained (without creating additional files) so that it can be re-used in other Shopify projects.
