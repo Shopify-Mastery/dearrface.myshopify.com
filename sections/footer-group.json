@@ -18,7 +18,7 @@
         "color_scheme": "scheme-f6140e01-26ff-4b71-9176-5f33f84a4f5f",
         "logo": "shopify://shop_images/dearface_-_White_1_2.png",
         "menu_about": "footer-quick-links",
-        "menu_legal": "footer-brand-policies",
+        "menu_brand_policies": "footer-brand-policies",
         "support_email": "support@dearface.com",
         "brand_name": "dearface®",
         "padding_top_mobile": 40,

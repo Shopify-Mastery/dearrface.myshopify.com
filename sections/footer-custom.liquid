@@ -24,7 +24,6 @@
   .footer-custom__main {
     display: flex;
     flex-direction: column;
-    gap: 2rem;
   }
 
   @media (min-width: 1024px) {
@@ -55,7 +54,7 @@
   }
 
   .footer-custom__col--about,
-  .footer-custom__col--legal {
+  .footer-custom__col--brand-policies {
     width: 50%;
     min-width: 0;
   }
@@ -69,9 +68,12 @@
   }
 
   @media (min-width: 1024px) {
+    .footer-custom__col--logo-block {
+      flex-grow: 2;
+    }
     .footer-custom__col--logo,
     .footer-custom__col--about,
-    .footer-custom__col--legal,
+    .footer-custom__col--brand-policies,
     .footer-custom__col--company {
       width: auto;
       min-width: 0;
@@ -85,6 +87,7 @@
       display: flex;
       align-items: flex-start;
       justify-content: flex-start;
+      margin-bottom: 2.5rem;
     }
     .footer-custom__col--company {
       display: flex;
@@ -131,7 +134,7 @@
   }
 
   .footer-custom__menu-title {
-    font-size: 1.3rem;
+    font-size: 1.5rem;
     font-weight: 700;
     color: #fff;
     margin-bottom: 0.7rem;
@@ -159,13 +162,13 @@
   .footer-custom__menu-link {
     color: #fff;
     text-decoration: none;
-    font-size: 1rem;
+    font-size: 1.2rem;
     line-height: 1.5;
   }
 
   @media (min-width: 1024px) {
     .footer-custom__menu-link {
-      font-size: 1.2rem;
+      font-size: 1.5rem;
     }
   }
 
@@ -180,7 +183,7 @@
   }
 
   .footer-custom__company-title {
-    font-size: 1.3rem;
+    font-size: 1.5rem;
     font-weight: 700;
     color: #fff;
     margin-bottom: 0.7rem;
@@ -190,6 +193,9 @@
   }
 
   @media (min-width: 1024px) {
+    .footer-custom__company {
+      font-size: 1.5rem;
+    }
     .footer-custom__company-title {
       font-size: 1.7rem;
     }
@@ -248,7 +254,7 @@
   }
   @media (max-width: 1023px) {
     .footer-custom__col--about,
-    .footer-custom__col--legal {
+    .footer-custom__col--brand-policies {
       display: none;
     }
   }
@@ -259,24 +265,44 @@
   }
   .footer-custom__newsletter .field {
     width: 100%;
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: flex-end;
+  }
+  .footer-custom__newsletter .field::after {
+    display: none;
+  }
+  .footer-custom__newsletter .field button {
+    top: 0;
+    left: 0;
+  }
+  .footer-custom__newsletter .field input {
   }
   .footer-custom__newsletter input[type="email"] {
-    border-radius: 4px 0 0 4px;
-    border: none;
-    padding: 0.8rem 1rem;
+    width: 70%;
+    flex-grow: 0;
+    border-radius: 0 4px 4px 0;
+    border: 1px solid #000;
+    padding: 1.2rem;
     font-size: 1rem;
-    width: 100%;
+    background-color: #FFFFFF;
+    color: #000000;
+  }
+  .footer-custom__newsletter input[type="email"]:focus {
+    box-shadow: none;
   }
   .footer-custom__newsletter button {
-    border-radius: 0 4px 4px 0;
+    border-radius: 4px 0 0 4px;
     border: none;
     background: #000;
     color: #fff;
     font-weight: 700;
-    padding: 0 1.5rem;
+    padding: 2rem;
     font-size: 1rem;
     height: 100%;
     cursor: pointer;
+    min-width: 30%;
+    max-height: 4.6rem;
   }
   .footer-custom__socials-wrapper {
     width: 100%;
@@ -284,9 +310,34 @@
     display: flex;
     justify-content: center;
   }
+  @media (min-width: 768px) {
+    .footer-custom__newsletter input[type="email"] {
+      font-size: 1.5rem;
+    }
+    .footer-custom__newsletter button {
+      font-size: 1.5rem;
+      max-height: 4.7rem;
+    }
+  }
   @media (min-width: 1024px) {
     .footer-custom__socials-wrapper {
       justify-content: flex-start;
+    }
+    .footer-custom__newsletter input[type="email"] {
+      width: 65%;
+      flex-grow: 0;
+      border-radius: 0 4px 4px 0;
+      border: 1px solid #000;
+      padding: 1.2rem;
+      font-size: 1rem;
+      background-color: #FFFFFF;
+      color: #000000;
+    }
+    .footer-custom__newsletter input[type="email"]:focus {
+      box-shadow: none;
+    }
+    .footer-custom__newsletter button {
+      min-width: 35%;
     }
   }
   .footer-custom__list-social {
@@ -294,7 +345,7 @@
     gap: 1.2rem;
   }
   .footer-custom__list-social a.list-social__link {
-    color: white;
+    color: #000000;
   }
   .footer-custom__payments-wrapper {
     width: 100%;
@@ -314,6 +365,8 @@
     justify-content: center;
     overflow-x: auto;
     -webkit-overflow-scrolling: touch;
+    list-style: none;
+    padding: 0;
   }
 {% endstyle %}
 
@@ -341,7 +394,7 @@
             {%- form 'customer', id: 'ContactFooterCustom', class: 'footer-custom__newsletter newsletter-form' -%}
               <input type="hidden" name="contact[tags]" value="newsletter">
               <div class="newsletter-form__field-wrapper" style="width:100%">
-                <div class="field" style="display:flex;width:100%">
+                <div class="field">
                   <input
                     id="NewsletterFormCustom--{{ section.id }}"
                     type="email"
@@ -359,7 +412,6 @@
                     {% endif %}
                     placeholder="{{ 'newsletter.label' | t }}"
                     required
-                    style="flex:1 1 0;min-width:0;"
                   >
                   <button
                     type="submit"
@@ -367,11 +419,8 @@
                     name="commit"
                     id="SubscribeCustom"
                     aria-label="{{ 'newsletter.button_label' | t }}"
-                    style="min-width:120px;max-width:180px;"
                   >
-                    <span class="svg-wrapper">
-                      {{- 'icon-arrow.svg' | inline_asset_content -}}
-                    </span>
+                    SUBSCRIBE
                   </button>
                 </div>
                 {%- if form.errors -%}
@@ -406,7 +455,7 @@
         <div class="footer-custom__mobile-cols">
           <div class="footer-custom__mobile-col">
             <div class="footer-custom__menu">
-              <div class="footer-custom__menu-title">ABOUT WHOLE</div>
+              <div class="footer-custom__menu-title">Quick Links</div>
               {% if section.settings.menu_about != blank %}
                 <ul class="footer-custom__menu-list">
                   {% for link in linklists[section.settings.menu_about].links %}
@@ -420,10 +469,10 @@
           </div>
           <div class="footer-custom__mobile-col">
             <div class="footer-custom__menu">
-              <div class="footer-custom__menu-title">LEGAL INFORMATION</div>
-              {% if section.settings.menu_legal != blank %}
+              <div class="footer-custom__menu-title">Brand Policies</div>
+              {% if section.settings.menu_brand_policies != blank %}
                 <ul class="footer-custom__menu-list">
-                  {% for link in linklists[section.settings.menu_legal].links %}
+                  {% for link in linklists[section.settings.menu_brand_policies].links %}
                     <li class="footer-custom__menu-item">
                       <a href="{{ link.url }}" class="footer-custom__menu-link">{{ link.title }}</a>
                     </li>
@@ -435,7 +484,7 @@
         </div>
         <div class="footer-custom__col footer-custom__col--about">
           <div class="footer-custom__menu">
-            <div class="footer-custom__menu-title">ABOUT WHOLE</div>
+            <div class="footer-custom__menu-title">Quick Links</div>
             {% if section.settings.menu_about != blank %}
               <ul class="footer-custom__menu-list">
                 {% for link in linklists[section.settings.menu_about].links %}
@@ -447,12 +496,12 @@
             {% endif %}
           </div>
         </div>
-        <div class="footer-custom__col footer-custom__col--legal">
+        <div class="footer-custom__col footer-custom__col--brand-policies">
           <div class="footer-custom__menu">
-            <div class="footer-custom__menu-title">LEGAL INFORMATION</div>
-            {% if section.settings.menu_legal != blank %}
+            <div class="footer-custom__menu-title">Brand Policies</div>
+            {% if section.settings.menu_brand_policies != blank %}
               <ul class="footer-custom__menu-list">
-                {% for link in linklists[section.settings.menu_legal].links %}
+                {% for link in linklists[section.settings.menu_brand_policies].links %}
                   <li class="footer-custom__menu-item">
                     <a href="{{ link.url }}" class="footer-custom__menu-link">{{ link.title }}</a>
                   </li>
@@ -509,12 +558,12 @@
     {
       "type": "link_list",
       "id": "menu_about",
-      "label": "About Whole menu"
+      "label": "Quick Links menu"
     },
     {
       "type": "link_list",
-      "id": "menu_legal",
-      "label": "Legal Information menu"
+      "id": "menu_brand_policies",
+      "label": "Brand Policies menu"
     },
     {
       "type": "text",
