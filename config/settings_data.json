@@ -11,19 +11,19 @@
   "current": {
     "logo": "shopify://shop_images/dearface_-_White_1_2.png",
     "logo_width": 90,
-    "type_header_font": "assistant_n4",
+    "type_header_font": "oswald_n7",
     "heading_scale": 100,
-    "type_body_font": "assistant_n4",
+    "type_body_font": "open_sans_n4",
     "body_scale": 100,
     "page_width": 1200,
     "spacing_sections": 0,
     "spacing_grid_horizontal": 8,
     "spacing_grid_vertical": 8,
     "animations_reveal_on_scroll": true,
-    "animations_hover_elements": "none",
+    "animations_hover_elements": "vertical-lift",
     "buttons_border_thickness": 1,
     "buttons_border_opacity": 100,
-    "buttons_radius": 0,
+    "buttons_radius": 8,
     "buttons_shadow_opacity": 0,
     "buttons_shadow_horizontal_offset": 0,
     "buttons_shadow_vertical_offset": 4,
@@ -82,9 +82,9 @@
     "text_boxes_shadow_horizontal_offset": 0,
     "text_boxes_shadow_vertical_offset": 4,
     "text_boxes_shadow_blur": 5,
-    "media_border_thickness": 1,
-    "media_border_opacity": 5,
-    "media_radius": 0,
+    "media_border_thickness": 2,
+    "media_border_opacity": 100,
+    "media_radius": 8,
     "media_shadow_opacity": 0,
     "media_shadow_horizontal_offset": 0,
     "media_shadow_vertical_offset": 4,
@@ -218,6 +218,17 @@
           "button_label": "#ffffff",
           "secondary_button_label": "{{ shop.brand.colors.primary[0].background }}",
           "shadow": "{{ shop.brand.colors.primary[0].foreground }}"
+        }
+      },
+      "scheme-23a29e7f-f949-4e5f-9ecb-31639c0c2c42": {
+        "settings": {
+          "background": "#ffffff",
+          "background_gradient": "",
+          "text": "#121212",
+          "button": "#121212",
+          "button_label": "#ffffff",
+          "secondary_button_label": "#121212",
+          "shadow": "#121212"
         }
       }
     }
