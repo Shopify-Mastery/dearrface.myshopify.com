@@ -1,0 +1,482 @@
+{% style %}
+  .footer-custom {
+    background-color: {{ section.settings.background_color }};
+    padding-top: {{ section.settings.padding_top_mobile }}px;
+    padding-bottom: {{ section.settings.padding_bottom_mobile }}px;
+    padding-left: {{ section.settings.padding_left_mobile }}px;
+    padding-right: {{ section.settings.padding_right_mobile }}px;
+  }
+
+  @media (min-width: 1024px) {
+    .footer-custom {
+      padding-top: {{ section.settings.padding_top_desktop }}px;
+      padding-bottom: {{ section.settings.padding_bottom_desktop }}px;
+      padding-left: {{ section.settings.padding_left_desktop }}px;
+      padding-right: {{ section.settings.padding_right_desktop }}px;
+    }
+  }
+
+  .footer-custom__inner {
+    width: 100%;
+    margin: 0 auto;
+  }
+
+  .footer-custom__main {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+  }
+
+  @media (min-width: 1024px) {
+    .footer-custom__main {
+      flex-direction: row;
+      justify-content: space-between;
+      gap: 4rem;
+    }
+    .footer-custom__col {
+      flex: 1 1 0;
+      min-width: 0;
+      width: auto;
+      margin-bottom: 0;
+    }
+  }
+
+  .footer-custom__col {
+    margin-bottom: 1.5rem;
+  }
+
+  .footer-custom__col--logo {
+    width: 100%;
+    align-items: flex-start;
+    justify-content: flex-start;
+    min-width: 15rem;
+    margin-bottom: 1.5rem;
+    display: flex;
+  }
+
+  .footer-custom__col--about,
+  .footer-custom__col--legal {
+    width: 50%;
+    min-width: 0;
+  }
+
+  .footer-custom__col--company {
+    width: 100%;
+    align-items: flex-start;
+    justify-content: flex-start;
+    display: flex;
+    flex-direction: column;
+  }
+
+  @media (min-width: 1024px) {
+    .footer-custom__col--logo,
+    .footer-custom__col--about,
+    .footer-custom__col--legal,
+    .footer-custom__col--company {
+      width: auto;
+      min-width: 0;
+      margin-bottom: 0;
+      display: block;
+      align-items: flex-start;
+      justify-content: flex-start;
+    }
+    .footer-custom__col--logo {
+      min-width: 15rem;
+      display: flex;
+      align-items: flex-start;
+      justify-content: flex-start;
+    }
+    .footer-custom__col--company {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+    }
+  }
+
+  .footer-custom__logo-img {
+    max-width: 15rem;
+    height: auto;
+    margin-bottom: 0.5rem;
+  }
+
+  @media (min-width: 1024px) {
+    .footer-custom__logo-img {
+      max-width: 15rem;
+    }
+  }
+
+  .footer-custom__logo-text {
+    font-size: 3rem;
+    font-weight: 700;
+    color: #fff;
+    letter-spacing: 0.05em;
+    line-height: 1.1;
+  }
+
+  .footer-custom__logo-text--main {
+    font-size: 3.3rem;
+    font-weight: 700;
+    letter-spacing: 0.01em;
+  }
+
+  .footer-custom__logo-text--sub {
+    font-size: 1.8rem;
+    font-weight: 400;
+    letter-spacing: 0.3em;
+    margin-top: 0.2rem;
+  }
+
+  .footer-custom__menu {
+    margin-bottom: 1.5rem;
+  }
+
+  .footer-custom__menu-title {
+    font-size: 1.3rem;
+    font-weight: 700;
+    color: #fff;
+    margin-bottom: 0.7rem;
+    letter-spacing: 0.01em;
+    text-transform: uppercase;
+    white-space: nowrap;
+  }
+
+  @media (min-width: 1024px) {
+    .footer-custom__menu-title {
+      font-size: 1.7rem;
+    }
+  }
+
+  .footer-custom__menu-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+
+  .footer-custom__menu-item {
+    margin-bottom: 0.5rem;
+  }
+
+  .footer-custom__menu-link {
+    color: #fff;
+    text-decoration: none;
+    font-size: 1rem;
+    line-height: 1.5;
+  }
+
+  @media (min-width: 1024px) {
+    .footer-custom__menu-link {
+      font-size: 1.2rem;
+    }
+  }
+
+  .footer-custom__company {
+    display: flex;
+    align-items: center;
+    gap: 1.2rem;
+    color: #fff;
+    font-size: 1.2rem;
+    margin-bottom: 1.5rem;
+    flex-wrap: nowrap;
+  }
+
+  .footer-custom__company-title {
+    font-size: 1.3rem;
+    font-weight: 700;
+    color: #fff;
+    margin-bottom: 0.7rem;
+    letter-spacing: 0.01em;
+    text-transform: uppercase;
+    white-space: nowrap;
+  }
+
+  @media (min-width: 1024px) {
+    .footer-custom__company-title {
+      font-size: 1.7rem;
+    }
+  }
+
+  .footer-custom__email-icon {
+    width: 1.8rem;
+    height: 1.8rem;
+    display: inline-block;
+    vertical-align: middle;
+    fill: #fff;
+    font-size: 1.8rem;
+    line-height: 1;
+  }
+
+  .footer-custom__bottom {
+    margin-top: 2rem;
+  }
+
+  hr.footer-custom__divider {
+    width: 100%;
+    height: 0.3rem;
+    background: rgba(255,255,255,0.35);
+    margin: 3rem 0;
+    border: none;
+    display: block;
+  }
+
+  .footer-custom__copyright {
+    text-align: center;
+    color: #fff;
+    font-size: 1rem;
+    letter-spacing: 0.01em;
+    line-height: 1.5;
+  }
+
+  .footer-custom__mobile-cols {
+    display: flex;
+    flex-direction: row;
+    gap: 0;
+    width: 100%;
+    margin-bottom: 1.5rem;
+  }
+  .footer-custom__mobile-col {
+    width: 50%;
+    min-width: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+  }
+  @media (min-width: 1024px) {
+    .footer-custom__mobile-cols {
+      display: none;
+    }
+  }
+  @media (max-width: 1023px) {
+    .footer-custom__col--about,
+    .footer-custom__col--legal {
+      display: none;
+    }
+  }
+{% endstyle %}
+
+<div class="footer-custom color-{{ section.settings.color_scheme }} gradient">
+  <div class="page-width">
+    <div class="footer-custom__inner">
+      <div class="footer-custom__main">
+        <div class="footer-custom__col footer-custom__col--logo">
+          {% if section.settings.logo != blank %}
+            <img
+              src="{{ section.settings.logo | image_url: width: 330 }}"
+              alt="{{ section.settings.brand_name | escape }}"
+              class="footer-custom__logo-img"
+              loading="lazy"
+              width="330"
+              height="{{ section.settings.logo.height | default: 90 }}"
+            >
+          {% else %}
+            <div class="footer-custom__logo-text footer-custom__logo-text--main">WHOLE</div>
+            <div class="footer-custom__logo-text footer-custom__logo-text--sub">FREQUENCY</div>
+          {% endif %}
+        </div>
+        <div class="footer-custom__mobile-cols">
+          <div class="footer-custom__mobile-col">
+            <div class="footer-custom__menu">
+              <div class="footer-custom__menu-title">ABOUT WHOLE</div>
+              {% if section.settings.menu_about != blank %}
+                <ul class="footer-custom__menu-list">
+                  {% for link in linklists[section.settings.menu_about].links %}
+                    <li class="footer-custom__menu-item">
+                      <a href="{{ link.url }}" class="footer-custom__menu-link">{{ link.title }}</a>
+                    </li>
+                  {% endfor %}
+                </ul>
+              {% endif %}
+            </div>
+          </div>
+          <div class="footer-custom__mobile-col">
+            <div class="footer-custom__menu">
+              <div class="footer-custom__menu-title">LEGAL INFORMATION</div>
+              {% if section.settings.menu_legal != blank %}
+                <ul class="footer-custom__menu-list">
+                  {% for link in linklists[section.settings.menu_legal].links %}
+                    <li class="footer-custom__menu-item">
+                      <a href="{{ link.url }}" class="footer-custom__menu-link">{{ link.title }}</a>
+                    </li>
+                  {% endfor %}
+                </ul>
+              {% endif %}
+            </div>
+          </div>
+        </div>
+        <div class="footer-custom__col footer-custom__col--about">
+          <div class="footer-custom__menu">
+            <div class="footer-custom__menu-title">ABOUT WHOLE</div>
+            {% if section.settings.menu_about != blank %}
+              <ul class="footer-custom__menu-list">
+                {% for link in linklists[section.settings.menu_about].links %}
+                  <li class="footer-custom__menu-item">
+                    <a href="{{ link.url }}" class="footer-custom__menu-link">{{ link.title }}</a>
+                  </li>
+                {% endfor %}
+              </ul>
+            {% endif %}
+          </div>
+        </div>
+        <div class="footer-custom__col footer-custom__col--legal">
+          <div class="footer-custom__menu">
+            <div class="footer-custom__menu-title">LEGAL INFORMATION</div>
+            {% if section.settings.menu_legal != blank %}
+              <ul class="footer-custom__menu-list">
+                {% for link in linklists[section.settings.menu_legal].links %}
+                  <li class="footer-custom__menu-item">
+                    <a href="{{ link.url }}" class="footer-custom__menu-link">{{ link.title }}</a>
+                  </li>
+                {% endfor %}
+              </ul>
+            {% endif %}
+          </div>
+        </div>
+        <div class="footer-custom__col footer-custom__col--company">
+          <div class="footer-custom__company-title">COMPANY INFORMATION</div>
+          <div class="footer-custom__company">
+            <span class="footer-custom__email-icon"><i class="fa-solid fa-envelope"></i></span>
+            <span>{{ section.settings.support_email }}</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <hr class="footer-custom__divider">
+  <div class="page-width">
+    <div class="footer-custom__copyright">&copy; 2025, {{ section.settings.brand_name }}. All rights reserved.</div>
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "Footer Custom",
+  "settings": [
+    {
+      "type": "color_scheme",
+      "id": "color_scheme",
+      "label": "Color scheme",
+      "default": "scheme-1"
+    },
+    {
+      "type": "image_picker",
+      "id": "logo",
+      "label": "Footer logo"
+    },
+    {
+      "type": "link_list",
+      "id": "menu_about",
+      "label": "About Whole menu"
+    },
+    {
+      "type": "link_list",
+      "id": "menu_legal",
+      "label": "Legal Information menu"
+    },
+    {
+      "type": "text",
+      "id": "support_email",
+      "label": "Support email address",
+      "default": "support@yourbrandname.com"
+    },
+    {
+      "type": "text",
+      "id": "brand_name",
+      "label": "Brand name",
+      "default": "Whole Frequency"
+    },
+    {
+      "type": "header",
+      "content": "Section Padding (Mobile)"
+    },
+    {
+      "type": "range",
+      "id": "padding_top_mobile",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "Top padding (mobile)",
+      "default": 24
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom_mobile",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "Bottom padding (mobile)",
+      "default": 24
+    },
+    {
+      "type": "range",
+      "id": "padding_left_mobile",
+      "min": 0,
+      "max": 60,
+      "step": 4,
+      "unit": "px",
+      "label": "Left padding (mobile)",
+      "default": 16
+    },
+    {
+      "type": "range",
+      "id": "padding_right_mobile",
+      "min": 0,
+      "max": 60,
+      "step": 4,
+      "unit": "px",
+      "label": "Right padding (mobile)",
+      "default": 16
+    },
+    {
+      "type": "header",
+      "content": "Section Padding (Desktop)"
+    },
+    {
+      "type": "range",
+      "id": "padding_top_desktop",
+      "min": 0,
+      "max": 160,
+      "step": 8,
+      "unit": "px",
+      "label": "Top padding (desktop)",
+      "default": 48
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom_desktop",
+      "min": 0,
+      "max": 160,
+      "step": 8,
+      "unit": "px",
+      "label": "Bottom padding (desktop)",
+      "default": 48
+    },
+    {
+      "type": "range",
+      "id": "padding_left_desktop",
+      "min": 0,
+      "max": 120,
+      "step": 8,
+      "unit": "px",
+      "label": "Left padding (desktop)",
+      "default": 32
+    },
+    {
+      "type": "range",
+      "id": "padding_right_desktop",
+      "min": 0,
+      "max": 120,
+      "step": 8,
+      "unit": "px",
+      "label": "Right padding (desktop)",
+      "default": 32
+    }
+  ],
+  "presets": [
+    {
+      "name": "Footer Custom"
+    }
+  ]
+}
+{% endschema %}
