@@ -1,0 +1,380 @@
+{% style %}
+  .faq-section {
+    background-color: {{ section.settings.background_color }};
+    padding-top: {{ section.settings.padding_top_mobile }}px;
+    padding-bottom: {{ section.settings.padding_bottom_mobile }}px;
+    padding-left: {{ section.settings.padding_left_mobile }}px;
+    padding-right: {{ section.settings.padding_right_mobile }}px;
+  }
+  .faq-section__container {
+    max-width: {{ section.settings.max_width }}px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .faq-section__title {
+    font-size: 2rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    color: {{ section.settings.title_color }};
+    letter-spacing: 0.05em;
+    text-align: left;
+    margin-bottom: 2rem;
+  }
+  .faq-section__list {
+    width: 100%;
+  }
+  .faq-section__item {
+    border-bottom: 1px solid #e0e0e0;
+    padding-top: 1.5rem;
+    padding-bottom: 1.5rem;
+  }
+  .faq-section__question {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    font-size: 1.25rem;
+    font-weight: normal;
+    color: {{ section.settings.question_color }};
+    cursor: pointer;
+    outline: none;
+    background: none;
+    border: none;
+    width: 100%;
+    text-align: left;
+    padding: 0;
+  }
+  .faq-section__icon {
+    font-size: 2rem;
+    color: #888;
+    margin-left: 1rem;
+    flex-shrink: 0;
+    line-height: 1;
+    transition: color 0.2s;
+  }
+  .faq-section__answer {
+    font-size: 1rem;
+    color: {{ section.settings.answer_color }};
+    margin-top: 1rem;
+    line-height: 1.6;
+    max-height: 0;
+    opacity: 0;
+    overflow: hidden;
+    transition: max-height 0.4s cubic-bezier(0.4,0,0.2,1), opacity 0.3s cubic-bezier(0.4,0,0.2,1);
+    will-change: max-height, opacity;
+    display: block;
+  }
+  .faq-section__item--active .faq-section__answer {
+    opacity: 1;
+    max-height: 500px;
+    transition: max-height 0.5s cubic-bezier(0.4,0,0.2,1), opacity 0.3s cubic-bezier(0.4,0,0.2,1);
+  }
+  .faq-section__item--active .faq-section__icon {
+    color: #444;
+  }
+  @media (min-width: 768px) {
+    .faq-section {
+      padding-top: {{ section.settings.padding_top_desktop }}px;
+      padding-bottom: {{ section.settings.padding_bottom_desktop }}px;
+      padding-left: {{ section.settings.padding_left_desktop }}px;
+      padding-right: {{ section.settings.padding_right_desktop }}px;
+    }
+    .faq-section__title {
+      font-size: 2.5rem;
+    }
+    .faq-section__container {
+      max-width: {{ section.settings.max_width }}px;
+    }
+    .faq-section__question {
+      font-size: 1.875rem;
+    }
+    .faq-section__answer {
+      font-size: 1.5rem;
+    }
+  }
+  @media (min-width: 1024px) {
+    .faq-section__title {
+      font-size: 3rem;
+    }
+  }
+  @media (min-width: 1440px) {
+    .faq-section__title {
+      font-size: 3.5rem;
+    }
+  }
+{% endstyle %}
+
+<div class="faq-section">
+  <div class="page-width">
+    <div class="faq-section__container">
+      <h2 class="faq-section__title">{{ section.settings.title }}</h2>
+      <div class="faq-section__list" role="list" id="faq-accordion-{{ section.id }}">
+        {% for block in section.blocks %}
+          <div
+            class="faq-section__item{% if section.settings.open_first_faq and forloop.first %} faq-section__item--active{% endif %}"
+            id="faq-item-{{ block.id }}"
+            role="listitem"
+          >
+            <button
+              type="button"
+              class="faq-section__question"
+              aria-expanded="{% if section.settings.open_first_faq and forloop.first %}true{% else %}false{% endif %}"
+              aria-controls="faq-answer-{{ block.id }}"
+              id="faq-question-{{ block.id }}"
+              data-faq-toggle
+            >
+              <span>{{ block.settings.question }}</span>
+              <span class="faq-section__icon" aria-hidden="true" data-faq-icon>
+                {%- if section.settings.open_first_faq and forloop.first %}×{% else %}+{% endif -%}
+              </span>
+            </button>
+            <div
+              class="faq-section__answer"
+              id="faq-answer-{{ block.id }}"
+              role="region"
+              aria-labelledby="faq-question-{{ block.id }}"
+            >
+              {{ block.settings.answer }}
+            </div>
+          </div>
+        {% endfor %}
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+  (function () {
+    var faqList = document.getElementById('faq-accordion-{{ section.id }}');
+    if (!faqList) return;
+    var items = faqList.querySelectorAll('.faq-section__item');
+    var questions = faqList.querySelectorAll('[data-faq-toggle]');
+    questions.forEach(function (btn, idx) {
+      btn.addEventListener('click', function () {
+        var expanded = btn.getAttribute('aria-expanded') === 'true';
+        questions.forEach(function (otherBtn, otherIdx) {
+          otherBtn.setAttribute('aria-expanded', 'false');
+          items[otherIdx].classList.remove('faq-section__item--active');
+          var icon = otherBtn.querySelector('[data-faq-icon]');
+          if (icon) icon.textContent = '+';
+        });
+        if (!expanded) {
+          btn.setAttribute('aria-expanded', 'true');
+          items[idx].classList.add('faq-section__item--active');
+          var icon = btn.querySelector('[data-faq-icon]');
+          if (icon) icon.textContent = '×';
+        }
+      });
+      btn.addEventListener('keydown', function (e) {
+        if (e.key === 'Enter' || e.key === ' ') {
+          e.preventDefault();
+          btn.click();
+        }
+        if (e.key === 'ArrowDown') {
+          e.preventDefault();
+          var next = questions[idx + 1];
+          if (next) next.focus();
+        }
+        if (e.key === 'ArrowUp') {
+          e.preventDefault();
+          var prev = questions[idx - 1];
+          if (prev) prev.focus();
+        }
+      });
+    });
+    if ({{ section.settings.open_first_faq | json }}) {
+      if (items.length > 0) {
+        questions[0].setAttribute('aria-expanded', 'true');
+        items[0].classList.add('faq-section__item--active');
+        var icon = questions[0].querySelector('[data-faq-icon]');
+        if (icon) icon.textContent = '×';
+      }
+    }
+  })();
+</script>
+
+{% schema %}
+{
+  "name": "FAQ",
+  "tag": "section",
+  "class": "section",
+  "settings": [
+    { "type": "header", "content": "Text Content" },
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Section title",
+      "default": "FREQUENTLY ASKED QUESTIONS"
+    },
+    { "type": "header", "content": "Layout" },
+    {
+      "type": "range",
+      "id": "max_width",
+      "min": 400,
+      "max": 1200,
+      "step": 20,
+      "unit": "px",
+      "label": "Max width",
+      "default": 800
+    },
+    {
+      "type": "checkbox",
+      "id": "open_first_faq",
+      "label": "Open first FAQ item by default",
+      "default": false
+    },
+    { "type": "header", "content": "Color Settings" },
+    {
+      "type": "color",
+      "id": "background_color",
+      "label": "Background color",
+      "default": "#ffffff"
+    },
+    {
+      "type": "color",
+      "id": "title_color",
+      "label": "Title color",
+      "default": "#111111"
+    },
+    {
+      "type": "color",
+      "id": "question_color",
+      "label": "Question text color",
+      "default": "#111111"
+    },
+    {
+      "type": "color",
+      "id": "answer_color",
+      "label": "Answer text color",
+      "default": "#666666"
+    },
+    { "type": "header", "content": "Section Padding (Mobile)" },
+    {
+      "type": "range",
+      "id": "padding_top_mobile",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "Top padding (mobile)",
+      "default": 36
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom_mobile",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "Bottom padding (mobile)",
+      "default": 36
+    },
+    {
+      "type": "range",
+      "id": "padding_left_mobile",
+      "min": 0,
+      "max": 48,
+      "step": 4,
+      "unit": "px",
+      "label": "Left padding (mobile)",
+      "default": 16
+    },
+    {
+      "type": "range",
+      "id": "padding_right_mobile",
+      "min": 0,
+      "max": 48,
+      "step": 4,
+      "unit": "px",
+      "label": "Right padding (mobile)",
+      "default": 16
+    },
+    { "type": "header", "content": "Section Padding (Desktop)" },
+    {
+      "type": "range",
+      "id": "padding_top_desktop",
+      "min": 0,
+      "max": 160,
+      "step": 8,
+      "unit": "px",
+      "label": "Top padding (desktop)",
+      "default": 64
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom_desktop",
+      "min": 0,
+      "max": 160,
+      "step": 8,
+      "unit": "px",
+      "label": "Bottom padding (desktop)",
+      "default": 64
+    },
+    {
+      "type": "range",
+      "id": "padding_left_desktop",
+      "min": 0,
+      "max": 160,
+      "step": 8,
+      "unit": "px",
+      "label": "Left padding (desktop)",
+      "default": 0
+    },
+    {
+      "type": "range",
+      "id": "padding_right_desktop",
+      "min": 0,
+      "max": 160,
+      "step": 8,
+      "unit": "px",
+      "label": "Right padding (desktop)",
+      "default": 0
+    }
+  ],
+  "blocks": [
+    {
+      "type": "faq",
+      "name": "FAQ Item",
+      "settings": [
+        {
+          "type": "text",
+          "id": "question",
+          "label": "Question"
+        },
+        {
+          "type": "richtext",
+          "id": "answer",
+          "label": "Answer"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "FAQ",
+      "blocks": [
+        {
+          "type": "faq",
+          "settings": {
+            "question": "How do customers activate their Memorial Page?",
+            "answer": "<p>Each QR code comes pre-registered – they simply scan and set up their...</p>"
+          }
+        },
+        {
+          "type": "faq",
+          "settings": {
+            "question": "Can we use our own domain name?",
+            "answer": "<p>Yes, you can use your own domain name by...</p>"
+          }
+        },
+        {
+          "type": "faq",
+          "settings": {
+            "question": "Do we need to manage customer support?",
+            "answer": "<p>No, our team handles all customer support inquiries...</p>"
+          }
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}
