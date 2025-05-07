@@ -57,8 +57,91 @@
         "padding_bottom": 12
       }
     },
+    "faq_FdBj69": {
+      "type": "faq",
+      "blocks": {
+        "collapsible_row_Cgb8hU": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "1. How Often Should I Use The Mask?",
+            "icon": "none",
+            "row_content": "<p>We recommend using the mask 1–2 times per week for best results. This ensures your skin stays hydrated, firm, and glowing without overuse.</p>",
+            "page": ""
+          }
+        },
+        "collapsible_row_zakfdX": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "1. Is This Mask Suitable For Sensitive Skin?",
+            "icon": "none",
+            "row_content": "<p>Discover the Perfect Mask for Sensitive Skin!</p>",
+            "page": ""
+          }
+        },
+        "collapsible_row_MpegfT": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "3. How Long Should I Leave The Mask On?",
+            "icon": "none",
+            "row_content": "<p>Transform your skincare routine by finding out how long to leave your mask on.</p>",
+            "page": ""
+          }
+        },
+        "collapsible_row_zzbE7Q": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "4. What Are The Key Ingredients?",
+            "icon": "none",
+            "row_content": "<p>Experience A Symphony of Tastes Infused With Vital Key Elements.</p>",
+            "page": ""
+          }
+        },
+        "collapsible_row_Uxm7Km": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "5. Will This Mask Help Reduce Wrinkles?",
+            "icon": "none",
+            "row_content": "<p>Say Goodbye to Wrinkles - Try Our Transformative Mask Today!</p>",
+            "page": ""
+          }
+        },
+        "collapsible_row_G6dVpQ": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "6. Is It Safe To Use Under An LED Mask?",
+            "icon": "none",
+            "row_content": "<p>Elevate your skincare routine with LED-friendly products!</p>",
+            "page": ""
+          }
+        }
+      },
+      "block_order": [
+        "collapsible_row_Cgb8hU",
+        "collapsible_row_zakfdX",
+        "collapsible_row_MpegfT",
+        "collapsible_row_zzbE7Q",
+        "collapsible_row_Uxm7Km",
+        "collapsible_row_G6dVpQ"
+      ],
+      "name": "FAQ",
+      "settings": {
+        "caption": "",
+        "heading": "",
+        "heading_size": "h2",
+        "heading_alignment": "center",
+        "layout": "row",
+        "container_color_scheme": "scheme-f6140e01-26ff-4b71-9176-5f33f84a4f5f",
+        "color_scheme": "scheme-1",
+        "open_first_collapsible_row": true,
+        "image_ratio": "adapt",
+        "desktop_layout": "image_second",
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
+    }
   },
   "order": [
     "main",
+    "faq_FdBj69"
   ]
 }
