@@ -252,26 +252,156 @@
       display: none;
     }
   }
+
+  .footer-custom__newsletter-wrapper {
+    width: 100%;
+    margin-bottom: 1.5rem;
+  }
+  .footer-custom__newsletter .field {
+    width: 100%;
+  }
+  .footer-custom__newsletter input[type="email"] {
+    border-radius: 4px 0 0 4px;
+    border: none;
+    padding: 0.8rem 1rem;
+    font-size: 1rem;
+    width: 100%;
+  }
+  .footer-custom__newsletter button {
+    border-radius: 0 4px 4px 0;
+    border: none;
+    background: #000;
+    color: #fff;
+    font-weight: 700;
+    padding: 0 1.5rem;
+    font-size: 1rem;
+    height: 100%;
+    cursor: pointer;
+  }
+  .footer-custom__socials-wrapper {
+    width: 100%;
+    margin: 1.2rem 0 2rem 0;
+    display: flex;
+    justify-content: center;
+  }
+  @media (min-width: 1024px) {
+    .footer-custom__socials-wrapper {
+      justify-content: flex-start;
+    }
+  }
+  .footer-custom__list-social {
+    display: flex;
+    gap: 1.2rem;
+  }
+  .footer-custom__list-social a.list-social__link {
+    color: white;
+  }
+  .footer-custom__payments-wrapper {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    margin-bottom: 2rem;
+  }
+  .footer-custom__payment {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  .list-payment {
+    display: flex;
+    gap: 0.5rem;
+    flex-wrap: nowrap;
+    justify-content: center;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+  }
 {% endstyle %}
 
 <div class="footer-custom color-{{ section.settings.color_scheme }} gradient">
   <div class="page-width">
     <div class="footer-custom__inner">
       <div class="footer-custom__main">
-        <div class="footer-custom__col footer-custom__col--logo">
-          {% if section.settings.logo != blank %}
-            <img
-              src="{{ section.settings.logo | image_url: width: 330 }}"
-              alt="{{ section.settings.brand_name | escape }}"
-              class="footer-custom__logo-img"
-              loading="lazy"
-              width="330"
-              height="{{ section.settings.logo.height | default: 90 }}"
-            >
-          {% else %}
-            <div class="footer-custom__logo-text footer-custom__logo-text--main">WHOLE</div>
-            <div class="footer-custom__logo-text footer-custom__logo-text--sub">FREQUENCY</div>
-          {% endif %}
+        <div class="footer-custom__col footer-custom__col--logo-block">
+          <div class="footer-custom__col--logo">
+            {% if section.settings.logo != blank %}
+              <img
+                src="{{ section.settings.logo | image_url: width: 330 }}"
+                alt="{{ section.settings.brand_name | escape }}"
+                class="footer-custom__logo-img"
+                loading="lazy"
+                width="330"
+                height="{{ section.settings.logo.height | default: 90 }}"
+              >
+            {% else %}
+              <div class="footer-custom__logo-text footer-custom__logo-text--main">WHOLE</div>
+              <div class="footer-custom__logo-text footer-custom__logo-text--sub">FREQUENCY</div>
+            {% endif %}
+          </div>
+          <div class="footer-custom__newsletter-wrapper">
+            {%- form 'customer', id: 'ContactFooterCustom', class: 'footer-custom__newsletter newsletter-form' -%}
+              <input type="hidden" name="contact[tags]" value="newsletter">
+              <div class="newsletter-form__field-wrapper" style="width:100%">
+                <div class="field" style="display:flex;width:100%">
+                  <input
+                    id="NewsletterFormCustom--{{ section.id }}"
+                    type="email"
+                    name="contact[email]"
+                    class="field__input"
+                    value="{{ form.email }}"
+                    aria-required="true"
+                    autocorrect="off"
+                    autocapitalize="off"
+                    autocomplete="email"
+                    {% if form.errors %}
+                      autofocus aria-invalid="true" aria-describedby="ContactFooterCustom-error"
+                    {% elsif form.posted_successfully? %}
+                      aria-describedby="ContactFooterCustom-success"
+                    {% endif %}
+                    placeholder="{{ 'newsletter.label' | t }}"
+                    required
+                    style="flex:1 1 0;min-width:0;"
+                  >
+                  <button
+                    type="submit"
+                    class="newsletter-form__button field__button"
+                    name="commit"
+                    id="SubscribeCustom"
+                    aria-label="{{ 'newsletter.button_label' | t }}"
+                    style="min-width:120px;max-width:180px;"
+                  >
+                    <span class="svg-wrapper">
+                      {{- 'icon-arrow.svg' | inline_asset_content -}}
+                    </span>
+                  </button>
+                </div>
+                {%- if form.errors -%}
+                  <small class="newsletter-form__message form__message" id="ContactFooterCustom-error">
+                    <span class="svg-wrapper">
+                      {{- 'icon-error.svg' | inline_asset_content -}}
+                    </span>
+                    {{- form.errors.translated_fields.email | capitalize }}
+                    {{ form.errors.messages.email -}}
+                  </small>
+                {%- endif -%}
+              </div>
+              {%- if form.posted_successfully? -%}
+                <h3
+                  class="newsletter-form__message newsletter-form__message--success form__message"
+                  id="ContactFooterCustom-success"
+                  tabindex="-1"
+                  autofocus
+                >
+                  <span class="svg-wrapper">
+                    {{- 'icon-success.svg' | inline_asset_content -}}
+                  </span>
+                  {{- 'newsletter.success' | t }}
+                </h3>
+              {%- endif -%}
+            {%- endform -%}
+          </div>
+          <div class="footer-custom__socials-wrapper">
+            {%- render 'social-icons', class: 'footer-custom__list-social' -%}
+          </div>
         </div>
         <div class="footer-custom__mobile-cols">
           <div class="footer-custom__mobile-col">
@@ -337,6 +467,20 @@
             <span class="footer-custom__email-icon"><i class="fa-solid fa-envelope"></i></span>
             <span>{{ section.settings.support_email }}</span>
           </div>
+        </div>
+      </div>
+
+      {%- comment -%} Payment methods centered below main section {%- endcomment -%}
+      <div class="footer-custom__payments-wrapper">
+        <div class="footer-custom__payment">
+          <span class="visually-hidden">{{ 'sections.footer.payment' | t }}</span>
+          <ul class="list list-payment" role="list">
+            {%- for type in shop.enabled_payment_types -%}
+              <li class="list-payment__item">
+                {{ type | payment_type_svg_tag: class: 'icon icon--full-color' }}
+              </li>
+            {%- endfor -%}
+          </ul>
         </div>
       </div>
     </div>
