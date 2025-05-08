@@ -1,0 +1,271 @@
+{% style %}
+  .ingredients-visible-results-{{ section.id }} {
+    padding-top: {{ section.settings.padding_top_mobile }}px;
+    padding-bottom: {{ section.settings.padding_bottom_mobile }}px;
+    padding-left: {{ section.settings.padding_left_mobile }}px;
+    padding-right: {{ section.settings.padding_right_mobile }}px;
+  }
+  @media (min-width: 768px) {
+    .ingredients-visible-results-{{ section.id }} {
+      padding-top: {{ section.settings.padding_top_desktop }}px;
+      padding-bottom: {{ section.settings.padding_bottom_desktop }}px;
+      padding-left: {{ section.settings.padding_left_desktop }}px;
+      padding-right: {{ section.settings.padding_right_desktop }}px;
+    }
+  }
+  .ingredients-visible-results-{{ section.id }}__cards {
+    display: flex;
+    flex-direction: row;
+    gap: 2rem;
+    overflow-x: auto;
+    justify-content: center;
+  }
+  .ingredients-visible-results-{{ section.id }}__card {
+    background: var(--block-bg, #fff);
+    color: var(--block-text, #222);
+    border-radius: 1.2rem;
+    box-shadow: 0 0.2rem 1.2rem rgba(0,0,0,0.06);
+    padding: 2rem 1.5rem;
+    min-width: 28rem;
+    max-width: 36rem;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border: 0.2rem solid var(--block-border, #e5b6e6);
+    transition: box-shadow 0.2s;
+  }
+  .ingredients-visible-results-{{ section.id }}__card-image {
+    width: 100%;
+    max-width: 18rem;
+    border-radius: 1rem;
+    border: 0.3rem solid var(--block-border, #e5b6e6);
+    margin-bottom: 1.5rem;
+    background: #fff;
+  }
+  .ingredients-visible-results-{{ section.id }}__card-title {
+    font-size: 1.6rem;
+    font-weight: 700;
+    margin-bottom: 1rem;
+    text-align: center;
+  }
+  .ingredients-visible-results-{{ section.id }}__card-desc {
+    font-size: 1.2rem;
+    text-align: center;
+  }
+  @media (min-width: 768px) {
+    .ingredients-visible-results-{{ section.id }}__cards {
+      flex-wrap: nowrap;
+      justify-content: center;
+    }
+    .ingredients-visible-results-{{ section.id }}__card {
+      min-width: 28rem;
+      max-width: 32rem;
+    }
+  }
+  @media (min-width: 1024px) {
+    .ingredients-visible-results-{{ section.id }}__card {
+      min-width: 30rem;
+      max-width: 34rem;
+    }
+  }
+  @media (min-width: 1440px) {
+    .ingredients-visible-results-{{ section.id }}__card {
+      min-width: 32rem;
+      max-width: 36rem;
+    }
+  }
+{% endstyle %}
+<div class="ingredients-visible-results-{{ section.id }} color-{{ section.settings.color_scheme }}">
+  <div class="page-width">
+    <div class="ingredients-visible-results-{{ section.id }}__cards">
+      {% assign visible_blocks = section.blocks | slice: 0, 3 %}
+      {% for block in section.blocks %}
+        {% assign show_block = false %}
+        {% if forloop.index0 < 1 %}
+          {% assign show_block = true %}
+        {% endif %}
+        {% if forloop.index0 < 3 and request.width >= 768 %}
+          {% assign show_block = true %}
+        {% endif %}
+        {% if show_block %}
+          <div
+            class="ingredients-visible-results-{{ section.id }}__card"
+            style="--block-bg: {{ block.settings.card_bg }}; --block-border: {{ block.settings.border_color }}; --block-text: {{ block.settings.text_color }};"
+          >
+            {% if block.settings.image != blank %}
+              <img
+                src="{{ block.settings.image | image_url: width: 600 }}"
+                alt="{{ block.settings.title | escape }}"
+                class="ingredients-visible-results-{{ section.id }}__card-image"
+                loading="lazy"
+                width="300"
+                height="300"
+              >
+            {% endif %}
+            {% if block.settings.title != blank %}
+              <div class="ingredients-visible-results-{{ section.id }}__card-title rte">{{ block.settings.title }}</div>
+            {% endif %}
+            {% if block.settings.description != blank %}
+              <div class="ingredients-visible-results-{{ section.id }}__card-desc rte">
+                {{ block.settings.description }}
+              </div>
+            {% endif %}
+          </div>
+        {% endif %}
+      {% endfor %}
+    </div>
+  </div>
+</div>
+{% schema %}
+{
+  "name": "Visible Results",
+  "tag": "section",
+  "class": "section",
+  "settings": [
+    {
+      "type": "color_scheme",
+      "id": "color_scheme",
+      "label": "Color scheme",
+      "default": "scheme-1"
+    },
+    {
+      "type": "header",
+      "content": "Section Padding (Mobile)"
+    },
+    {
+      "type": "range",
+      "id": "padding_top_mobile",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "Top padding (mobile)",
+      "default": 24
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom_mobile",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "Bottom padding (mobile)",
+      "default": 24
+    },
+    {
+      "type": "range",
+      "id": "padding_left_mobile",
+      "min": 0,
+      "max": 40,
+      "step": 4,
+      "unit": "px",
+      "label": "Left padding (mobile)",
+      "default": 0
+    },
+    {
+      "type": "range",
+      "id": "padding_right_mobile",
+      "min": 0,
+      "max": 40,
+      "step": 4,
+      "unit": "px",
+      "label": "Right padding (mobile)",
+      "default": 0
+    },
+    {
+      "type": "header",
+      "content": "Section Padding (Desktop)"
+    },
+    {
+      "type": "range",
+      "id": "padding_top_desktop",
+      "min": 0,
+      "max": 160,
+      "step": 4,
+      "unit": "px",
+      "label": "Top padding (desktop)",
+      "default": 48
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom_desktop",
+      "min": 0,
+      "max": 160,
+      "step": 4,
+      "unit": "px",
+      "label": "Bottom padding (desktop)",
+      "default": 48
+    },
+    {
+      "type": "range",
+      "id": "padding_left_desktop",
+      "min": 0,
+      "max": 120,
+      "step": 4,
+      "unit": "px",
+      "label": "Left padding (desktop)",
+      "default": 0
+    },
+    {
+      "type": "range",
+      "id": "padding_right_desktop",
+      "min": 0,
+      "max": 120,
+      "step": 4,
+      "unit": "px",
+      "label": "Right padding (desktop)",
+      "default": 0
+    }
+  ],
+  "blocks": [
+    {
+      "type": "result",
+      "name": "Result Card",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Result image"
+        },
+        {
+          "type": "color",
+          "id": "border_color",
+          "label": "Image border color",
+          "default": "#e5b6e6"
+        },
+        {
+          "type": "color",
+          "id": "card_bg",
+          "label": "Card background color",
+          "default": "#fff6fa"
+        },
+        {
+          "type": "color",
+          "id": "text_color",
+          "label": "Result text color",
+          "default": "#222"
+        },
+        {
+          "type": "inline_richtext",
+          "id": "title",
+          "label": "Result title",
+          "default": "Result Title"
+        },
+        {
+          "type": "richtext",
+          "id": "description",
+          "label": "Result description",
+          "default": "<p>Result description goes here.</p>"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Ingredients Visible Results",
+      "blocks": [{ "type": "result" }, { "type": "result" }, { "type": "result" }]
+    }
+  ]
+}
+{% endschema %}
