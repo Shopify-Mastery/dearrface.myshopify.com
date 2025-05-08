@@ -63,7 +63,7 @@
         "heading_qzmNrP": {
           "type": "heading",
           "settings": {
-            "heading": "Frequently Asked|Question",
+            "heading": "Why Our Mask|Does It All",
             "heading_2nd_part_color": "{{ shop.brand.colors.primary[0].background }}",
             "heading_size": "h1",
             "heading_alignment": "center",
@@ -75,6 +75,124 @@
       },
       "block_order": [
         "heading_qzmNrP"
+      ],
+      "name": "Generic Text Content",
+      "settings": {
+        "color_scheme": "scheme-23a29e7f-f949-4e5f-9ecb-31639c0c2c42",
+        "padding_top_mobile": 24,
+        "padding_bottom_mobile": 24,
+        "padding_left_mobile": 0,
+        "padding_right_mobile": 0,
+        "padding_top_desktop": 48,
+        "padding_bottom_desktop": 48,
+        "padding_left_desktop": 0,
+        "padding_right_desktop": 0
+      }
+    },
+    "why_our_product_3QeDQx": {
+      "type": "why-our-product",
+      "blocks": {
+        "feature_qFeAXq": {
+          "type": "feature",
+          "settings": {
+            "feature": "<p>Deep hydration, visible glow, smooth and firm skin</p>",
+            "us_checked": true,
+            "others_checked": false,
+            "us_cell_gradient_start": "#ff66c4d4",
+            "us_cell_gradient_end": "#ff66c4b8"
+          }
+        },
+        "feature_VzmG9V": {
+          "type": "feature",
+          "settings": {
+            "feature": "<p>Fragrance-free, gentle formula, safe for all skin</p>",
+            "us_checked": true,
+            "others_checked": false,
+            "us_cell_gradient_start": "#ff66c4b8",
+            "us_cell_gradient_end": "#ff66c4a2"
+          }
+        },
+        "feature_ptR3Kp": {
+          "type": "feature",
+          "settings": {
+            "feature": "<p>Long wear mask absorbs 95% of ingredients</p>",
+            "us_checked": true,
+            "others_checked": false,
+            "us_cell_gradient_start": "#ff66c4a2",
+            "us_cell_gradient_end": "#ff66c4a4"
+          }
+        },
+        "feature_JxGbai": {
+          "type": "feature",
+          "settings": {
+            "feature": "<p>Includes collagen, aloe vera, and niacinamide blend</p>",
+            "us_checked": true,
+            "others_checked": false,
+            "us_cell_gradient_start": "#ff66c4a2",
+            "us_cell_gradient_end": "#ff66c487"
+          }
+        },
+        "feature_xCjbzt": {
+          "type": "feature",
+          "settings": {
+            "feature": "<p>Compatible with LED masks for enhanced effect</p>",
+            "us_checked": true,
+            "others_checked": false,
+            "us_cell_gradient_start": "#ff66c485",
+            "us_cell_gradient_end": "#ff66c447"
+          }
+        }
+      },
+      "block_order": [
+        "feature_qFeAXq",
+        "feature_VzmG9V",
+        "feature_ptR3Kp",
+        "feature_JxGbai",
+        "feature_xCjbzt"
+      ],
+      "name": "Why Our Product Table",
+      "settings": {
+        "us_col_th_color": "{{ shop.brand.colors.secondary[1].background }}",
+        "others_col_th_color": "{{ shop.brand.colors.secondary[0].background }}",
+        "us_col_gradient_start": "{{ shop.brand.colors.primary[0].background }}",
+        "us_col_gradient_end": "#ff66c4d4",
+        "us_label": "US",
+        "others_label": "Them",
+        "table_bg": "#ffffff",
+        "row_border_color": "{{ shop.brand.colors.primary[0].foreground }}",
+        "check_color": "{{ shop.brand.colors.primary[0].background }}",
+        "cross_color": "{{ shop.brand.colors.secondary[0].background }}",
+        "icon_bg": "{{ shop.brand.colors.secondary[1].background }}",
+        "rounded_corners": true,
+        "background_color": "#ffffff",
+        "padding_top_mobile": 0,
+        "padding_bottom_mobile": 32,
+        "padding_left_mobile": 0,
+        "padding_right_mobile": 0,
+        "padding_top_desktop": 0,
+        "padding_bottom_desktop": 56,
+        "padding_left_desktop": 0,
+        "padding_right_desktop": 0
+      }
+    },
+    "generic_text_content_zyf8L3": {
+      "type": "generic-text-content",
+      "blocks": {
+        "heading_aAK7Jm": {
+          "type": "heading",
+          "settings": {
+            "heading": "Frequently Asked|Question",
+            "heading_2nd_part_color": "{{ shop.brand.colors.primary[0].background }}",
+            "heading_size": "h1",
+            "heading_alignment": "center",
+            "heading_max_width": 1200,
+            "show_on_mobile": true,
+            "show_on_desktop": true
+          }
+        }
+      },
+      "block_order": [
+        "heading_aAK7Jm"
       ],
       "disabled": true,
       "name": "Generic Text Content",
@@ -177,6 +295,8 @@
   "order": [
     "main",
     "generic_content_yGKNnH",
+    "why_our_product_3QeDQx",
+    "generic_text_content_zyf8L3",
     "faq_FdBj69"
   ]
 }
