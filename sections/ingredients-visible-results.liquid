@@ -17,31 +17,48 @@
     display: flex;
     flex-direction: row;
     gap: 2rem;
-    overflow-x: auto;
-    justify-content: center;
+    justify-content: space-between;
   }
   .ingredients-visible-results-{{ section.id }}__card {
+    position: relative;
+    width: 32rem;
+    min-width: 28rem;
+    max-width: 36rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background: none;
+    box-shadow: none;
+    border: none;
+  }
+  .ingredients-visible-results-{{ section.id }}__image-bg {
+    width: 100%;
+    height: 28rem;
+    border-radius: 1.2rem;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    border: 0.2rem solid var(--block-border, #e5b6e6);
+    position: relative;
+    z-index: 1;
+    overflow: visible;
+  }
+  .ingredients-visible-results-{{ section.id }}__content {
+    position: absolute;
+    left: 50%;
+    bottom: -20%;
+    transform: translateX(-50%);
+    width: 90%;
     background: var(--block-bg, #fff);
     color: var(--block-text, #222);
     border-radius: 1.2rem;
     box-shadow: 0 0.2rem 1.2rem rgba(0,0,0,0.06);
     padding: 2rem 1.5rem;
-    min-width: 28rem;
-    max-width: 36rem;
-    margin: 0 auto;
     display: flex;
     flex-direction: column;
     align-items: center;
-    border: 0.2rem solid var(--block-border, #e5b6e6);
-    transition: box-shadow 0.2s;
-  }
-  .ingredients-visible-results-{{ section.id }}__card-image {
-    width: 100%;
-    max-width: 18rem;
-    border-radius: 1rem;
-    border: 0.3rem solid var(--block-border, #e5b6e6);
-    margin-bottom: 1.5rem;
-    background: #fff;
+    border: none;
+    z-index: 2;
   }
   .ingredients-visible-results-{{ section.id }}__card-title {
     font-size: 1.6rem;
@@ -62,11 +79,17 @@
       min-width: 28rem;
       max-width: 32rem;
     }
+    .ingredients-visible-results-{{ section.id }}__image-bg {
+      height: 26rem;
+    }
   }
   @media (min-width: 1024px) {
     .ingredients-visible-results-{{ section.id }}__card {
       min-width: 30rem;
       max-width: 34rem;
+    }
+    .ingredients-visible-results-{{ section.id }}__image-bg {
+      height: 28rem;
     }
   }
   @media (min-width: 1440px) {
@@ -74,34 +97,36 @@
       min-width: 32rem;
       max-width: 36rem;
     }
+    .ingredients-visible-results-{{ section.id }}__image-bg {
+      height: 30rem;
+    }
   }
 {% endstyle %}
 <div class="ingredients-visible-results-{{ section.id }} color-{{ section.settings.color_scheme }}">
   <div class="page-width">
     <div class="ingredients-visible-results-{{ section.id }}__cards">
       {% for block in section.blocks %}
-        <div
-          class="ingredients-visible-results-{{ section.id }}__card"
-          style="--block-bg: {{ block.settings.card_bg }}; --block-border: {{ block.settings.border_color }}; --block-text: {{ block.settings.text_color }};"
-        >
-          {% if block.settings.image != blank %}
-            <img
-              src="{{ block.settings.image | image_url: width: 600 }}"
-              alt="{{ block.settings.title | escape }}"
-              class="ingredients-visible-results-{{ section.id }}__card-image"
-              loading="lazy"
-              width="300"
-              height="300"
+        <div class="ingredients-visible-results-{{ section.id }}__card">
+          <div
+            class="ingredients-visible-results-{{ section.id }}__image-bg"
+            style="background-image: url('{% if block.settings.image != blank %}{{ block.settings.image | image_url: width: 800 }}{% endif %}'); --block-border: {{ block.settings.border_color }};"
+          >
+            <div
+              class="ingredients-visible-results-{{ section.id }}__content"
+              style="--block-bg: {{ block.settings.card_bg }}; --block-text: {{ block.settings.text_color }};"
             >
-          {% endif %}
-          {% if block.settings.title != blank %}
-            <div class="ingredients-visible-results-{{ section.id }}__card-title rte">{{ block.settings.title }}</div>
-          {% endif %}
-          {% if block.settings.description != blank %}
-            <div class="ingredients-visible-results-{{ section.id }}__card-desc rte">
-              {{ block.settings.description }}
+              {% if block.settings.title != blank %}
+                <div class="ingredients-visible-results-{{ section.id }}__card-title rte">
+                  {{ block.settings.title }}
+                </div>
+              {% endif %}
+              {% if block.settings.description != blank %}
+                <div class="ingredients-visible-results-{{ section.id }}__card-desc rte">
+                  {{ block.settings.description }}
+                </div>
+              {% endif %}
             </div>
-          {% endif %}
+          </div>
         </div>
       {% endfor %}
     </div>
