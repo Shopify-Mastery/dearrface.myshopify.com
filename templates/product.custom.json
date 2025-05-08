@@ -76,6 +76,7 @@
       "block_order": [
         "heading_qzmNrP"
       ],
+      "disabled": true,
       "name": "Generic Text Content",
       "settings": {
         "color_scheme": "scheme-23a29e7f-f949-4e5f-9ecb-31639c0c2c42",
@@ -155,6 +156,7 @@
         "collapsible_row_Uxm7Km",
         "collapsible_row_G6dVpQ"
       ],
+      "disabled": true,
       "name": "FAQ",
       "settings": {
         "caption": "",
