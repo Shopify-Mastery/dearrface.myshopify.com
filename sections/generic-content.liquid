@@ -1,0 +1,298 @@
+{% style %}
+  .section-{{ section.id }}-padding {
+    padding-top: {{ section.settings.padding_top_mobile }}px;
+    padding-bottom: {{ section.settings.padding_bottom_mobile }}px;
+    padding-left: {{ section.settings.padding_left_mobile }}px;
+    padding-right: {{ section.settings.padding_right_mobile }}px;
+  }
+  @media (min-width: 1024px) {
+    .section-{{ section.id }}-padding {
+      padding-top: {{ section.settings.padding_top_desktop }}px;
+      padding-bottom: {{ section.settings.padding_bottom_desktop }}px;
+      padding-left: {{ section.settings.padding_left_desktop }}px;
+      padding-right: {{ section.settings.padding_right_desktop }}px;
+    }
+  }
+  .generic-content__heading {
+    font-weight: 700;
+    margin-bottom: 1rem;
+  }
+  .generic-content__description {
+    font-size: 1rem;
+    margin-bottom: 0;
+  }
+{% endstyle %}
+<div class="section-{{ section.id }}-padding color-{{ section.settings.color_scheme }}">
+  <div class="page-width">
+    {% for block in section.blocks %}
+      {% case block.type %}
+        {% when 'caption' %}
+          {% assign show_caption = false %}
+          {% if block.settings.caption_text != blank %}
+            {% if block.settings.show_on_mobile and block.settings.show_on_desktop %}
+              {% assign show_caption = true %}
+            {% elsif block.settings.show_on_mobile
+              and request.design_mode == false
+              and request.device_type == 'mobile'
+            %}
+              {% assign show_caption = true %}
+            {% elsif block.settings.show_on_desktop
+              and request.design_mode == false
+              and request.device_type == 'desktop'
+            %}
+              {% assign show_caption = true %}
+            {% endif %}
+          {% endif %}
+          {% if show_caption %}
+            <p
+              class="generic-content__caption caption-with-letter-spacing"
+              style="text-align: {{ block.settings.caption_alignment }};"
+            >
+              {{ block.settings.caption_text | escape }}
+            </p>
+          {% endif %}
+        {% when 'heading' %}
+          {% if block.settings.heading_text != blank %}
+            <h2
+              class="generic-content__heading {{ block.settings.heading_size }}"
+              style="text-align: {{ block.settings.heading_alignment }}; max-width: {{ block.settings.heading_max_width }}px; margin-left: auto; margin-right: auto;"
+            >
+              {{ block.settings.heading_text }}
+            </h2>
+          {% endif %}
+        {% when 'description' %}
+          {% if block.settings.description_text != blank %}
+            <div
+              class="generic-content__description"
+              style="text-align: {{ block.settings.description_alignment }}; max-width: {{ block.settings.description_max_width }}px; margin-left: auto; margin-right: auto;"
+            >
+              {{ block.settings.description_text }}
+            </div>
+          {% endif %}
+      {% endcase %}
+    {% endfor %}
+  </div>
+</div>
+{% schema %}
+{
+  "name": "Generic Content Section",
+  "tag": "section",
+  "class": "section",
+  "settings": [
+    {
+      "type": "color_scheme",
+      "id": "color_scheme",
+      "label": "Color scheme",
+      "default": "scheme-1"
+    },
+    {
+      "type": "header",
+      "content": "Section Padding (Mobile)"
+    },
+    {
+      "type": "range",
+      "id": "padding_top_mobile",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "Padding top (mobile)",
+      "default": 24
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom_mobile",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "Padding bottom (mobile)",
+      "default": 24
+    },
+    {
+      "type": "range",
+      "id": "padding_left_mobile",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "Padding left (mobile)",
+      "default": 0
+    },
+    {
+      "type": "range",
+      "id": "padding_right_mobile",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "Padding right (mobile)",
+      "default": 0
+    },
+    {
+      "type": "header",
+      "content": "Section Padding (Desktop)"
+    },
+    {
+      "type": "range",
+      "id": "padding_top_desktop",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "Padding top (desktop)",
+      "default": 48
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom_desktop",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "Padding bottom (desktop)",
+      "default": 48
+    },
+    {
+      "type": "range",
+      "id": "padding_left_desktop",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "Padding left (desktop)",
+      "default": 0
+    },
+    {
+      "type": "range",
+      "id": "padding_right_desktop",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "Padding right (desktop)",
+      "default": 0
+    }
+  ],
+  "blocks": [
+    {
+      "type": "caption",
+      "name": "Caption",
+      "settings": [
+        {
+          "type": "text",
+          "id": "caption_text",
+          "label": "Caption text"
+        },
+        {
+          "type": "select",
+          "id": "caption_alignment",
+          "label": "Caption alignment",
+          "options": [
+            { "value": "left", "label": "Left" },
+            { "value": "center", "label": "Center" },
+            { "value": "right", "label": "Right" }
+          ],
+          "default": "center"
+        },
+        {
+          "type": "checkbox",
+          "id": "show_on_mobile",
+          "label": "Show on mobile",
+          "default": true
+        },
+        {
+          "type": "checkbox",
+          "id": "show_on_desktop",
+          "label": "Show on desktop",
+          "default": true
+        }
+      ]
+    },
+    {
+      "type": "heading",
+      "name": "Heading",
+      "settings": [
+        {
+          "type": "inline_richtext",
+          "id": "heading_text",
+          "label": "Heading text"
+        },
+        {
+          "type": "select",
+          "id": "heading_size",
+          "label": "Heading size",
+          "options": [
+            { "value": "h2", "label": "Small" },
+            { "value": "h1", "label": "Medium" },
+            { "value": "h0", "label": "Large" },
+            { "value": "hxl", "label": "Extra Large" },
+            { "value": "hxxl", "label": "Extra Extra Large" }
+          ],
+          "default": "h1"
+        },
+        {
+          "type": "select",
+          "id": "heading_alignment",
+          "label": "Heading alignment",
+          "options": [
+            { "value": "left", "label": "Left" },
+            { "value": "center", "label": "Center" },
+            { "value": "right", "label": "Right" }
+          ],
+          "default": "center"
+        },
+        {
+          "type": "range",
+          "id": "heading_max_width",
+          "min": 200,
+          "max": 1200,
+          "step": 20,
+          "unit": "px",
+          "label": "Max width (desktop)",
+          "default": 800
+        }
+      ]
+    },
+    {
+      "type": "description",
+      "name": "Description",
+      "settings": [
+        {
+          "type": "inline_richtext",
+          "id": "description_text",
+          "label": "Description text"
+        },
+        {
+          "type": "select",
+          "id": "description_alignment",
+          "label": "Description alignment",
+          "options": [
+            { "value": "left", "label": "Left" },
+            { "value": "center", "label": "Center" },
+            { "value": "right", "label": "Right" }
+          ],
+          "default": "center"
+        },
+        {
+          "type": "range",
+          "id": "description_max_width",
+          "min": 200,
+          "max": 1200,
+          "step": 20,
+          "unit": "px",
+          "label": "Max width (desktop)",
+          "default": 800
+        }
+      ]
+    }
+  ],
+  "max_blocks": 3,
+  "presets": [
+    {
+      "name": "Generic Content Section",
+      "blocks": [{ "type": "caption" }, { "type": "heading" }, { "type": "description" }]
+    }
+  ]
+}
+{% endschema %}
