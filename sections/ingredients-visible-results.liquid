@@ -59,10 +59,9 @@
     color: var(--block-text, #222);
     border-radius: 1.2rem;
     box-shadow: 0 0.2rem 1.2rem rgba(0,0,0,0.06);
-    padding: 2rem 1.5rem;
+    padding: 2rem;
     display: flex;
     flex-direction: column;
-    align-items: center;
     border: none;
     z-index: 2;
   }
@@ -129,13 +128,19 @@
               style="--block-bg: {{ block.settings.card_bg }}; --block-text: {{ block.settings.text_color }};"
             >
               {% if block.settings.title != blank %}
-                <div class="ingredients-visible-results-{{ section.id }}__card-title rte">
+                <div
+                  class="ingredients-visible-results-{{ section.id }}__card-title"
+                  style="text-align: {{ block.settings.title_align }};"
+                >
                   {{ block.settings.title }}
                 </div>
               {% endif %}
               {% if block.settings.description != blank %}
-                <div class="ingredients-visible-results-{{ section.id }}__card-desc rte">
-                  {{ block.settings.description }}
+                <div
+                  class="ingredients-visible-results-{{ section.id }}__card-desc"
+                  style="text-align: {{ block.settings.desc_align }};"
+                >
+                  {{ block.settings.description | replace: '<p>', '<p style="margin: 0;">' }}
                 </div>
               {% endif %}
             </div>
@@ -281,10 +286,32 @@
           "default": "Result Title"
         },
         {
+          "type": "select",
+          "id": "title_align",
+          "label": "Title alignment",
+          "default": "center",
+          "options": [
+            { "value": "left", "label": "Left" },
+            { "value": "center", "label": "Center" },
+            { "value": "right", "label": "Right" }
+          ]
+        },
+        {
           "type": "richtext",
           "id": "description",
           "label": "Result description",
           "default": "<p>Result description goes here.</p>"
+        },
+        {
+          "type": "select",
+          "id": "desc_align",
+          "label": "Description alignment",
+          "default": "center",
+          "options": [
+            { "value": "left", "label": "Left" },
+            { "value": "center", "label": "Center" },
+            { "value": "right", "label": "Right" }
+          ]
         }
       ]
     }
