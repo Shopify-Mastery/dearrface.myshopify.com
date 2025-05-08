@@ -39,7 +39,7 @@ alwaysApply: false
 - Always use modern JavaScript (ES6+) features and syntax, such as `const`, `let`, arrow functions, template literals, destructuring, and modules where possible.
 
 ## Shopify Customizer Settings
-- Add a setting to change the background color of the parent div that wraps the entire section.
+- Add a setting to select the color scheme for the parent div that wraps the entire section, using the `color_scheme` setting type. Do not use a direct background color picker.
 - Add settings to control top and bottom padding of the section.
 - Add settings to control left and right padding of the section.
 - Allow padding to be set separately for mobile and desktop.
