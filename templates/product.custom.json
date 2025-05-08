@@ -57,6 +57,67 @@
         "padding_bottom": 12
       }
     },
+    "ingredients_visible_results_GWD3qT": {
+      "type": "ingredients-visible-results",
+      "blocks": {
+        "result_NxMNq9": {
+          "type": "result",
+          "settings": {
+            "image": "shopify://shop_images/olimpia-campean-yCKDTD2J9lU-unsplash.jpg",
+            "border_color": "{{ shop.brand.colors.primary[0].background }}",
+            "card_bg": "#fcebea",
+            "text_color": "{{ shop.brand.colors.secondary[0].background }}",
+            "title": "Collagen Boosting Power",
+            "title_align": "center",
+            "description": "<p>This mask is packed with collagen to help restore skin's firmness and reduce the appearance of fine lines. It works deep within the skin to promote elasticity and youthful structure. Say goodbye to sagging and hello to a lifted, firmer look.</p>",
+            "desc_align": "center"
+          }
+        },
+        "result_mhmDha": {
+          "type": "result",
+          "settings": {
+            "image": "shopify://shop_images/olimpia-campean-SZgxfMYJsYo-unsplash.jpg",
+            "border_color": "{{ shop.brand.colors.primary[0].background }}",
+            "card_bg": "#fcebea",
+            "text_color": "{{ shop.brand.colors.secondary[0].background }}",
+            "title": "Deep Hydration",
+            "title_align": "center",
+            "description": "<p>Formulated to deliver intense moisture, this mask deeply hydrates dry and tired skin. It locks in hydration, leaving your face soft, smooth, and plump. Perfect for restoring your skin’s natural balance and glow.</p>",
+            "desc_align": "center"
+          }
+        },
+        "result_YrmL9p": {
+          "type": "result",
+          "settings": {
+            "image": "shopify://shop_images/olimpia-campean-m6bIAov5RQA-unsplash.jpg",
+            "border_color": "{{ shop.brand.colors.primary[0].background }}",
+            "card_bg": "#fcebea",
+            "text_color": "{{ shop.brand.colors.secondary[0].background }}",
+            "title": "Radiant Glow Effect",
+            "title_align": "center",
+            "description": "<p>It enhances your skin’s natural brightness and improves overall texture. Dullness and uneven tone are visibly reduced, revealing a fresh, luminous glow. Enjoy the glass-skin effect after just one use.</p>",
+            "desc_align": "center"
+          }
+        }
+      },
+      "block_order": [
+        "result_NxMNq9",
+        "result_mhmDha",
+        "result_YrmL9p"
+      ],
+      "name": "Ingredients Visible Results",
+      "settings": {
+        "color_scheme": "scheme-1",
+        "padding_top_mobile": 24,
+        "padding_bottom_mobile": 48,
+        "padding_left_mobile": 0,
+        "padding_right_mobile": 0,
+        "padding_top_desktop": 48,
+        "padding_bottom_desktop": 48,
+        "padding_left_desktop": 0,
+        "padding_right_desktop": 0
+      }
+    },
     "generic_content_yGKNnH": {
       "type": "generic-text-content",
       "blocks": {
@@ -297,6 +358,7 @@
   },
   "order": [
     "main",
+    "ingredients_visible_results_GWD3qT",
     "generic_content_yGKNnH",
     "why_our_product_3QeDQx",
     "generic_text_content_zyf8L3",
