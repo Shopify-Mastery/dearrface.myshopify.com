@@ -17,8 +17,15 @@
     font-weight: 700;
     margin-bottom: 1rem;
   }
+  .generic-content__heading-part-1 {
+    color: rgba(var(--color-foreground), 1);
+  }
+  .generic-content__heading-part-2 {
+    color: rgba(var(--color-button), 1);
+  }
   .generic-content__description {
-    font-size: 1rem;
+    color: rgba(var(--color-foreground), 1);
+    font-size: 1.2rem;
     margin-bottom: 0;
   }
 {% endstyle %}
@@ -28,7 +35,7 @@
       {% case block.type %}
         {% when 'caption' %}
           {% assign show_caption = false %}
-          {% if block.settings.caption_text != blank %}
+          {% if block.settings.caption != blank %}
             {% if block.settings.show_on_mobile and block.settings.show_on_desktop %}
               {% assign show_caption = true %}
             {% elsif block.settings.show_on_mobile
@@ -48,25 +55,27 @@
               class="generic-content__caption caption-with-letter-spacing"
               style="text-align: {{ block.settings.caption_alignment }};"
             >
-              {{ block.settings.caption_text | escape }}
+              {{ block.settings.caption | escape }}
             </p>
           {% endif %}
         {% when 'heading' %}
-          {% if block.settings.heading_text != blank %}
+          {% if block.settings.heading != blank %}
+            {% assign heading_parts = block.settings.heading | split: '|' %}
             <h2
               class="generic-content__heading {{ block.settings.heading_size }}"
               style="text-align: {{ block.settings.heading_alignment }}; max-width: {{ block.settings.heading_max_width }}px; margin-left: auto; margin-right: auto;"
             >
-              {{ block.settings.heading_text }}
+              <span class="generic-content__heading-part-1">{{ heading_parts[0] | strip }}</span>
+              <span class="generic-content__heading-part-2">{{ heading_parts[1] | strip }}</span>
             </h2>
           {% endif %}
         {% when 'description' %}
-          {% if block.settings.description_text != blank %}
+          {% if block.settings.description != blank %}
             <div
               class="generic-content__description"
               style="text-align: {{ block.settings.description_alignment }}; max-width: {{ block.settings.description_max_width }}px; margin-left: auto; margin-right: auto;"
             >
-              {{ block.settings.description_text }}
+              {{ block.settings.description | replace: '<p>', '<p style="margin: 0;">' }}
             </div>
           {% endif %}
       {% endcase %}
@@ -75,7 +84,7 @@
 </div>
 {% schema %}
 {
-  "name": "Generic Content Section",
+  "name": "Generic Text Content",
   "tag": "section",
   "class": "section",
   "settings": [
@@ -181,8 +190,9 @@
       "settings": [
         {
           "type": "text",
-          "id": "caption_text",
-          "label": "Caption text"
+          "id": "caption",
+          "label": "Caption",
+          "default": "Lorem ipsum dolor"
         },
         {
           "type": "select",
@@ -214,9 +224,11 @@
       "name": "Heading",
       "settings": [
         {
-          "type": "inline_richtext",
-          "id": "heading_text",
-          "label": "Heading text"
+          "type": "text",
+          "id": "heading",
+          "label": "Heading",
+          "default": "Lorem ipsum dolor sit amet consectetur adipiscing elit.",
+          "info": "Use | to split heading into two parts. First part uses text color, second part uses button color. Example: First part|Second part"
         },
         {
           "type": "select",
@@ -250,7 +262,7 @@
           "step": 20,
           "unit": "px",
           "label": "Max width (desktop)",
-          "default": 800
+          "default": 1200
         }
       ]
     },
@@ -259,9 +271,10 @@
       "name": "Description",
       "settings": [
         {
-          "type": "inline_richtext",
-          "id": "description_text",
-          "label": "Description text"
+          "type": "richtext",
+          "id": "description",
+          "label": "Description",
+          "default": "<p>Lorem ipsum dolor sit amet consectetur adipiscing elit. Quisque faucibus ex sapien vitae pellentesque sem placerat. In id cursus mi pretium tellus duis convallis. Tempus leo eu aenean sed diam urna tempor. Pulvinar vivamus fringilla lacus nec metus bibendum egestas. Iaculis massa nisl malesuada lacinia integer nunc posuere. Ut hendrerit semper vel class aptent taciti sociosqu. Ad litora torquent per conubia nostra inceptos himenaeos.</p>"
         },
         {
           "type": "select",
@@ -282,7 +295,7 @@
           "step": 20,
           "unit": "px",
           "label": "Max width (desktop)",
-          "default": 800
+          "default": 1200
         }
       ]
     }
@@ -290,7 +303,7 @@
   "max_blocks": 3,
   "presets": [
     {
-      "name": "Generic Content Section",
+      "name": "Generic Text Content",
       "blocks": [{ "type": "caption" }, { "type": "heading" }, { "type": "description" }]
     }
   ]
