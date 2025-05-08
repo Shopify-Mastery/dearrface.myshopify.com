@@ -57,6 +57,49 @@
         "padding_bottom": 12
       }
     },
+    "generic_text_content_L9YqWE": {
+      "type": "generic-text-content",
+      "blocks": {
+        "heading_RNyeDz": {
+          "type": "heading",
+          "settings": {
+            "heading": "Powerful Ingredients, |Visible Results",
+            "heading_2nd_part_color": "{{ shop.brand.colors.primary[0].background }}",
+            "heading_size": "h1",
+            "heading_alignment": "center",
+            "heading_max_width": 1200,
+            "show_on_mobile": true,
+            "show_on_desktop": true
+          }
+        },
+        "description_7Mtzqi": {
+          "type": "description",
+          "settings": {
+            "description": "<p>Formulated with collagen extract, niacinamide, and aloe vera, this mask targets multiple skin concerns in one treatment. These powerhouse ingredients hydrate, brighten, and firm your skin — revealing a smooth, youthful glow.</p>",
+            "description_alignment": "center",
+            "description_max_width": 800,
+            "show_on_mobile": true,
+            "show_on_desktop": true
+          }
+        }
+      },
+      "block_order": [
+        "heading_RNyeDz",
+        "description_7Mtzqi"
+      ],
+      "name": "Generic Text Content",
+      "settings": {
+        "color_scheme": "scheme-23a29e7f-f949-4e5f-9ecb-31639c0c2c42",
+        "padding_top_mobile": 24,
+        "padding_bottom_mobile": 24,
+        "padding_left_mobile": 0,
+        "padding_right_mobile": 0,
+        "padding_top_desktop": 16,
+        "padding_bottom_desktop": 32,
+        "padding_left_desktop": 0,
+        "padding_right_desktop": 0
+      }
+    },
     "ingredients_visible_results_GWD3qT": {
       "type": "ingredients-visible-results",
       "blocks": {
@@ -112,7 +155,7 @@
         "padding_bottom_mobile": 48,
         "padding_left_mobile": 0,
         "padding_right_mobile": 0,
-        "padding_top_desktop": 48,
+        "padding_top_desktop": 0,
         "padding_bottom_desktop": 48,
         "padding_left_desktop": 0,
         "padding_right_desktop": 0
@@ -358,6 +401,7 @@
   },
   "order": [
     "main",
+    "generic_text_content_L9YqWE",
     "ingredients_visible_results_GWD3qT",
     "generic_content_yGKNnH",
     "why_our_product_3QeDQx",
