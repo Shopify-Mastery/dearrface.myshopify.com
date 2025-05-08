@@ -58,7 +58,7 @@
       }
     },
     "generic_content_yGKNnH": {
-      "type": "generic-content",
+      "type": "generic-text-content",
       "blocks": {
         "heading_qzmNrP": {
           "type": "heading",
