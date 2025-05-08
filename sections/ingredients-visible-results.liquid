@@ -1,6 +1,7 @@
 {% style %}
   .ingredients-visible-results-{{ section.id }} {
     min-height: 55rem;
+    height: 160rem;
     padding-top: {{ section.settings.padding_top_mobile }}px;
     padding-bottom: {{ section.settings.padding_bottom_mobile }}px;
     padding-left: {{ section.settings.padding_left_mobile }}px;
@@ -8,26 +9,27 @@
   }
   @media (min-width: 768px) {
     .ingredients-visible-results-{{ section.id }} {
+      height: auto;
       padding-top: {{ section.settings.padding_top_desktop }}px;
       padding-bottom: {{ section.settings.padding_bottom_desktop }}px;
       padding-left: {{ section.settings.padding_left_desktop }}px;
       padding-right: {{ section.settings.padding_right_desktop }}px;
     }
   }
-  @media (min-width: 1024px) {
+  /* @media (min-width: 1024px) {
     .ingredients-visible-results-{{ section.id }} {
       min-height: 60rem;
     }
-  }
+  } */
   .ingredients-visible-results-{{ section.id }}__cards {
     display: flex;
-    flex-direction: row;
-    gap: 2rem;
+    flex-direction: column;
+    gap: 25rem;
     justify-content: space-between;
+    align-items: center;
   }
   .ingredients-visible-results-{{ section.id }}__card {
     position: relative;
-    width: 32rem;
     min-width: 28rem;
     max-width: 36rem;
     display: flex;
@@ -77,10 +79,12 @@
   }
   @media (min-width: 768px) {
     .ingredients-visible-results-{{ section.id }}__cards {
+      flex-direction: row;
+      gap: 2rem;
       flex-wrap: nowrap;
     }
     .ingredients-visible-results-{{ section.id }}__card {
-      min-width: 28rem;
+      min-width: 22rem;
       max-width: 32rem;
     }
     .ingredients-visible-results-{{ section.id }}__image-bg {
@@ -114,9 +118,12 @@
     }
   }
 {% endstyle %}
-<div class="ingredients-visible-results-{{ section.id }} color-{{ section.settings.color_scheme }}">
+<div
+  class="ingredients-visible-results-{{ section.id }} color-{{ section.settings.color_scheme }}"
+  data-section-id="{{ section.id }}"
+>
   <div class="page-width">
-    <div class="ingredients-visible-results-{{ section.id }}__cards">
+    <div class="ingredients-visible-results-{{ section.id }}__cards ingredients-visible-results__cards owl-carousel owl-theme">
       {% for block in section.blocks %}
         <div class="ingredients-visible-results-{{ section.id }}__card">
           <div
@@ -150,6 +157,25 @@
     </div>
   </div>
 </div>
+{% javascript %}
+  (function () {
+    //   const $carousel = $('.ingredients-visible-results__cards');
+    //   $carousel.owlCarousel({
+    //     loop: true,
+    //     margin: 10,
+    //     nav: false,
+    //     dots: true,
+    //     responsive: {
+    //       0: {
+    //         items: 1,
+    //       },
+    //       768: {
+    //         items: 3,
+    //       },
+    //     },
+    //   });
+  })();
+{% endjavascript %}
 {% schema %}
 {
   "name": "Visible Results",
