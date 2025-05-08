@@ -79,40 +79,30 @@
 <div class="ingredients-visible-results-{{ section.id }} color-{{ section.settings.color_scheme }}">
   <div class="page-width">
     <div class="ingredients-visible-results-{{ section.id }}__cards">
-      {% assign visible_blocks = section.blocks | slice: 0, 3 %}
       {% for block in section.blocks %}
-        {% assign show_block = false %}
-        {% if forloop.index0 < 1 %}
-          {% assign show_block = true %}
-        {% endif %}
-        {% if forloop.index0 < 3 and request.width >= 768 %}
-          {% assign show_block = true %}
-        {% endif %}
-        {% if show_block %}
-          <div
-            class="ingredients-visible-results-{{ section.id }}__card"
-            style="--block-bg: {{ block.settings.card_bg }}; --block-border: {{ block.settings.border_color }}; --block-text: {{ block.settings.text_color }};"
-          >
-            {% if block.settings.image != blank %}
-              <img
-                src="{{ block.settings.image | image_url: width: 600 }}"
-                alt="{{ block.settings.title | escape }}"
-                class="ingredients-visible-results-{{ section.id }}__card-image"
-                loading="lazy"
-                width="300"
-                height="300"
-              >
-            {% endif %}
-            {% if block.settings.title != blank %}
-              <div class="ingredients-visible-results-{{ section.id }}__card-title rte">{{ block.settings.title }}</div>
-            {% endif %}
-            {% if block.settings.description != blank %}
-              <div class="ingredients-visible-results-{{ section.id }}__card-desc rte">
-                {{ block.settings.description }}
-              </div>
-            {% endif %}
-          </div>
-        {% endif %}
+        <div
+          class="ingredients-visible-results-{{ section.id }}__card"
+          style="--block-bg: {{ block.settings.card_bg }}; --block-border: {{ block.settings.border_color }}; --block-text: {{ block.settings.text_color }};"
+        >
+          {% if block.settings.image != blank %}
+            <img
+              src="{{ block.settings.image | image_url: width: 600 }}"
+              alt="{{ block.settings.title | escape }}"
+              class="ingredients-visible-results-{{ section.id }}__card-image"
+              loading="lazy"
+              width="300"
+              height="300"
+            >
+          {% endif %}
+          {% if block.settings.title != blank %}
+            <div class="ingredients-visible-results-{{ section.id }}__card-title rte">{{ block.settings.title }}</div>
+          {% endif %}
+          {% if block.settings.description != blank %}
+            <div class="ingredients-visible-results-{{ section.id }}__card-desc rte">
+              {{ block.settings.description }}
+            </div>
+          {% endif %}
+        </div>
       {% endfor %}
     </div>
   </div>
