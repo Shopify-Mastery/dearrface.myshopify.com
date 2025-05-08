@@ -1,0 +1,411 @@
+{% style %}
+  .why-our-product {
+    background-color: {{ section.settings.background_color }};
+    padding-top: {{ section.settings.padding_top_mobile }}px;
+    padding-bottom: {{ section.settings.padding_bottom_mobile }}px;
+    padding-left: {{ section.settings.padding_left_mobile }}px;
+    padding-right: {{ section.settings.padding_right_mobile }}px;
+  }
+  @media (min-width: 1024px) {
+    .why-our-product {
+      padding-top: {{ section.settings.padding_top_desktop }}px;
+      padding-bottom: {{ section.settings.padding_bottom_desktop }}px;
+      padding-left: {{ section.settings.padding_left_desktop }}px;
+      padding-right: {{ section.settings.padding_right_desktop }}px;
+    }
+  }
+  .why-our-product__header {
+    margin: 0 auto 2rem auto;
+    max-width: {{ section.settings.header_max_width }}rem;
+  }
+  .why-our-product__headline {
+    text-align: center;
+    color: {{ section.settings.headline_color }};
+    font-weight: 700;
+    font-size: 2.5rem;
+    margin-top: 0;
+    margin-bottom: 1.2rem;
+    line-height: 1.15;
+  }
+  @media (min-width: 1024px) {
+    .why-our-product__headline {
+      font-size: 3rem;
+    }
+  }
+  .why-our-product__desc {
+    text-align: center;
+    color: {{ section.settings.desc_color }};
+    font-weight: 400;
+    font-size: 1.3rem;
+    margin-bottom: 0;
+    line-height: 1.5;
+  }
+  @media (min-width: 1024px) {
+    .why-our-product__desc {
+      font-size: 1.5rem;
+    }
+  }
+  .why-our-product__table-wrap {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+  }
+  .why-our-product__table {
+    width: 75%;
+    min-width: 0;
+    margin: 0 auto;
+    border-collapse: collapse;
+    border-radius: {% if section.settings.rounded_corners %}1.2rem{% else %}0{% endif %};
+    overflow: hidden;
+    background: {{ section.settings.table_bg }};
+    table-layout: fixed;
+  }
+  .why-our-product__table th {
+    font-size: 1.5rem !important;
+  }
+  .why-our-product__table th,
+  .why-our-product__table td {
+    padding: 1.1rem 1rem;
+    font-size: 1.2rem;
+    text-align: center;
+  }
+  .why-our-product__table th:first-child,
+  .why-our-product__table td:first-child {
+    text-align: left;
+    width: 40%;
+    font-weight: bold;
+  }
+  .why-our-product__table th:not(:first-child),
+  .why-our-product__table td:not(:first-child) {
+    width: 20%;
+  }
+  .why-our-product__table th {
+    font-weight: 700;
+    background: none;
+  }
+  .why-our-product__table th.why-our-product__col--us {
+    color: {{ section.settings.us_col_th_color }};
+    border-top-left-radius: {% if section.settings.rounded_corners %}0.5rem{% else %}0{% endif %};
+    border-top-right-radius: {% if section.settings.rounded_corners %}0.5rem{% else %}0{% endif %};
+    background: linear-gradient(to bottom, {{ section.settings.us_col_gradient_start }}, {{ section.settings.us_col_gradient_end }});
+  }
+  .why-our-product__table th.why-our-product__col--others {
+    color: {{ section.settings.others_col_th_color }};
+  }
+  .why-our-product__table tr td {
+    border-bottom: 1px solid {{ section.settings.row_border_color }};
+  }
+  .why-our-product__icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 1.6rem;
+    height: 1.6rem;
+    border-radius: 50%;
+    background: {{ section.settings.icon_bg }};
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .why-our-product__icon--check svg,
+  .why-our-product__icon--cross svg {
+    width: 1.1rem;
+    height: 1.1rem;
+    display: block;
+  }
+  .why-our-product__icon--check {
+    color: {{ section.settings.check_color }};
+  }
+  .why-our-product__icon--cross {
+    color: {{ section.settings.cross_color }};
+  }
+  .why-our-product__table td:first-child p {
+    margin: 0;
+  }
+  @media (min-width: 768px) {
+    .why-our-product__table th,
+    .why-our-product__table td {
+      padding: 1rem;
+      font-size: 1.3rem;
+    }
+    .why-our-product__table th {
+      font-size: 1.5rem;
+    }
+  }
+  @media (min-width: 1024px) {
+    .why-our-product {
+      padding-top: {{ section.settings.padding_top_desktop }}px;
+      padding-bottom: {{ section.settings.padding_bottom_desktop }}px;
+      padding-left: {{ section.settings.padding_left_desktop }}px;
+      padding-right: {{ section.settings.padding_right_desktop }}px;
+    }
+    .why-our-product__headline {
+      font-size: 3rem;
+    }
+    .why-our-product__desc {
+      font-size: 1.5rem;
+    }
+  }
+  @media (max-width: 1023px) {
+    .why-our-product__table {
+      width: 100%;
+      border-radius: {% if section.settings.rounded_corners %}1.2rem{% else %}0{% endif %};
+    }
+  }
+  @media (max-width: 767px) {
+    .why-our-product__header {
+      max-width: 100%;
+    }
+  }
+{% endstyle %}
+<div class="why-our-product">
+  <div class="page-width">
+    <div class="why-our-product__header">
+      <h2 class="why-our-product__headline">{{ section.settings.headline }}</h2>
+      <div class="why-our-product__desc">{{ section.settings.description }}</div>
+    </div>
+    <div class="why-our-product__table-wrap">
+      <table class="why-our-product__table">
+        <thead>
+          <tr>
+            <th></th>
+            <th class="why-our-product__col--us">{{ section.settings.us_label }}</th>
+            <th class="why-our-product__col--others">{{ section.settings.others_label }}</th>
+          </tr>
+        </thead>
+        <tbody>
+          {% for block in section.blocks %}
+            <tr {{ block.shopify_attributes }}>
+              <td>{{ block.settings.feature | replace: '<p', '<p style="margin:0"' }}</td>
+              <td
+                class="why-our-product__col--us"
+                style="background: linear-gradient(to bottom, {{ block.settings.us_cell_gradient_start }}, {{ block.settings.us_cell_gradient_end }});"
+              >
+                {% if block.settings.us_checked %}
+                  <span class="why-our-product__icon why-our-product__icon--check">
+                    <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <path d="M4 8.5l3 3 5-6" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                  </span>
+                {% endif %}
+              </td>
+              <td>
+                {% if block.settings.others_checked %}
+                  <span class="why-our-product__icon why-our-product__icon--check">
+                    <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <path d="M4 8.5l3 3 5-6" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                  </span>
+                {% else %}
+                  <span class="why-our-product__icon why-our-product__icon--cross">
+                    <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <path d="M5.5 5.5l5 5m0-5l-5 5" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                  </span>
+                {% endif %}
+              </td>
+            </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+{% javascript %}
+{% endjavascript %}
+{% schema %}
+{
+  "name": "Why Our Product Gradient",
+  "tag": "section",
+  "class": "section",
+  "settings": [
+    { "type": "text", "id": "headline", "label": "Headline Text", "default": "Why Our Product?" },
+    {
+      "type": "textarea",
+      "id": "description",
+      "label": "Description Text",
+      "default": "Experience next-level EMF safety with innovative depolarizing technology that actively minimizes harmful electromagnetic radiation in your surroundings. It's a silent guardian, working round the clock to keep you and your loved ones safer."
+    },
+    { "type": "color", "id": "headline_color", "label": "Headline Color", "default": "#1db954" },
+    { "type": "color", "id": "desc_color", "label": "Description Color", "default": "#222" },
+    {
+      "type": "range",
+      "id": "header_max_width",
+      "label": "Headline & Description Max Width (rem)",
+      "min": 20,
+      "max": 60,
+      "step": 1,
+      "default": 36
+    },
+    { "type": "color", "id": "feature_text_color", "label": "Feature Text Color", "default": "#222" },
+    { "type": "text", "id": "us_label", "label": "US/Our Column Label", "default": "US" },
+    { "type": "text", "id": "others_label", "label": "Others/Other Column Label", "default": "Others" },
+    { "type": "color", "id": "us_col_th_color", "label": "US Column Header Text Color", "default": "#1db954" },
+    { "type": "color", "id": "others_col_th_color", "label": "Others Column Header Text Color", "default": "#222" },
+    {
+      "type": "color",
+      "id": "us_col_gradient_start",
+      "label": "US/Our Column Gradient Start (Header)",
+      "default": "#1db954"
+    },
+    {
+      "type": "color",
+      "id": "us_col_gradient_end",
+      "label": "US/Our Column Gradient End (Header)",
+      "default": "#e6f9ec"
+    },
+    { "type": "color", "id": "table_bg", "label": "Table Background Color", "default": "#fff" },
+    { "type": "color", "id": "row_border_color", "label": "Feature Row Border Color", "default": "#e5e5e5" },
+    { "type": "color", "id": "check_color", "label": "Checkmark Color", "default": "#1db954" },
+    { "type": "color", "id": "cross_color", "label": "Cross Color", "default": "#e74c3c" },
+    { "type": "color", "id": "icon_bg", "label": "Icon Background Color", "default": "#fff" },
+    { "type": "checkbox", "id": "rounded_corners", "label": "Rounded Corners for Table", "default": true },
+    { "type": "header", "content": "Section Padding (Mobile)" },
+    {
+      "type": "range",
+      "id": "padding_top_mobile",
+      "label": "Top Padding (Mobile)",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "default": 32,
+      "unit": "px"
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom_mobile",
+      "label": "Bottom Padding (Mobile)",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "default": 32,
+      "unit": "px"
+    },
+    {
+      "type": "range",
+      "id": "padding_left_mobile",
+      "label": "Left Padding (Mobile)",
+      "min": 0,
+      "max": 48,
+      "step": 4,
+      "default": 16,
+      "unit": "px"
+    },
+    {
+      "type": "range",
+      "id": "padding_right_mobile",
+      "label": "Right Padding (Mobile)",
+      "min": 0,
+      "max": 48,
+      "step": 4,
+      "default": 16,
+      "unit": "px"
+    },
+    { "type": "header", "content": "Section Padding (Desktop)" },
+    {
+      "type": "range",
+      "id": "padding_top_desktop",
+      "label": "Top Padding (Desktop)",
+      "min": 0,
+      "max": 160,
+      "step": 8,
+      "default": 56,
+      "unit": "px"
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom_desktop",
+      "label": "Bottom Padding (Desktop)",
+      "min": 0,
+      "max": 160,
+      "step": 8,
+      "default": 56,
+      "unit": "px"
+    },
+    {
+      "type": "range",
+      "id": "padding_left_desktop",
+      "label": "Left Padding (Desktop)",
+      "min": 0,
+      "max": 96,
+      "step": 8,
+      "default": 32,
+      "unit": "px"
+    },
+    {
+      "type": "range",
+      "id": "padding_right_desktop",
+      "label": "Right Padding (Desktop)",
+      "min": 0,
+      "max": 96,
+      "step": 8,
+      "default": 32,
+      "unit": "px"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "feature",
+      "name": "Feature Row",
+      "settings": [
+        { "type": "richtext", "id": "feature", "label": "Feature Name", "default": "<p>Depolarizing Technology</p>" },
+        { "type": "checkbox", "id": "us_checked", "label": "Check for US/Our Column", "default": true },
+        { "type": "checkbox", "id": "others_checked", "label": "Check for Others/Other Column", "default": false },
+        {
+          "type": "color",
+          "id": "us_cell_gradient_start",
+          "label": "US/Our Cell Gradient Start",
+          "default": "#1db954"
+        },
+        { "type": "color", "id": "us_cell_gradient_end", "label": "US/Our Cell Gradient End", "default": "#e6f9ec" }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Why Our Product Gradient",
+      "blocks": [
+        {
+          "type": "feature",
+          "settings": {
+            "feature": "<p>Depolarizing Technology</p>",
+            "us_checked": true,
+            "others_checked": false,
+            "us_cell_gradient_start": "#1db954",
+            "us_cell_gradient_end": "#e6f9ec"
+          }
+        },
+        {
+          "type": "feature",
+          "settings": {
+            "feature": "<p>Portable Design</p>",
+            "us_checked": true,
+            "others_checked": false,
+            "us_cell_gradient_start": "#1db954",
+            "us_cell_gradient_end": "#e6f9ec"
+          }
+        },
+        {
+          "type": "feature",
+          "settings": {
+            "feature": "<p>Natural Materials</p>",
+            "us_checked": true,
+            "others_checked": false,
+            "us_cell_gradient_start": "#1db954",
+            "us_cell_gradient_end": "#e6f9ec"
+          }
+        },
+        {
+          "type": "feature",
+          "settings": {
+            "feature": "<p>Continuous Protection</p>",
+            "us_checked": true,
+            "others_checked": false,
+            "us_cell_gradient_start": "#1db954",
+            "us_cell_gradient_end": "#e6f9ec"
+          }
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}
