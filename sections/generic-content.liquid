@@ -21,12 +21,23 @@
     color: rgba(var(--color-foreground), 1);
   }
   .generic-content__heading-part-2 {
-    color: rgba(var(--color-button), 1);
+    color: rgba(var(--color-foreground), 1);
   }
   .generic-content__description {
     color: rgba(var(--color-foreground), 1);
     font-size: 1.2rem;
     margin-bottom: 0;
+  }
+  .generic-content__hide-mobile {
+    display: none !important;
+  }
+  @media (min-width: 1024px) {
+    .generic-content__hide-desktop {
+      display: none !important;
+    }
+    .generic-content__hide-mobile {
+      display: block !important;
+    }
   }
 {% endstyle %}
 <div class="section-{{ section.id }}-padding color-{{ section.settings.color_scheme }}">
@@ -34,25 +45,16 @@
     {% for block in section.blocks %}
       {% case block.type %}
         {% when 'caption' %}
-          {% assign show_caption = false %}
           {% if block.settings.caption != blank %}
-            {% if block.settings.show_on_mobile and block.settings.show_on_desktop %}
-              {% assign show_caption = true %}
-            {% elsif block.settings.show_on_mobile
-              and request.design_mode == false
-              and request.device_type == 'mobile'
-            %}
-              {% assign show_caption = true %}
-            {% elsif block.settings.show_on_desktop
-              and request.design_mode == false
-              and request.device_type == 'desktop'
-            %}
-              {% assign show_caption = true %}
-            {% endif %}
-          {% endif %}
-          {% if show_caption %}
+            {% assign caption_classes = '' %}
+            {% unless block.settings.show_on_mobile %}
+              {% assign caption_classes = caption_classes | append: ' generic-content__hide-mobile' %}
+            {% endunless %}
+            {% unless block.settings.show_on_desktop %}
+              {% assign caption_classes = caption_classes | append: ' generic-content__hide-desktop' %}
+            {% endunless %}
             <p
-              class="generic-content__caption caption-with-letter-spacing"
+              class="generic-content__caption caption-with-letter-spacing{{ caption_classes }}"
               style="text-align: {{ block.settings.caption_alignment }};"
             >
               {{ block.settings.caption | escape }}
@@ -61,8 +63,15 @@
         {% when 'heading' %}
           {% if block.settings.heading != blank %}
             {% assign heading_parts = block.settings.heading | split: '|' %}
+            {% assign heading_classes = block.settings.heading_size %}
+            {% unless block.settings.show_on_mobile %}
+              {% assign heading_classes = heading_classes | append: ' generic-content__hide-mobile' %}
+            {% endunless %}
+            {% unless block.settings.show_on_desktop %}
+              {% assign heading_classes = heading_classes | append: ' generic-content__hide-desktop' %}
+            {% endunless %}
             <h2
-              class="generic-content__heading {{ block.settings.heading_size }}"
+              class="generic-content__heading {{ heading_classes }}"
               style="text-align: {{ block.settings.heading_alignment }}; max-width: {{ block.settings.heading_max_width }}px; margin-left: auto; margin-right: auto;"
             >
               <span class="generic-content__heading-part-1">{{ heading_parts[0] | strip }}</span>
@@ -71,8 +80,15 @@
           {% endif %}
         {% when 'description' %}
           {% if block.settings.description != blank %}
+            {% assign description_classes = '' %}
+            {% unless block.settings.show_on_mobile %}
+              {% assign description_classes = description_classes | append: ' generic-content__hide-mobile' %}
+            {% endunless %}
+            {% unless block.settings.show_on_desktop %}
+              {% assign description_classes = description_classes | append: ' generic-content__hide-desktop' %}
+            {% endunless %}
             <div
-              class="generic-content__description"
+              class="generic-content__description{{ description_classes }}"
               style="text-align: {{ block.settings.description_alignment }}; max-width: {{ block.settings.description_max_width }}px; margin-left: auto; margin-right: auto;"
             >
               {{ block.settings.description | replace: '<p>', '<p style="margin: 0;">' }}
@@ -263,6 +279,18 @@
           "unit": "px",
           "label": "Max width (desktop)",
           "default": 1200
+        },
+        {
+          "type": "checkbox",
+          "id": "show_on_mobile",
+          "label": "Show on mobile",
+          "default": true
+        },
+        {
+          "type": "checkbox",
+          "id": "show_on_desktop",
+          "label": "Show on desktop",
+          "default": true
         }
       ]
     },
@@ -296,6 +324,18 @@
           "unit": "px",
           "label": "Max width (desktop)",
           "default": 1200
+        },
+        {
+          "type": "checkbox",
+          "id": "show_on_mobile",
+          "label": "Show on mobile",
+          "default": true
+        },
+        {
+          "type": "checkbox",
+          "id": "show_on_desktop",
+          "label": "Show on desktop",
+          "default": true
         }
       ]
     }
