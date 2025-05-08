@@ -222,13 +222,13 @@
       },
       "scheme-23a29e7f-f949-4e5f-9ecb-31639c0c2c42": {
         "settings": {
-          "background": "#ffffff",
+          "background": "{{ shop.brand.colors.secondary[1].background }}",
           "background_gradient": "",
-          "text": "#121212",
-          "button": "#121212",
-          "button_label": "#ffffff",
-          "secondary_button_label": "#121212",
-          "shadow": "#121212"
+          "text": "{{ shop.brand.colors.secondary[0].background }}",
+          "button": "{{ shop.brand.colors.primary[0].background }}",
+          "button_label": "{{ shop.brand.colors.secondary[1].background }}",
+          "secondary_button_label": "{{ shop.brand.colors.primary[0].background }}",
+          "shadow": "{{ shop.brand.colors.primary[0].foreground }}"
         }
       }
     }

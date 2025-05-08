@@ -75,7 +75,9 @@
               style="text-align: {{ block.settings.heading_alignment }}; max-width: {{ block.settings.heading_max_width }}px; margin-left: auto; margin-right: auto;"
             >
               <span class="generic-content__heading-part-1">{{ heading_parts[0] | strip }}</span>
-              <span class="generic-content__heading-part-2">{{ heading_parts[1] | strip }}</span>
+              <span class="generic-content__heading-part-2" style="color: {{ block.settings.heading_2nd_part_color }};">
+                {{- heading_parts[1] | strip -}}
+              </span>
             </h2>
           {% endif %}
         {% when 'description' %}
@@ -244,7 +246,13 @@
           "id": "heading",
           "label": "Heading",
           "default": "Lorem ipsum dolor sit amet consectetur adipiscing elit.",
-          "info": "Use | to split heading into two parts. First part uses text color, second part uses button color. Example: First part|Second part"
+          "info": "Use | to split heading into two parts. First part uses text color, second part uses heading 2nd part color. Example: First part|Second part"
+        },
+        {
+          "type": "color",
+          "id": "heading_2nd_part_color",
+          "label": "Heading 2nd Part Color",
+          "default": "#000000"
         },
         {
           "type": "select",
