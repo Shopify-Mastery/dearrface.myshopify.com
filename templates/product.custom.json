@@ -109,7 +109,7 @@
             "us_checked": true,
             "others_checked": false,
             "us_cell_gradient_start": "#ff66c4b8",
-            "us_cell_gradient_end": "#ff66c4a2"
+            "us_cell_gradient_end": "#ff66c4a3"
           }
         },
         "feature_ptR3Kp": {
@@ -118,8 +118,8 @@
             "feature": "<p>Long wear mask absorbs 95% of ingredients</p>",
             "us_checked": true,
             "others_checked": false,
-            "us_cell_gradient_start": "#ff66c4a2",
-            "us_cell_gradient_end": "#ff66c4a4"
+            "us_cell_gradient_start": "#ff66c4a3",
+            "us_cell_gradient_end": "#ff66c4a3"
           }
         },
         "feature_JxGbai": {
@@ -128,7 +128,7 @@
             "feature": "<p>Includes collagen, aloe vera, and niacinamide blend</p>",
             "us_checked": true,
             "others_checked": false,
-            "us_cell_gradient_start": "#ff66c4a2",
+            "us_cell_gradient_start": "#ff66c4a3",
             "us_cell_gradient_end": "#ff66c487"
           }
         },
@@ -152,6 +152,8 @@
       ],
       "name": "Why Our Product Table",
       "settings": {
+        "color_scheme": "scheme-1",
+        "max_width_desktop": 1000,
         "us_col_th_color": "{{ shop.brand.colors.secondary[1].background }}",
         "others_col_th_color": "{{ shop.brand.colors.secondary[0].background }}",
         "us_col_gradient_start": "{{ shop.brand.colors.primary[0].background }}",
@@ -164,7 +166,6 @@
         "cross_color": "{{ shop.brand.colors.secondary[0].background }}",
         "icon_bg": "{{ shop.brand.colors.secondary[1].background }}",
         "rounded_corners": true,
-        "background_color": "#ffffff",
         "padding_top_mobile": 0,
         "padding_bottom_mobile": 32,
         "padding_left_mobile": 0,

@@ -1,10 +1,15 @@
 {% style %}
   .why-our-product {
-    background-color: {{ section.settings.background_color }};
     padding-top: {{ section.settings.padding_top_mobile }}px;
     padding-bottom: {{ section.settings.padding_bottom_mobile }}px;
     padding-left: {{ section.settings.padding_left_mobile }}px;
     padding-right: {{ section.settings.padding_right_mobile }}px;
+  }
+  .why-our-product .page-width {
+    width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+    max-width: 100%;
   }
   @media (min-width: 1024px) {
     .why-our-product {
@@ -12,6 +17,9 @@
       padding-bottom: {{ section.settings.padding_bottom_desktop }}px;
       padding-left: {{ section.settings.padding_left_desktop }}px;
       padding-right: {{ section.settings.padding_right_desktop }}px;
+    }
+    .why-our-product .page-width {
+      max-width: {{ section.settings.max_width_desktop }}px;
     }
   }
   .why-our-product__table-wrap {
@@ -63,6 +71,7 @@
     color: {{ section.settings.others_col_th_color }};
   }
   .why-our-product__table tr td {
+    color: rgba(var(--color-foreground), 1);
     border: 1px solid {{ section.settings.row_border_color }};
   }
   .why-our-product__table tr td:nth-child(1) {
@@ -123,7 +132,7 @@
     }
   }
 {% endstyle %}
-<div class="why-our-product">
+<div class="why-our-product color-{{ section.settings.color_scheme }} gradient">
   <div class="page-width">
     <div class="why-our-product__table-wrap">
       <table class="why-our-product__table">
@@ -180,6 +189,21 @@
   "tag": "section",
   "class": "section",
   "settings": [
+    {
+      "type": "color_scheme",
+      "id": "color_scheme",
+      "label": "Section color scheme",
+      "default": "scheme-1"
+    },
+    {
+      "type": "range",
+      "id": "max_width_desktop",
+      "label": "Max Width (Desktop)",
+      "min": 200,
+      "max": 1200,
+      "step": 20,
+      "default": 1200
+    },
     { "type": "color", "id": "us_col_th_color", "label": "US Column Header Text Color", "default": "#1db954" },
     { "type": "color", "id": "others_col_th_color", "label": "Others Column Header Text Color", "default": "#222" },
     {
@@ -202,7 +226,6 @@
     { "type": "color", "id": "cross_color", "label": "Cross Color", "default": "#e74c3c" },
     { "type": "color", "id": "icon_bg", "label": "Icon Background Color", "default": "#fff" },
     { "type": "checkbox", "id": "rounded_corners", "label": "Rounded Corners for Table", "default": true },
-    { "type": "color", "id": "background_color", "label": "Section Background Color", "default": "#fff" },
     { "type": "header", "content": "Section Padding (Mobile)" },
     {
       "type": "range",
