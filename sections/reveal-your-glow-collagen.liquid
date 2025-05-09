@@ -1,0 +1,359 @@
+{% style %}
+  .reveal-glow-{{ section.id }}-padding {
+    padding-top: {{ section.settings.padding_top_mobile }}px;
+    padding-bottom: {{ section.settings.padding_bottom_mobile }}px;
+    padding-left: {{ section.settings.padding_left_mobile }}px;
+    padding-right: {{ section.settings.padding_right_mobile }}px;
+  }
+  @media (min-width: 1024px) {
+    .reveal-glow-{{ section.id }}-padding {
+      padding-top: {{ section.settings.padding_top_desktop }}px;
+      padding-bottom: {{ section.settings.padding_bottom_desktop }}px;
+      padding-left: {{ section.settings.padding_left_desktop }}px;
+      padding-right: {{ section.settings.padding_right_desktop }}px;
+    }
+  }
+  .reveal-glow-{{ section.id }} {
+    width: 100%;
+  }
+  .reveal-glow-{{ section.id }}__container {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+  }
+  @media (min-width: 768px) {
+    .reveal-glow-{{ section.id }}__container {
+      flex-direction: row;
+      justify-content: space-between;
+      align-items: stretch;
+      gap: 3.33%; /* 10% of 3 columns */
+    }
+    .reveal-glow-{{ section.id }}__block {
+      width: 30%;
+      min-width: 0;
+    }
+  }
+  .reveal-glow-{{ section.id }}__block {
+    width: 100%;
+    min-width: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+  .reveal-glow-{{ section.id }}__image-bg {
+    display: block !important;
+    width: 100%;
+    aspect-ratio: 1/1;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    border-style: solid;
+    border-width: 4px;
+  }
+  .reveal-glow-{{ section.id }}__content {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    gap: 1rem;
+    padding: 2rem 1rem;
+  }
+  .reveal-glow-{{ section.id }}__logo {
+    display: block !important;
+    width: 5.5rem;
+    height: 5.5rem;
+    border-radius: 50%;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .reveal-glow-{{ section.id }}__heading {
+    color: rgba(var(--color-foreground), 1);
+    font-weight: 700;
+    font-size: 2rem;
+    line-height: 1.2;
+  }
+  @media (min-width: 768px) {
+    .reveal-glow-{{ section.id }}__heading {
+      font-size: 1.5rem;
+    }
+  }
+  @media (min-width: 1024px) {
+    .reveal-glow-{{ section.id }}__heading {
+      font-size: 2.4rem;
+    }
+  }
+  .reveal-glow-{{ section.id }}__heading-part-2 {
+    color: {{ section.settings.heading_2nd_part_color }};
+  }
+  .reveal-glow-{{ section.id }}__desc {
+    font-size: 1.2rem;
+    color: rgba(var(--color-foreground), 1);
+  }
+  .reveal-glow-{{ section.id }}__button {
+    width: 100%;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 1rem 2.5rem;
+    font-size: 1.2rem;
+    font-weight: 700;
+    text-decoration: none;
+    background: rgba(var(--color-button), 1);
+    color: rgba(var(--color-button-text), 1);
+    border-radius: 0.5rem;
+    border: none;
+    borsor: pointer;
+    transition: background 0.2s, color 0.2s;
+  }
+{% endstyle %}
+<div class="reveal-glow-{{ section.id }}-padding color-{{ section.settings.color_scheme }}">
+  <div class="page-width">
+    <div class="reveal-glow-{{ section.id }}__container">
+      {% for block in section.blocks %}
+        {% case block.type %}
+          {% when 'image' %}
+            <div class="reveal-glow-{{ section.id }}__block">
+              <div
+                class="reveal-glow-{{ section.id }}__image-bg"
+                style="
+                  background-image: url('{% if block.settings.image != blank %}{{ block.settings.image | image_url: width: 800 }}{% endif %}');
+                  border-color: {{ block.settings.image_border_color }};
+                  border-top-left-radius: {{ block.settings.image_radius_tl }}px;
+                  border-top-right-radius: {{ block.settings.image_radius_tr }}px;
+                  border-bottom-right-radius: {{ block.settings.image_radius_br }}px;
+                  border-bottom-left-radius: {{ block.settings.image_radius_bl }}px;
+                "
+              ></div>
+            </div>
+          {% when 'content' %}
+            <div class="reveal-glow-{{ section.id }}__block">
+              <div class="reveal-glow-{{ section.id }}__content">
+                <div
+                  class="reveal-glow-{{ section.id }}__logo"
+                  style="background-image: url('{% if block.settings.logo != blank %}{{ block.settings.logo | image_url: width: 200 }}{% endif %}');"
+                ></div>
+                {% assign heading_parts = block.settings.heading | split: '|' %}
+                <div class="reveal-glow-{{ section.id }}__heading">
+                  <span class="reveal-glow-{{ section.id }}__heading-part-1">{{ heading_parts[0] | strip }}</span>
+                  {% if heading_parts.size > 1 %}
+                    <span
+                      class="reveal-glow-{{ section.id }}__heading-part-2"
+                      style="color: {{ block.settings.heading_2nd_part_color }};"
+                    >
+                      {{- heading_parts[1] | strip -}}
+                    </span>
+                  {% endif %}
+                </div>
+                <div class="reveal-glow-{{ section.id }}__desc">
+                  {{ block.settings.description }}
+                </div>
+                {% if product and product.selected_or_first_available_variant %}
+                  <a
+                    href="/cart/{{ product.selected_or_first_available_variant.id }}:1?checkout[attributes][from]=product-details"
+                    class="reveal-glow-{{ section.id }}__button"
+                  >
+                    <span class="reveal-glow-{{ section.id }}__button-text">{{ block.settings.button_text }}</span>
+                    <span class="reveal-glow-{{ section.id }}__button-icon">
+                      <svg xmlns="http://www.w3.org/2000/svg" fill="none" class="icon icon-arrow" viewBox="0 0 14 10">
+                        <path fill="currentColor" fill-rule="evenodd" d="M8.537.808a.5.5 0 0 1 .817-.162l4 4a.5.5 0 0 1 0 .708l-4 4a.5.5 0 1 1-.708-.708L11.793 5.5H1a.5.5 0 0 1 0-1h10.793L8.646 1.354a.5.5 0 0 1-.109-.546" clip-rule="evenodd"/>
+                      </svg>
+                    </span>
+                  </a>
+                {% else %}
+                  <a href="#" class="reveal-glow-{{ section.id }}__button" aria-disabled="true">
+                    <span class="reveal-glow-{{ section.id }}__button-text">{{ block.settings.button_text }}</span>
+                    <span class="reveal-glow-{{ section.id }}__button-icon">
+                      <svg xmlns="http://www.w3.org/2000/svg" fill="none" class="icon icon-arrow" viewBox="0 0 14 10">
+                        <path fill="currentColor" fill-rule="evenodd" d="M8.537.808a.5.5 0 0 1 .817-.162l4 4a.5.5 0 0 1 0 .708l-4 4a.5.5 0 1 1-.708-.708L11.793 5.5H1a.5.5 0 0 1 0-1h10.793L8.646 1.354a.5.5 0 0 1-.109-.546" clip-rule="evenodd"/>
+                      </svg>
+                    </span>
+                  </a>
+                {% endif %}
+              </div>
+            </div>
+        {% endcase %}
+      {% endfor %}
+    </div>
+  </div>
+</div>
+{% schema %}
+{
+  "name": "Reveal Your Glow Collagen",
+  "tag": "section",
+  "class": "section",
+  "settings": [
+    { "type": "color_scheme", "id": "color_scheme", "label": "Color scheme", "default": "scheme-1" },
+    { "type": "header", "content": "Section Padding (Mobile)" },
+    {
+      "type": "range",
+      "id": "padding_top_mobile",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "Padding top (mobile)",
+      "default": 24
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom_mobile",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "Padding bottom (mobile)",
+      "default": 24
+    },
+    {
+      "type": "range",
+      "id": "padding_left_mobile",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "Padding left (mobile)",
+      "default": 0
+    },
+    {
+      "type": "range",
+      "id": "padding_right_mobile",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "Padding right (mobile)",
+      "default": 0
+    },
+    { "type": "header", "content": "Section Padding (Desktop)" },
+    {
+      "type": "range",
+      "id": "padding_top_desktop",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "Padding top (desktop)",
+      "default": 48
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom_desktop",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "Padding bottom (desktop)",
+      "default": 48
+    },
+    {
+      "type": "range",
+      "id": "padding_left_desktop",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "Padding left (desktop)",
+      "default": 0
+    },
+    {
+      "type": "range",
+      "id": "padding_right_desktop",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "Padding right (desktop)",
+      "default": 0
+    }
+  ],
+  "blocks": [
+    {
+      "type": "image",
+      "name": "Image Block",
+      "settings": [
+        { "type": "image_picker", "id": "image", "label": "Image" },
+        { "type": "color", "id": "image_border_color", "label": "Image border color", "default": "#e87fc1" },
+        {
+          "type": "range",
+          "id": "image_radius_tl",
+          "min": 0,
+          "max": 80,
+          "step": 2,
+          "unit": "px",
+          "label": "Top left radius",
+          "default": 32
+        },
+        {
+          "type": "range",
+          "id": "image_radius_tr",
+          "min": 0,
+          "max": 80,
+          "step": 2,
+          "unit": "px",
+          "label": "Top right radius",
+          "default": 32
+        },
+        {
+          "type": "range",
+          "id": "image_radius_br",
+          "min": 0,
+          "max": 80,
+          "step": 2,
+          "unit": "px",
+          "label": "Bottom right radius",
+          "default": 32
+        },
+        {
+          "type": "range",
+          "id": "image_radius_bl",
+          "min": 0,
+          "max": 80,
+          "step": 2,
+          "unit": "px",
+          "label": "Bottom left radius",
+          "default": 32
+        }
+      ]
+    },
+    {
+      "type": "content",
+      "name": "Content Block",
+      "settings": [
+        { "type": "image_picker", "id": "logo", "label": "Circular logo / picture" },
+        {
+          "type": "text",
+          "id": "heading",
+          "label": "Title (use | to split)",
+          "default": "Glow Instantly With Every|Collagen Mask Use",
+          "info": "Use | to split heading into two parts. Second part uses the color below."
+        },
+        { "type": "color", "id": "heading_2nd_part_color", "label": "Title 2nd part color", "default": "#e87fc1" },
+        {
+          "type": "richtext",
+          "id": "description",
+          "label": "Description",
+          "default": "<p>Deeply hydrates, firms skin, and reveals a youthful radiant glow.</p>"
+        },
+        { "type": "text", "id": "button_text", "label": "Button text", "default": "Buy Now" },
+        { "type": "url", "id": "button_link", "label": "Button link" },
+        { "type": "color", "id": "button_text_color", "label": "Button text color", "default": "#fff" }
+      ]
+    }
+  ],
+  "max_blocks": 3,
+  "presets": [
+    {
+      "name": "Reveal Your Glow With Collagen",
+      "blocks": [{ "type": "image" }, { "type": "content" }, { "type": "image" }]
+    }
+  ]
+}
+{% endschema %}
