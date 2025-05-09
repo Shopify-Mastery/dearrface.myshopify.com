@@ -1,0 +1,229 @@
+{% style %}
+  .real-results-glow-{{ section.id }} {
+    padding-top: {{ section.settings.padding_top_mobile }}px;
+    padding-bottom: {{ section.settings.padding_bottom_mobile }}px;
+    padding-left: {{ section.settings.padding_left_mobile }}px;
+    padding-right: {{ section.settings.padding_right_mobile }}px;
+  }
+  @media (min-width: 1024px) {
+    .real-results-glow-{{ section.id }} {
+      padding-top: {{ section.settings.padding_top_desktop }}px;
+      padding-bottom: {{ section.settings.padding_bottom_desktop }}px;
+      padding-left: {{ section.settings.padding_left_desktop }}px;
+      padding-right: {{ section.settings.padding_right_desktop }}px;
+    }
+  }
+  .real-results-glow-{{ section.id }}__cards {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+  @media (min-width: 768px) {
+    .real-results-glow-{{ section.id }}__cards {
+      grid-template-columns: 1fr 1fr;
+    }
+  }
+  @media (min-width: 1024px) {
+    .real-results-glow-{{ section.id }}__cards {
+      grid-template-columns: 1fr 1fr 1fr 1fr;
+    }
+  }
+  .real-results-glow-{{ section.id }}__card {
+    position: relative;
+    background: var(--card-bg, #ff6ec7);
+    color: var(--card-content, #fff);
+    border-radius: 1.5rem;
+    padding: 4.5rem 1.5rem 2.5rem 1.5rem;
+    text-align: center;
+    overflow: visible;
+    min-height: 340px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-end;
+  }
+  .real-results-glow-{{ section.id }}__card-image {
+    position: absolute;
+    top: -56px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 112px;
+    height: 112px;
+    border-radius: 50%;
+    background-size: cover;
+    background-position: center;
+    border: 6px solid #fff;
+    box-shadow: 0 4px 24px rgba(0,0,0,0.08);
+    z-index: 2;
+  }
+  .real-results-glow-{{ section.id }}__author {
+    font-weight: 700;
+    font-size: 1.5rem;
+    margin-top: 2.5rem;
+    margin-bottom: 1.2rem;
+  }
+  .real-results-glow-{{ section.id }}__review {
+    font-size: 1.1rem;
+    margin-bottom: 2rem;
+  }
+  .real-results-glow-{{ section.id }}__stars {
+    display: flex;
+    justify-content: center;
+    gap: 0.3rem;
+    font-size: 2rem;
+  }
+{% endstyle %}
+<div class="real-results-glow-{{ section.id }}">
+  <div class="page-width">
+    <div class="real-results-glow-{{ section.id }}__cards">
+      {% for block in section.blocks %}
+        <div
+          class="real-results-glow-{{ section.id }}__card"
+          style="--card-bg: {{ block.settings.card_bg }}; --card-content: {{ block.settings.card_content_color }};"
+        >
+          <div
+            class="real-results-glow-{{ section.id }}__card-image"
+            style="background-image: url('{{ block.settings.image | image_url: width:224 }}');"
+          ></div>
+          <div class="real-results-glow-{{ section.id }}__author">{{ block.settings.author_name }}</div>
+          <div class="real-results-glow-{{ section.id }}__review">{{ block.settings.review_text }}</div>
+          <div class="real-results-glow-{{ section.id }}__stars">
+            {% for i in (1..5) %}
+              {% if i <= block.settings.star_rating %}
+                <span>★</span>
+              {% else %}
+                <span style="opacity:0.3;">★</span>
+              {% endif %}
+            {% endfor %}
+          </div>
+        </div>
+      {% endfor %}
+    </div>
+  </div>
+</div>
+{% schema %}
+{
+  "name": "Real Results See The Glow",
+  "settings": [
+    {
+      "type": "color_scheme",
+      "id": "color_scheme",
+      "label": "Section color scheme"
+    },
+    {
+      "type": "header",
+      "content": "Section Padding (Mobile)"
+    },
+    {
+      "type": "number",
+      "id": "padding_top_mobile",
+      "label": "Top padding (mobile)",
+      "default": 32
+    },
+    {
+      "type": "number",
+      "id": "padding_bottom_mobile",
+      "label": "Bottom padding (mobile)",
+      "default": 32
+    },
+    {
+      "type": "number",
+      "id": "padding_left_mobile",
+      "label": "Left padding (mobile)",
+      "default": 0
+    },
+    {
+      "type": "number",
+      "id": "padding_right_mobile",
+      "label": "Right padding (mobile)",
+      "default": 0
+    },
+    {
+      "type": "header",
+      "content": "Section Padding (Desktop)"
+    },
+    {
+      "type": "number",
+      "id": "padding_top_desktop",
+      "label": "Top padding (desktop)",
+      "default": 64
+    },
+    {
+      "type": "number",
+      "id": "padding_bottom_desktop",
+      "label": "Bottom padding (desktop)",
+      "default": 64
+    },
+    {
+      "type": "number",
+      "id": "padding_left_desktop",
+      "label": "Left padding (desktop)",
+      "default": 0
+    },
+    {
+      "type": "number",
+      "id": "padding_right_desktop",
+      "label": "Right padding (desktop)",
+      "default": 0
+    }
+  ],
+  "blocks": [
+    {
+      "type": "testimonial",
+      "name": "Testimonial Card",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Author image"
+        },
+        {
+          "type": "color",
+          "id": "card_bg",
+          "label": "Card background color",
+          "default": "#ff6ec7"
+        },
+        {
+          "type": "color",
+          "id": "card_content_color",
+          "label": "Card content color",
+          "default": "#fff"
+        },
+        {
+          "type": "inline_richtext",
+          "id": "author_name",
+          "label": "Author name",
+          "default": "Author Name"
+        },
+        {
+          "type": "richtext",
+          "id": "review_text",
+          "label": "Review text",
+          "default": "<p>Review text goes here.</p>"
+        },
+        {
+          "type": "range",
+          "id": "star_rating",
+          "label": "Star rating",
+          "min": 1,
+          "max": 5,
+          "step": 1,
+          "default": 5
+        }
+      ]
+    }
+  ],
+  "max_blocks": 8,
+  "presets": [
+    {
+      "name": "Real Results See The Glow",
+      "blocks": [
+        { "type": "testimonial" },
+        { "type": "testimonial" },
+        { "type": "testimonial" },
+        { "type": "testimonial" }
+      ]
+    }
+  ]
+}
+{% endschema %}
