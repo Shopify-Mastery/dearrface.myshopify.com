@@ -53,21 +53,6 @@
     margin-bottom: 1.5rem;
     line-height: 1.5;
   }
-  .radiant-skin-experience-{{ section.id }} .radiant-skin-experience__list {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-  }
-  .radiant-skin-experience-{{ section.id }} .radiant-skin-experience__list li {
-    display: flex;
-    align-items: flex-start;
-    gap: 0.7rem;
-    font-size: 1.1rem;
-    margin-bottom: 0.7rem;
-  }
-  .radiant-skin-experience-{{ section.id }} .radiant-skin-experience__list li:last-child {
-    margin-bottom: 0;
-  }
   .radiant-skin-experience-{{ section.id }} .radiant-skin-experience__check {
     color: #e87fc1;
     font-size: 1.2rem;
@@ -144,26 +129,37 @@
         <div class="radiant-skin-experience__card">
           <div class="radiant-skin-experience__title">{{ section.settings.title }}</div>
           <div class="radiant-skin-experience__desc">{{ section.settings.description }}</div>
-          <ul class="radiant-skin-experience__list">
-            <li>
-              <span class="radiant-skin-experience__check">&#10004;</span> Deep hydration for a youthful, glowing look
-            </li>
-            <li>
-              <span class="radiant-skin-experience__check">&#10003;</span> Reduces wrinkles and fine lines effectively
-            </li>
-            <li><span class="radiant-skin-experience__check">&#10003;</span> Smooths texture for soft, supple skin</li>
-            <li>
-              <span class="radiant-skin-experience__check">&#10003;</span> Natural ingredients gentle on all skin types
-            </li>
-            <li>
-              <span class="radiant-skin-experience__check">&#10003;</span> Firms skin and boosts collagen production
-            </li>
-          </ul>
         </div>
       </div>
     </div>
   </div>
 </div>
+{% javascript %}
+  const section = document.querySelector('.radiant-skin-experience-{{ section.id }}');
+  if (section) {
+    const setPadding = () => {
+      const isDesktop = window.matchMedia('(min-width: 1024px)').matches;
+      section.style.setProperty(
+        '--section-pt',
+        isDesktop ? '{{ section.settings.padding_top_desktop }}px' : '{{ section.settings.padding_top_mobile }}px'
+      );
+      section.style.setProperty(
+        '--section-pb',
+        isDesktop ? '{{ section.settings.padding_bottom_desktop }}px' : '{{ section.settings.padding_bottom_mobile }}px'
+      );
+      section.style.setProperty(
+        '--section-pl',
+        isDesktop ? '{{ section.settings.padding_left_desktop }}px' : '{{ section.settings.padding_left_mobile }}px'
+      );
+      section.style.setProperty(
+        '--section-pr',
+        isDesktop ? '{{ section.settings.padding_right_desktop }}px' : '{{ section.settings.padding_right_mobile }}px'
+      );
+    };
+    setPadding();
+    window.addEventListener('resize', setPadding);
+  }
+{% endjavascript %}
 {% schema %}
 {
   "name": "Radiant Skin Experience",
@@ -315,29 +311,3 @@
   ]
 }
 {% endschema %}
-{% javascript %}
-  const section = document.querySelector('.radiant-skin-experience-{{ section.id }}');
-  if (section) {
-    const setPadding = () => {
-      const isDesktop = window.matchMedia('(min-width: 1024px)').matches;
-      section.style.setProperty(
-        '--section-pt',
-        isDesktop ? '{{ section.settings.padding_top_desktop }}px' : '{{ section.settings.padding_top_mobile }}px'
-      );
-      section.style.setProperty(
-        '--section-pb',
-        isDesktop ? '{{ section.settings.padding_bottom_desktop }}px' : '{{ section.settings.padding_bottom_mobile }}px'
-      );
-      section.style.setProperty(
-        '--section-pl',
-        isDesktop ? '{{ section.settings.padding_left_desktop }}px' : '{{ section.settings.padding_left_mobile }}px'
-      );
-      section.style.setProperty(
-        '--section-pr',
-        isDesktop ? '{{ section.settings.padding_right_desktop }}px' : '{{ section.settings.padding_right_mobile }}px'
-      );
-    };
-    setPadding();
-    window.addEventListener('resize', setPadding);
-  }
-{% endjavascript %}
