@@ -108,42 +108,41 @@
     }
   }
 
-  div.owl-item {
+  .ingredients-visible-results-{{ section.id }} div.owl-item {
     height: 45rem;
   }
   @media (min-width: 375px) {
-    div.owl-item {
+    .ingredients-visible-results-{{ section.id }} div.owl-item {
       height: 42rem;
     }
   }
   @media (min-width: 425px) {
-    div.owl-item {
+    .ingredients-visible-results-{{ section.id }} div.owl-item {
       height: 40rem;
     }
   }
   @media (min-width: 768px) {
-    div.owl-item {
+    .ingredients-visible-results-{{ section.id }} div.owl-item {
       height: 44rem;
     }
   }
   @media (min-width: 1440px) {
-    div.owl-item {
+    .ingredients-visible-results-{{ section.id }} div.owl-item {
       height: 40rem;
     }
   }
 
-  .owl-theme .owl-dots .owl-dot span {
+  .ingredients-visible-results-{{ section.id }} .owl-theme .owl-dots .owl-dot span {
     background: {{ section.settings.carousel_inactive_dot_color }};
     transition: background 0.3s;
   }
-  .owl-theme .owl-dots .owl-dot.active span,
-  .owl-theme .owl-dots .owl-dot:hover span {
+  .ingredients-visible-results-{{ section.id }} .owl-theme .owl-dots .owl-dot.active span,
+  .ingredients-visible-results-{{ section.id }} .owl-theme .owl-dots .owl-dot:hover span {
     background: {{ section.settings.carousel_active_dot_color }};
   }
 {% endstyle %}
 <div
   class="ingredients-visible-results-{{ section.id }} color-{{ section.settings.color_scheme }}"
-  data-section-id="{{ section.id }}"
 >
   <div class="page-width">
     <div class="ingredients-visible-results-{{ section.id }}__cards ingredients-visible-results__cards owl-carousel owl-theme">
@@ -188,6 +187,9 @@
       margin: 10,
       nav: false,
       dots: true,
+      autoplay: true,
+      autoplayTimeout: 2000,
+      autoplayHoverPause: true,
       responsive: {
         0: {
           items: 1,

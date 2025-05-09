@@ -63,6 +63,113 @@
         "heading_RNyeDz": {
           "type": "heading",
           "settings": {
+            "heading": "Real Results - |See the Glow",
+            "heading_2nd_part_color": "{{ shop.brand.colors.primary[0].background }}",
+            "heading_size": "h1",
+            "heading_alignment": "center",
+            "heading_max_width": 1200,
+            "show_on_mobile": true,
+            "show_on_desktop": true
+          }
+        }
+      },
+      "block_order": [
+        "heading_RNyeDz"
+      ],
+      "disabled": true,
+      "name": "Generic Text Content",
+      "settings": {
+        "color_scheme": "scheme-0cf8f8cb-efab-4593-9a11-d9e4036b83d5",
+        "padding_top_mobile": 24,
+        "padding_bottom_mobile": 24,
+        "padding_left_mobile": 0,
+        "padding_right_mobile": 0,
+        "padding_top_desktop": 16,
+        "padding_bottom_desktop": 32,
+        "padding_left_desktop": 0,
+        "padding_right_desktop": 0
+      }
+    },
+    "real_results_see_the_glow_VFYjjN": {
+      "type": "real-results-see-the-glow",
+      "blocks": {
+        "testimonial_PHaRA7": {
+          "type": "testimonial",
+          "settings": {
+            "image": "shopify://shop_images/christopher-campbell-rDEOVtE7vOs-unsplash.jpg",
+            "card_bg": "#ff6ec7",
+            "card_border_color": "{{ shop.brand.colors.primary[0].background }}",
+            "card_content_color": "#ffffff",
+            "author_name": "Lucca M.",
+            "review_text": "<p>\"This collagen mask changed my skincare game! My skin feels so much softer, hydrated, and looks visibly brighter. I’m absolutely obsessed with the glow!\"</p>",
+            "star_rating": 5
+          }
+        },
+        "testimonial_NzgJDK": {
+          "type": "testimonial",
+          "settings": {
+            "image": "shopify://shop_images/christopher-campbell-rDEOVtE7vOs-unsplash.jpg",
+            "card_bg": "#ff6ec7",
+            "card_border_color": "{{ shop.brand.colors.primary[0].background }}",
+            "card_content_color": "{{ shop.brand.colors.secondary[1].background }}",
+            "author_name": "Lucca M.",
+            "review_text": "<p>\"This collagen mask changed my skincare game! My skin feels so much softer, hydrated, and looks visibly brighter. I’m absolutely obsessed with the glow!\"</p>",
+            "star_rating": 5
+          }
+        },
+        "testimonial_WrEG3h": {
+          "type": "testimonial",
+          "settings": {
+            "image": "shopify://shop_images/christopher-campbell-rDEOVtE7vOs-unsplash.jpg",
+            "card_bg": "#ff6ec7",
+            "card_border_color": "{{ shop.brand.colors.primary[0].background }}",
+            "card_content_color": "{{ shop.brand.colors.secondary[1].background }}",
+            "author_name": "Lucca M.",
+            "review_text": "<p>\"This collagen mask changed my skincare game! My skin feels so much softer, hydrated, and looks visibly brighter. I’m absolutely obsessed with the glow!\"</p>",
+            "star_rating": 5
+          }
+        },
+        "testimonial_aNykPK": {
+          "type": "testimonial",
+          "settings": {
+            "image": "shopify://shop_images/christopher-campbell-rDEOVtE7vOs-unsplash.jpg",
+            "card_bg": "#ff6ec7",
+            "card_border_color": "{{ shop.brand.colors.primary[0].background }}",
+            "card_content_color": "{{ shop.brand.colors.secondary[1].background }}",
+            "author_name": "Lucca M.",
+            "review_text": "<p>\"This collagen mask changed my skincare game! My skin feels so much softer, hydrated, and looks visibly brighter. I’m absolutely obsessed with the glow!\"</p>",
+            "star_rating": 5
+          }
+        }
+      },
+      "block_order": [
+        "testimonial_PHaRA7",
+        "testimonial_NzgJDK",
+        "testimonial_WrEG3h",
+        "testimonial_aNykPK"
+      ],
+      "disabled": true,
+      "name": "Real Results See The Glow",
+      "settings": {
+        "color_scheme": "scheme-0cf8f8cb-efab-4593-9a11-d9e4036b83d5",
+        "carousel_active_dot_color": "{{ shop.brand.colors.primary[0].background }}",
+        "carousel_inactive_dot_color": "{{ shop.brand.colors.secondary[1].background }}",
+        "padding_top_mobile": 0,
+        "padding_bottom_mobile": 32,
+        "padding_left_mobile": 0,
+        "padding_right_mobile": 0,
+        "padding_top_desktop": 0,
+        "padding_bottom_desktop": 64,
+        "padding_left_desktop": 0,
+        "padding_right_desktop": 0
+      }
+    },
+    "generic_text_content_PnK8qK": {
+      "type": "generic-text-content",
+      "blocks": {
+        "heading_NwfJ8W": {
+          "type": "heading",
+          "settings": {
             "heading": "Powerful Ingredients, |Visible Results",
             "heading_2nd_part_color": "{{ shop.brand.colors.primary[0].background }}",
             "heading_size": "h1",
@@ -72,7 +179,7 @@
             "show_on_desktop": true
           }
         },
-        "description_7Mtzqi": {
+        "description_Ep6FQR": {
           "type": "description",
           "settings": {
             "description": "<p>Formulated with collagen extract, niacinamide, and aloe vera, this mask targets multiple skin concerns in one treatment. These powerhouse ingredients hydrate, brighten, and firm your skin — revealing a smooth, youthful glow.</p>",
@@ -84,9 +191,10 @@
         }
       },
       "block_order": [
-        "heading_RNyeDz",
-        "description_7Mtzqi"
+        "heading_NwfJ8W",
+        "description_Ep6FQR"
       ],
+      "disabled": true,
       "name": "Generic Text Content",
       "settings": {
         "color_scheme": "scheme-23a29e7f-f949-4e5f-9ecb-31639c0c2c42",
@@ -148,6 +256,7 @@
         "result_mhmDha",
         "result_YrmL9p"
       ],
+      "disabled": true,
       "name": "Ingredients Visible Results",
       "settings": {
         "color_scheme": "scheme-1",
@@ -404,6 +513,8 @@
   "order": [
     "main",
     "generic_text_content_L9YqWE",
+    "real_results_see_the_glow_VFYjjN",
+    "generic_text_content_PnK8qK",
     "ingredients_visible_results_GWD3qT",
     "generic_content_yGKNnH",
     "why_our_product_3QeDQx",

@@ -73,10 +73,23 @@
     gap: 0.3rem;
     font-size: 2rem;
   }
+
+  .real-results-glow-{{ section.id }} div.owl-item {
+    padding-top: 7rem;
+  }
+
+  .real-results-glow-{{ section.id }} .owl-theme .owl-dots .owl-dot span {
+    background: {{ section.settings.carousel_inactive_dot_color }};
+    transition: background 0.3s;
+  }
+  .real-results-glow-{{ section.id }} .owl-theme .owl-dots .owl-dot.active span,
+  .real-results-glow-{{ section.id }} .owl-theme .owl-dots .owl-dot:hover span {
+    background: {{ section.settings.carousel_active_dot_color }};
+  }
 {% endstyle %}
-<div class="real-results-glow-{{ section.id }}">
+<div class="real-results-glow-{{ section.id }} color-{{ section.settings.color_scheme }}">
   <div class="page-width">
-    <div class="real-results-glow-{{ section.id }}__cards">
+    <div class="real-results-glow-{{ section.id }}__cards real-results-glow__cards owl-carousel owl-theme">
       {% for block in section.blocks %}
         <div
           class="real-results-glow-{{ section.id }}__card"
@@ -84,7 +97,7 @@
         >
           <div
             class="real-results-glow-{{ section.id }}__card-image"
-            style="--border-color: {{ block.settings.card_bg }}; background-image: url('{{ block.settings.image | image_url: width:224 }}');"
+            style="--border-color: {{ block.settings.card_border_color }}; background-image: url('{{ block.settings.image | image_url: width:224 }}');"
           ></div>
           <div class="real-results-glow-{{ section.id }}__author">{{ block.settings.author_name }}</div>
           <div class="real-results-glow-{{ section.id }}__review">{{ block.settings.review_text }}</div>
@@ -102,6 +115,31 @@
     </div>
   </div>
 </div>
+{% javascript %}
+  (function () {
+    const $carousel = $('.real-results-glow__cards');
+    $carousel.owlCarousel({
+      loop: true,
+      margin: 10,
+      nav: false,
+      dots: true,
+      autoplay: true,
+      autoplayTimeout: 2000,
+      autoplayHoverPause: true,
+      responsive: {
+        0: {
+          items: 1,
+        },
+        768: {
+          items: 3,
+        },
+        1024: {
+          items: 4,
+        },
+      },
+    });
+  })();
+{% endjavascript %}
 {% schema %}
 {
   "name": "Real Results See The Glow",
@@ -110,6 +148,18 @@
       "type": "color_scheme",
       "id": "color_scheme",
       "label": "Section color scheme"
+    },
+    {
+      "type": "color",
+      "id": "carousel_active_dot_color",
+      "label": "Carousel Active Dot Color",
+      "default": "#869791"
+    },
+    {
+      "type": "color",
+      "id": "carousel_inactive_dot_color",
+      "label": "Carousel Inactive Dot Color",
+      "default": "#fff6fa"
     },
     {
       "type": "header",
@@ -183,6 +233,12 @@
           "id": "card_bg",
           "label": "Card background color",
           "default": "#ff6ec7"
+        },
+        {
+          "type": "color",
+          "id": "card_border_color",
+          "label": "Card border color",
+          "default": "#fff"
         },
         {
           "type": "color",
