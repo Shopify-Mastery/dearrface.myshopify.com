@@ -30,19 +30,20 @@
   }
   .real-results-glow-{{ section.id }}__card {
     position: relative;
-    background: var(--card-bg, #ff6ec7);
-    color: var(--card-content, #fff);
+    background: var(--card-bg, #FF66C4);
+    color: var(--card-content, #FFFFFF);
     border-radius: 1.5rem;
     padding: 4.5rem 1.5rem 2.5rem 1.5rem;
     text-align: center;
     overflow: visible;
-    min-height: 340px;
+    min-height: 20rem;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: flex-end;
   }
   .real-results-glow-{{ section.id }}__card-image {
+    display: block !important;
     position: absolute;
     top: -56px;
     left: 50%;
@@ -52,7 +53,7 @@
     border-radius: 50%;
     background-size: cover;
     background-position: center;
-    border: 6px solid #fff;
+    border: 6px solid var(--border-color, #fff);
     box-shadow: 0 4px 24px rgba(0,0,0,0.08);
     z-index: 2;
   }
@@ -83,7 +84,7 @@
         >
           <div
             class="real-results-glow-{{ section.id }}__card-image"
-            style="background-image: url('{{ block.settings.image | image_url: width:224 }}');"
+            style="--border-color: {{ block.settings.card_bg }}; background-image: url('{{ block.settings.image | image_url: width:224 }}');"
           ></div>
           <div class="real-results-glow-{{ section.id }}__author">{{ block.settings.author_name }}</div>
           <div class="real-results-glow-{{ section.id }}__review">{{ block.settings.review_text }}</div>
