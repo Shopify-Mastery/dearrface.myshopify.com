@@ -151,6 +151,8 @@
       "name": "Ingredients Visible Results",
       "settings": {
         "color_scheme": "scheme-1",
+        "carousel_active_dot_color": "{{ shop.brand.colors.primary[0].background }}",
+        "carousel_inactive_dot_color": "{{ shop.brand.colors.primary[0].foreground }}",
         "padding_top_mobile": 24,
         "padding_bottom_mobile": 48,
         "padding_left_mobile": 0,

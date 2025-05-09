@@ -1,7 +1,5 @@
 {% style %}
   .ingredients-visible-results-{{ section.id }} {
-    min-height: 55rem;
-    height: 160rem;
     padding-top: {{ section.settings.padding_top_mobile }}px;
     padding-bottom: {{ section.settings.padding_bottom_mobile }}px;
     padding-left: {{ section.settings.padding_left_mobile }}px;
@@ -9,18 +7,12 @@
   }
   @media (min-width: 768px) {
     .ingredients-visible-results-{{ section.id }} {
-      height: auto;
       padding-top: {{ section.settings.padding_top_desktop }}px;
       padding-bottom: {{ section.settings.padding_bottom_desktop }}px;
       padding-left: {{ section.settings.padding_left_desktop }}px;
       padding-right: {{ section.settings.padding_right_desktop }}px;
     }
   }
-  /* @media (min-width: 1024px) {
-    .ingredients-visible-results-{{ section.id }} {
-      min-height: 60rem;
-    }
-  } */
   .ingredients-visible-results-{{ section.id }}__cards {
     display: flex;
     flex-direction: column;
@@ -30,8 +22,6 @@
   }
   .ingredients-visible-results-{{ section.id }}__card {
     position: relative;
-    min-width: 28rem;
-    max-width: 36rem;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -52,7 +42,7 @@
     overflow: visible;
   }
   .ingredients-visible-results-{{ section.id }}__content {
-    position: absolute;
+    position: relative;
     left: 50%;
     bottom: -70%;
     transform: translateX(-50%);
@@ -117,6 +107,39 @@
       bottom: -60%;
     }
   }
+
+  div.owl-item {
+    height: 45rem;
+  }
+  @media (min-width: 375px) {
+    div.owl-item {
+      height: 42rem;
+    }
+  }
+  @media (min-width: 425px) {
+    div.owl-item {
+      height: 40rem;
+    }
+  }
+  @media (min-width: 768px) {
+    div.owl-item {
+      height: 44rem;
+    }
+  }
+  @media (min-width: 1440px) {
+    div.owl-item {
+      height: 40rem;
+    }
+  }
+
+  .owl-theme .owl-dots .owl-dot span {
+    background: {{ section.settings.carousel_inactive_dot_color }};
+    transition: background 0.3s;
+  }
+  .owl-theme .owl-dots .owl-dot.active span,
+  .owl-theme .owl-dots .owl-dot:hover span {
+    background: {{ section.settings.carousel_active_dot_color }};
+  }
 {% endstyle %}
 <div
   class="ingredients-visible-results-{{ section.id }} color-{{ section.settings.color_scheme }}"
@@ -159,21 +182,24 @@
 </div>
 {% javascript %}
   (function () {
-    //   const $carousel = $('.ingredients-visible-results__cards');
-    //   $carousel.owlCarousel({
-    //     loop: true,
-    //     margin: 10,
-    //     nav: false,
-    //     dots: true,
-    //     responsive: {
-    //       0: {
-    //         items: 1,
-    //       },
-    //       768: {
-    //         items: 3,
-    //       },
-    //     },
-    //   });
+    const $carousel = $('.ingredients-visible-results__cards');
+    $carousel.owlCarousel({
+      loop: true,
+      margin: 10,
+      nav: false,
+      dots: true,
+      responsive: {
+        0: {
+          items: 1,
+        },
+        768: {
+          items: 2,
+        },
+        1024: {
+          items: 3,
+        },
+      },
+    });
   })();
 {% endjavascript %}
 {% schema %}
@@ -187,6 +213,18 @@
       "id": "color_scheme",
       "label": "Color scheme",
       "default": "scheme-1"
+    },
+    {
+      "type": "color",
+      "id": "carousel_active_dot_color",
+      "label": "Carousel Active Dot Color",
+      "default": "#869791"
+    },
+    {
+      "type": "color",
+      "id": "carousel_inactive_dot_color",
+      "label": "Carousel Inactive Dot Color",
+      "default": "#fff6fa"
     },
     {
       "type": "header",
