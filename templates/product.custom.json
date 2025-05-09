@@ -57,6 +57,28 @@
         "padding_bottom": 12
       }
     },
+    "radiant_skin_experience_kFNKmK": {
+      "type": "radiant-skin-experience",
+      "name": "Radiant Skin Experience",
+      "settings": {
+        "color_scheme": "scheme-23a29e7f-f949-4e5f-9ecb-31639c0c2c42",
+        "card_bg_color": "{{ shop.brand.colors.primary[0].foreground }}",
+        "card_border_color": "{{ shop.brand.colors.primary[0].background }}",
+        "card_content_color": "{{ shop.brand.colors.secondary[0].background }}",
+        "content_flow": "ltr",
+        "image": "shopify://shop_images/olimpia-campean-m6bIAov5RQA-unsplash.jpg",
+        "title": "<strong>Experience Radiant Skin With Every Use</strong>",
+        "description": "<p>✔ Deep hydration for a youthful, glowing look</p><p>✔ Reduces wrinkles and fine lines effectively</p><p>✔ Smooths texture for soft, supply skin</p><p>✔ Natural ingredients gentle on all skin types</p><p>✔ Firms skin and boosts collagen production</p>",
+        "padding_top_mobile": 32,
+        "padding_bottom_mobile": 0,
+        "padding_left_mobile": 0,
+        "padding_right_mobile": 0,
+        "padding_top_desktop": 64,
+        "padding_bottom_desktop": 64,
+        "padding_left_desktop": 0,
+        "padding_right_desktop": 0
+      }
+    },
     "generic_text_content_L9YqWE": {
       "type": "generic-text-content",
       "blocks": {
@@ -512,6 +534,7 @@
   },
   "order": [
     "main",
+    "radiant_skin_experience_kFNKmK",
     "generic_text_content_L9YqWE",
     "real_results_see_the_glow_VFYjjN",
     "generic_text_content_PnK8qK",

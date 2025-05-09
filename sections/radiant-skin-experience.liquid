@@ -1,42 +1,68 @@
 {% style %}
   .radiant-skin-experience-{{ section.id }} {
     position: relative;
-    padding-top: var(--section-pt, 0px);
-    padding-bottom: var(--section-pb, 0px);
-    padding-left: var(--section-pl, 0px);
-    padding-right: var(--section-pr, 0px);
+    padding-top: {{ section.settings.padding_top_mobile }}px;
+    padding-bottom: {{ section.settings.padding_bottom_mobile }}px;
+    padding-left: {{ section.settings.padding_left_mobile }}px;
+    padding-right: {{ section.settings.padding_right_mobile }}px;
+  }
+  @media (min-width: 1024px) {
+    .radiant-skin-experience-{{ section.id }} {
+      padding-top: {{ section.settings.padding_top_desktop }}px;
+      padding-bottom: {{ section.settings.padding_bottom_desktop }}px;
+      padding-left: {{ section.settings.padding_left_desktop }}px;
+      padding-right: {{ section.settings.padding_right_desktop }}px;
+    }
   }
   .radiant-skin-experience-{{ section.id }} .radiant-skin-experience__container {
+    width: 100%;
+    height: 55rem;
     display: flex;
-    flex-direction: column;
+    flex-flow: column nowrap;
     align-items: center;
     position: relative;
   }
+  @media (min-width: 425px) {
+    .radiant-skin-experience-{{ section.id }} .radiant-skin-experience__container {
+      height: 45rem;
+    }
+  }
+  @media (min-width: 768px) {
+    .radiant-skin-experience-{{ section.id }} .radiant-skin-experience__container {
+      height: auto;
+    }
+  }
   .radiant-skin-experience-{{ section.id }} .radiant-skin-experience__image-wrapper {
     width: 100%;
+    height: 20rem;
     position: relative;
     display: flex;
     justify-content: center;
   }
   .radiant-skin-experience-{{ section.id }} .radiant-skin-experience__image {
     width: 100%;
-    max-width: 600px;
-    border-radius: 1.5rem;
+    height: 100%;
+    /* height: 30rem; */
+    /* max-width: 100%; */
+    border-radius: 0;
     object-fit: cover;
     display: block;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
   }
   .radiant-skin-experience-{{ section.id }} .radiant-skin-experience__card {
     position: absolute;
     left: 50%;
-    bottom: 0;
+    top: 50%;
     transform: translate(-50%, 20%);
     width: 90%;
     background: {{ section.settings.card_bg_color }};
     border: 2px solid {{ section.settings.card_border_color }};
     color: {{ section.settings.card_content_color }};
-    border-radius: 1.5rem;
+    border-radius: 0.5rem;
     box-shadow: 0 4px 24px 0 rgba(0,0,0,0.08);
-    padding: 2rem 1.5rem;
+    padding: 2rem;
     z-index: 2;
     display: flex;
     flex-direction: column;
@@ -50,7 +76,6 @@
   }
   .radiant-skin-experience-{{ section.id }} .radiant-skin-experience__desc {
     font-size: 1.2rem;
-    margin-bottom: 1.5rem;
     line-height: 1.5;
   }
   .radiant-skin-experience-{{ section.id }} .radiant-skin-experience__check {
@@ -60,26 +85,37 @@
   }
   @media (min-width: 768px) {
     .radiant-skin-experience-{{ section.id }} .radiant-skin-experience__container {
-      flex-direction: row;
-      justify-content: center;
+      flex-flow: row nowrap;
       align-items: center;
+      justify-content: flex-start;
+    }
+    .radiant-skin-experience-{{ section.id }}[data-flow="rtl"] .radiant-skin-experience__container {
+      justify-content: flex-end;
+    }
+    .radiant-skin-experience-{{ section.id }} .radiant-skin-experience__image-wrapper {
+      width: 50%;
+      height: 35rem;
+    }
+    .radiant-skin-experience-{{ section.id }} .radiant-skin-experience__image {
+      width: 100%;
+      max-width: 100%;
     }
     .radiant-skin-experience-{{ section.id }}[data-flow="ltr"] .radiant-skin-experience__image-wrapper {
       order: 1;
     }
-    .radiant-skin-experience-{{ section.id }}[data-flow="ltr"] .radiant-skin-experience__card {
-      left: auto;
-      right: 0;
-      top: 50%;
-      bottom: auto;
-      transform: translate(20%, -50%);
-    }
     .radiant-skin-experience-{{ section.id }}[data-flow="rtl"] .radiant-skin-experience__image-wrapper {
       order: 2;
     }
+    .radiant-skin-experience-{{ section.id }}[data-flow="ltr"] .radiant-skin-experience__card {
+      left: 40%;
+      top: 50%;
+      /* right: auto; */
+      bottom: auto;
+      transform: translate(20%, -50%);
+    }
     .radiant-skin-experience-{{ section.id }}[data-flow="rtl"] .radiant-skin-experience__card {
-      left: 0;
-      right: auto;
+      left: auto;
+      right: 40%;
       top: 50%;
       bottom: auto;
       transform: translate(-20%, -50%);
@@ -92,13 +128,25 @@
     }
   }
   @media (min-width: 1024px) {
-    .radiant-skin-experience-{{ section.id }} .radiant-skin-experience__image {
-      max-width: 700px;
+    .radiant-skin-experience-{{ section.id }} .radiant-skin-experience__image-wrapper {
+      width: 60%;
+    }
+    .radiant-skin-experience-{{ section.id }}[data-flow="ltr"] .radiant-skin-experience__card {
+      left: 65%;
+    }
+    .radiant-skin-experience-{{ section.id }}[data-flow="rtl"] .radiant-skin-experience__card {
+      right: 65%;
     }
   }
   @media (min-width: 1440px) {
-    .radiant-skin-experience-{{ section.id }} .radiant-skin-experience__image {
-      max-width: 800px;
+    .radiant-skin-experience-{{ section.id }} .radiant-skin-experience__image-wrapper {
+      width: 60%;
+    }
+    .radiant-skin-experience-{{ section.id }}[data-flow="ltr"] .radiant-skin-experience__card {
+      left: 70%;
+    }
+    .radiant-skin-experience-{{ section.id }}[data-flow="rtl"] .radiant-skin-experience__card {
+      right: 70%;
     }
   }
 {% endstyle %}
@@ -109,23 +157,12 @@
   <div class="page-width">
     <div class="radiant-skin-experience__container">
       <div class="radiant-skin-experience__image-wrapper">
-        {% if section.settings.image != blank %}
-          <img
-            src="{{ section.settings.image | image_url: width: 1200 }}"
-            alt="Radiant skin experience image"
-            class="radiant-skin-experience__image"
-            loading="lazy"
-            width="600"
-            height="700"
-          >
-        {% else %}
-          <div
-            class="radiant-skin-experience__image"
-            style="background:#f3e6f7;height:400px;display:flex;align-items:center;justify-content:center;"
-          >
-            Upload an image
-          </div>
-        {% endif %}
+        <div
+          class="radiant-skin-experience__image"
+          style="{% if section.settings.image != blank %}background-image:url('{{ section.settings.image | image_url: width: 1200 }}');{% else %}background: var(--color-background);display:flex;align-items:center;justify-content:center;{% endif %}"
+        >
+          {% unless section.settings.image != blank %}Upload an image{% endunless %}
+        </div>
         <div class="radiant-skin-experience__card">
           <div class="radiant-skin-experience__title">{{ section.settings.title }}</div>
           <div class="radiant-skin-experience__desc">{{ section.settings.description }}</div>
@@ -134,32 +171,6 @@
     </div>
   </div>
 </div>
-{% javascript %}
-  const section = document.querySelector('.radiant-skin-experience-{{ section.id }}');
-  if (section) {
-    const setPadding = () => {
-      const isDesktop = window.matchMedia('(min-width: 1024px)').matches;
-      section.style.setProperty(
-        '--section-pt',
-        isDesktop ? '{{ section.settings.padding_top_desktop }}px' : '{{ section.settings.padding_top_mobile }}px'
-      );
-      section.style.setProperty(
-        '--section-pb',
-        isDesktop ? '{{ section.settings.padding_bottom_desktop }}px' : '{{ section.settings.padding_bottom_mobile }}px'
-      );
-      section.style.setProperty(
-        '--section-pl',
-        isDesktop ? '{{ section.settings.padding_left_desktop }}px' : '{{ section.settings.padding_left_mobile }}px'
-      );
-      section.style.setProperty(
-        '--section-pr',
-        isDesktop ? '{{ section.settings.padding_right_desktop }}px' : '{{ section.settings.padding_right_mobile }}px'
-      );
-    };
-    setPadding();
-    window.addEventListener('resize', setPadding);
-  }
-{% endjavascript %}
 {% schema %}
 {
   "name": "Radiant Skin Experience",
