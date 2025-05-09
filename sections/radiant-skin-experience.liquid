@@ -1,0 +1,343 @@
+{% style %}
+  .radiant-skin-experience-{{ section.id }} {
+    position: relative;
+    padding-top: var(--section-pt, 0px);
+    padding-bottom: var(--section-pb, 0px);
+    padding-left: var(--section-pl, 0px);
+    padding-right: var(--section-pr, 0px);
+  }
+  .radiant-skin-experience-{{ section.id }} .radiant-skin-experience__container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+  }
+  .radiant-skin-experience-{{ section.id }} .radiant-skin-experience__image-wrapper {
+    width: 100%;
+    position: relative;
+    display: flex;
+    justify-content: center;
+  }
+  .radiant-skin-experience-{{ section.id }} .radiant-skin-experience__image {
+    width: 100%;
+    max-width: 600px;
+    border-radius: 1.5rem;
+    object-fit: cover;
+    display: block;
+  }
+  .radiant-skin-experience-{{ section.id }} .radiant-skin-experience__card {
+    position: absolute;
+    left: 50%;
+    bottom: 0;
+    transform: translate(-50%, 20%);
+    width: 90%;
+    background: {{ section.settings.card_bg_color }};
+    border: 2px solid {{ section.settings.card_border_color }};
+    color: {{ section.settings.card_content_color }};
+    border-radius: 1.5rem;
+    box-shadow: 0 4px 24px 0 rgba(0,0,0,0.08);
+    padding: 2rem 1.5rem;
+    z-index: 2;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  .radiant-skin-experience-{{ section.id }} .radiant-skin-experience__title {
+    font-size: 2rem;
+    font-weight: 700;
+    margin-bottom: 1.2rem;
+    line-height: 1.2;
+  }
+  .radiant-skin-experience-{{ section.id }} .radiant-skin-experience__desc {
+    font-size: 1.2rem;
+    margin-bottom: 1.5rem;
+    line-height: 1.5;
+  }
+  .radiant-skin-experience-{{ section.id }} .radiant-skin-experience__list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+  .radiant-skin-experience-{{ section.id }} .radiant-skin-experience__list li {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.7rem;
+    font-size: 1.1rem;
+    margin-bottom: 0.7rem;
+  }
+  .radiant-skin-experience-{{ section.id }} .radiant-skin-experience__list li:last-child {
+    margin-bottom: 0;
+  }
+  .radiant-skin-experience-{{ section.id }} .radiant-skin-experience__check {
+    color: #e87fc1;
+    font-size: 1.2rem;
+    margin-top: 0.2rem;
+  }
+  @media (min-width: 768px) {
+    .radiant-skin-experience-{{ section.id }} .radiant-skin-experience__container {
+      flex-direction: row;
+      justify-content: center;
+      align-items: center;
+    }
+    .radiant-skin-experience-{{ section.id }}[data-flow="ltr"] .radiant-skin-experience__image-wrapper {
+      order: 1;
+    }
+    .radiant-skin-experience-{{ section.id }}[data-flow="ltr"] .radiant-skin-experience__card {
+      left: auto;
+      right: 0;
+      top: 50%;
+      bottom: auto;
+      transform: translate(20%, -50%);
+    }
+    .radiant-skin-experience-{{ section.id }}[data-flow="rtl"] .radiant-skin-experience__image-wrapper {
+      order: 2;
+    }
+    .radiant-skin-experience-{{ section.id }}[data-flow="rtl"] .radiant-skin-experience__card {
+      left: 0;
+      right: auto;
+      top: 50%;
+      bottom: auto;
+      transform: translate(-20%, -50%);
+    }
+    .radiant-skin-experience-{{ section.id }} .radiant-skin-experience__card {
+      width: 480px;
+      min-width: 340px;
+      max-width: 520px;
+      padding: 2.5rem 2rem;
+    }
+  }
+  @media (min-width: 1024px) {
+    .radiant-skin-experience-{{ section.id }} .radiant-skin-experience__image {
+      max-width: 700px;
+    }
+  }
+  @media (min-width: 1440px) {
+    .radiant-skin-experience-{{ section.id }} .radiant-skin-experience__image {
+      max-width: 800px;
+    }
+  }
+{% endstyle %}
+<div
+  class="radiant-skin-experience-{{ section.id }} color-{{ section.settings.color_scheme }}"
+  data-flow="{{ section.settings.content_flow }}"
+>
+  <div class="page-width">
+    <div class="radiant-skin-experience__container">
+      <div class="radiant-skin-experience__image-wrapper">
+        {% if section.settings.image != blank %}
+          <img
+            src="{{ section.settings.image | image_url: width: 1200 }}"
+            alt="Radiant skin experience image"
+            class="radiant-skin-experience__image"
+            loading="lazy"
+            width="600"
+            height="700"
+          >
+        {% else %}
+          <div
+            class="radiant-skin-experience__image"
+            style="background:#f3e6f7;height:400px;display:flex;align-items:center;justify-content:center;"
+          >
+            Upload an image
+          </div>
+        {% endif %}
+        <div class="radiant-skin-experience__card">
+          <div class="radiant-skin-experience__title">{{ section.settings.title }}</div>
+          <div class="radiant-skin-experience__desc">{{ section.settings.description }}</div>
+          <ul class="radiant-skin-experience__list">
+            <li>
+              <span class="radiant-skin-experience__check">&#10004;</span> Deep hydration for a youthful, glowing look
+            </li>
+            <li>
+              <span class="radiant-skin-experience__check">&#10003;</span> Reduces wrinkles and fine lines effectively
+            </li>
+            <li><span class="radiant-skin-experience__check">&#10003;</span> Smooths texture for soft, supple skin</li>
+            <li>
+              <span class="radiant-skin-experience__check">&#10003;</span> Natural ingredients gentle on all skin types
+            </li>
+            <li>
+              <span class="radiant-skin-experience__check">&#10003;</span> Firms skin and boosts collagen production
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+{% schema %}
+{
+  "name": "Radiant Skin Experience",
+  "settings": [
+    {
+      "type": "color_scheme",
+      "id": "color_scheme",
+      "label": "Section color scheme",
+      "default": "background-1"
+    },
+    {
+      "type": "color",
+      "id": "card_bg_color",
+      "label": "Card background color",
+      "default": "#f8d8f6"
+    },
+    {
+      "type": "color",
+      "id": "card_border_color",
+      "label": "Card border color",
+      "default": "#e87fc1"
+    },
+    {
+      "type": "color",
+      "id": "card_content_color",
+      "label": "Card content color",
+      "default": "#1a1a1a"
+    },
+    {
+      "type": "select",
+      "id": "content_flow",
+      "label": "Content flow",
+      "options": [
+        { "value": "ltr", "label": "Left to Right (LTR)" },
+        { "value": "rtl", "label": "Right to Left (RTL)" }
+      ],
+      "default": "ltr"
+    },
+    {
+      "type": "image_picker",
+      "id": "image",
+      "label": "Image"
+    },
+    {
+      "type": "inline_richtext",
+      "id": "title",
+      "label": "Title",
+      "default": "<strong>Experience Radiant Skin With Every Use</strong>"
+    },
+    {
+      "type": "richtext",
+      "id": "description",
+      "label": "Description",
+      "default": "<p>Our Radiant Skin Experience is a luxurious skincare routine designed to rejuvenate and revitalize your skin, leaving you with a radiant, youthful glow.</p>"
+    },
+    {
+      "type": "header",
+      "content": "Section Padding (Mobile)"
+    },
+    {
+      "type": "range",
+      "id": "padding_top_mobile",
+      "label": "Top padding (mobile)",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "default": 32
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom_mobile",
+      "label": "Bottom padding (mobile)",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "default": 32
+    },
+    {
+      "type": "range",
+      "id": "padding_left_mobile",
+      "label": "Left padding (mobile)",
+      "min": 0,
+      "max": 48,
+      "step": 4,
+      "unit": "px",
+      "default": 0
+    },
+    {
+      "type": "range",
+      "id": "padding_right_mobile",
+      "label": "Right padding (mobile)",
+      "min": 0,
+      "max": 48,
+      "step": 4,
+      "unit": "px",
+      "default": 0
+    },
+    {
+      "type": "header",
+      "content": "Section Padding (Desktop)"
+    },
+    {
+      "type": "range",
+      "id": "padding_top_desktop",
+      "label": "Top padding (desktop)",
+      "min": 0,
+      "max": 160,
+      "step": 8,
+      "unit": "px",
+      "default": 64
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom_desktop",
+      "label": "Bottom padding (desktop)",
+      "min": 0,
+      "max": 160,
+      "step": 8,
+      "unit": "px",
+      "default": 64
+    },
+    {
+      "type": "range",
+      "id": "padding_left_desktop",
+      "label": "Left padding (desktop)",
+      "min": 0,
+      "max": 96,
+      "step": 8,
+      "unit": "px",
+      "default": 0
+    },
+    {
+      "type": "range",
+      "id": "padding_right_desktop",
+      "label": "Right padding (desktop)",
+      "min": 0,
+      "max": 96,
+      "step": 8,
+      "unit": "px",
+      "default": 0
+    }
+  ],
+  "presets": [
+    {
+      "name": "Radiant Skin Experience"
+    }
+  ]
+}
+{% endschema %}
+{% javascript %}
+  const section = document.querySelector('.radiant-skin-experience-{{ section.id }}');
+  if (section) {
+    const setPadding = () => {
+      const isDesktop = window.matchMedia('(min-width: 1024px)').matches;
+      section.style.setProperty(
+        '--section-pt',
+        isDesktop ? '{{ section.settings.padding_top_desktop }}px' : '{{ section.settings.padding_top_mobile }}px'
+      );
+      section.style.setProperty(
+        '--section-pb',
+        isDesktop ? '{{ section.settings.padding_bottom_desktop }}px' : '{{ section.settings.padding_bottom_mobile }}px'
+      );
+      section.style.setProperty(
+        '--section-pl',
+        isDesktop ? '{{ section.settings.padding_left_desktop }}px' : '{{ section.settings.padding_left_mobile }}px'
+      );
+      section.style.setProperty(
+        '--section-pr',
+        isDesktop ? '{{ section.settings.padding_right_desktop }}px' : '{{ section.settings.padding_right_mobile }}px'
+      );
+    };
+    setPadding();
+    window.addEventListener('resize', setPadding);
+  }
+{% endjavascript %}
