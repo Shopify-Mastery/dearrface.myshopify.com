@@ -70,7 +70,7 @@
         "title": "<strong>Experience Radiant Skin With Every Use</strong>",
         "description": "<p>✔ Deep hydration for a youthful, glowing look</p><p>✔ Reduces wrinkles and fine lines effectively</p><p>✔ Smooths texture for soft, supply skin</p><p>✔ Natural ingredients gentle on all skin types</p><p>✔ Firms skin and boosts collagen production</p>",
         "padding_top_mobile": 32,
-        "padding_bottom_mobile": 0,
+        "padding_bottom_mobile": 32,
         "padding_left_mobile": 0,
         "padding_right_mobile": 0,
         "padding_top_desktop": 64,

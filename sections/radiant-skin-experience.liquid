@@ -109,7 +109,7 @@
     .radiant-skin-experience-{{ section.id }}[data-flow="ltr"] .radiant-skin-experience__card {
       left: 40%;
       top: 50%;
-      /* right: auto; */
+      right: auto;
       bottom: auto;
       transform: translate(20%, -50%);
     }
@@ -124,12 +124,15 @@
       width: 480px;
       min-width: 340px;
       max-width: 520px;
-      padding: 2.5rem 2rem;
+      padding: 2.5rem;
     }
   }
   @media (min-width: 1024px) {
     .radiant-skin-experience-{{ section.id }} .radiant-skin-experience__image-wrapper {
       width: 60%;
+    }
+    .radiant-skin-experience-{{ section.id }} .radiant-skin-experience__card {
+      padding: 3.5rem;
     }
     .radiant-skin-experience-{{ section.id }}[data-flow="ltr"] .radiant-skin-experience__card {
       left: 65%;
