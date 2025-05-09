@@ -395,6 +395,7 @@
         "heading_wtdwad",
         "description_tMjLGy"
       ],
+      "disabled": true,
       "name": "Reveal Your Glow With Collagen",
       "settings": {
         "color_scheme": "",
@@ -451,6 +452,7 @@
         "content_FNTnfe",
         "image_TCFzYb"
       ],
+      "disabled": true,
       "name": "Reveal Your Glow With Collagen",
       "settings": {
         "color_scheme": "scheme-23a29e7f-f949-4e5f-9ecb-31639c0c2c42",
