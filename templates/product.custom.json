@@ -365,6 +365,105 @@
         "padding_right_desktop": 0
       }
     },
+    "generic_text_content_xkNwEh": {
+      "type": "generic-text-content",
+      "blocks": {
+        "heading_wtdwad": {
+          "type": "heading",
+          "settings": {
+            "heading": "Reveal Your Glow | With Collagen",
+            "heading_2nd_part_color": "{{ shop.brand.colors.primary[0].background }}",
+            "heading_size": "h1",
+            "heading_alignment": "center",
+            "heading_max_width": 1200,
+            "show_on_mobile": true,
+            "show_on_desktop": true
+          }
+        },
+        "description_tMjLGy": {
+          "type": "description",
+          "settings": {
+            "description": "<p>Uncover radiant, youthful skin with our deeply hydrating bio-collagen mask. Packed with skin-loving ingredients, it boosts collagen, smooths fine lines, and deeply moisturizes.</p>",
+            "description_alignment": "center",
+            "description_max_width": 1200,
+            "show_on_mobile": true,
+            "show_on_desktop": true
+          }
+        }
+      },
+      "block_order": [
+        "heading_wtdwad",
+        "description_tMjLGy"
+      ],
+      "name": "Reveal Your Glow With Collagen",
+      "settings": {
+        "color_scheme": "",
+        "padding_top_mobile": 24,
+        "padding_bottom_mobile": 8,
+        "padding_left_mobile": 0,
+        "padding_right_mobile": 0,
+        "padding_top_desktop": 24,
+        "padding_bottom_desktop": 8,
+        "padding_left_desktop": 0,
+        "padding_right_desktop": 0
+      }
+    },
+    "reveal_your_glow_collagen_9tPpnp": {
+      "type": "reveal-your-glow-collagen",
+      "blocks": {
+        "image_hUKMAy": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/olimpia-campean-yCKDTD2J9lU-unsplash.jpg",
+            "show_border": true,
+            "image_border_color": "#e87fc1",
+            "image_radius_tl": 80,
+            "image_radius_tr": 8,
+            "image_radius_br": 80,
+            "image_radius_bl": 8
+          }
+        },
+        "content_FNTnfe": {
+          "type": "content",
+          "settings": {
+            "logo": "shopify://shop_images/Anti_Aging.png",
+            "heading": "Glow Instantly With Every|Collagen Mask Use",
+            "heading_2nd_part_color": "{{ shop.brand.colors.primary[0].background }}",
+            "description": "<p>Deeply hydrates, firms skin, and reveals a youthful radiant glow.</p>",
+            "button_text": "Buy Now"
+          }
+        },
+        "image_TCFzYb": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/olimpia-campean-SZgxfMYJsYo-unsplash.jpg",
+            "show_border": true,
+            "image_border_color": "#e87fc1",
+            "image_radius_tl": 8,
+            "image_radius_tr": 80,
+            "image_radius_br": 8,
+            "image_radius_bl": 80
+          }
+        }
+      },
+      "block_order": [
+        "image_hUKMAy",
+        "content_FNTnfe",
+        "image_TCFzYb"
+      ],
+      "name": "Reveal Your Glow With Collagen",
+      "settings": {
+        "color_scheme": "scheme-23a29e7f-f949-4e5f-9ecb-31639c0c2c42",
+        "padding_top_mobile": 24,
+        "padding_bottom_mobile": 24,
+        "padding_left_mobile": 0,
+        "padding_right_mobile": 0,
+        "padding_top_desktop": 48,
+        "padding_bottom_desktop": 48,
+        "padding_left_desktop": 0,
+        "padding_right_desktop": 0
+      }
+    },
     "generic_text_content_L9YqWE": {
       "type": "generic-text-content",
       "blocks": {
@@ -598,6 +697,8 @@
     "radiant_skin_experience_T9fhx4",
     "generic_content_yGKNnH",
     "why_our_product_3QeDQx",
+    "generic_text_content_xkNwEh",
+    "reveal_your_glow_collagen_9tPpnp",
     "generic_text_content_L9YqWE",
     "real_results_see_the_glow_VFYjjN",
     "generic_text_content_zyf8L3",

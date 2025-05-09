@@ -125,7 +125,13 @@
                 class="reveal-glow-{{ section.id }}__image-bg"
                 style="
                   background-image: url('{% if block.settings.image != blank %}{{ block.settings.image | image_url: width: 800 }}{% endif %}');
-                  border-color: {{ block.settings.image_border_color }};
+                  {% if block.settings.show_border %}
+                    border-style: solid;
+                    border-width: 4px;
+                    border-color: {{ block.settings.image_border_color }};
+                  {% else %}
+                    border: none;
+                  {% endif %}
                   border-top-left-radius: {{ block.settings.image_radius_tl }}px;
                   border-top-right-radius: {{ block.settings.image_radius_tr }}px;
                   border-bottom-right-radius: {{ block.settings.image_radius_br }}px;
@@ -280,12 +286,13 @@
       "name": "Image Block",
       "settings": [
         { "type": "image_picker", "id": "image", "label": "Image" },
+        { "type": "checkbox", "id": "show_border", "label": "Show border", "default": true },
         { "type": "color", "id": "image_border_color", "label": "Image border color", "default": "#e87fc1" },
         {
           "type": "range",
           "id": "image_radius_tl",
           "min": 0,
-          "max": 80,
+          "max": 120,
           "step": 2,
           "unit": "px",
           "label": "Top left radius",
@@ -295,7 +302,7 @@
           "type": "range",
           "id": "image_radius_tr",
           "min": 0,
-          "max": 80,
+          "max": 120,
           "step": 2,
           "unit": "px",
           "label": "Top right radius",
@@ -305,7 +312,7 @@
           "type": "range",
           "id": "image_radius_br",
           "min": 0,
-          "max": 80,
+          "max": 120,
           "step": 2,
           "unit": "px",
           "label": "Bottom right radius",
@@ -315,7 +322,7 @@
           "type": "range",
           "id": "image_radius_bl",
           "min": 0,
-          "max": 80,
+          "max": 120,
           "step": 2,
           "unit": "px",
           "label": "Bottom left radius",
@@ -342,9 +349,7 @@
           "label": "Description",
           "default": "<p>Deeply hydrates, firms skin, and reveals a youthful radiant glow.</p>"
         },
-        { "type": "text", "id": "button_text", "label": "Button text", "default": "Buy Now" },
-        { "type": "url", "id": "button_link", "label": "Button link" },
-        { "type": "color", "id": "button_text_color", "label": "Button text color", "default": "#fff" }
+        { "type": "text", "id": "button_text", "label": "Button text", "default": "Buy Now" }
       ]
     }
   ],
