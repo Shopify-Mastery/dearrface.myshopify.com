@@ -244,6 +244,54 @@
         "padding_right_desktop": 0
       }
     },
+    "custom_image_with_text_wKNUqe": {
+      "type": "custom-image-with-text",
+      "blocks": {
+        "text_ckL3qc": {
+          "type": "text",
+          "settings": {
+            "text": "<h2><strong>Experience Radiant Skin With Every Use</strong></h2><p>✔ Deep hydration for a youthful, glowing look</p><p>✔ Reduces wrinkles and fine lines effectively</p><p>✔ Smooths texture for soft, supply skin</p><p>✔ Natural ingredients gentle on all skin types</p><p>✔ Firms skin and boosts collagen production</p>",
+            "text_style": "body"
+          }
+        }
+      },
+      "block_order": [
+        "text_ckL3qc"
+      ],
+      "disabled": true,
+      "name": "[EXP] Radian Skin Experience",
+      "settings": {
+        "image": "shopify://shop_images/olimpia-campean-m6bIAov5RQA-unsplash.jpg",
+        "image_border_color": "#E5E5E5",
+        "media_border_visible": false,
+        "media_border_radius_top_left": 0,
+        "media_border_radius_top_right": 0,
+        "media_border_radius_bottom_right": 0,
+        "media_border_radius_bottom_left": 0,
+        "media_box_shadow_visible": false,
+        "media_box_shadow_color": "rgba(0,0,0,0.08)",
+        "media_box_shadow_x_offset": 0,
+        "media_box_shadow_y_offset": 0,
+        "height": "medium",
+        "desktop_image_width": "medium",
+        "layout": "image_first",
+        "image_behavior": "none",
+        "content_layout": "overlap",
+        "desktop_content_position": "middle",
+        "desktop_content_alignment": "left",
+        "mobile_content_alignment": "left",
+        "section_color_scheme": "",
+        "color_scheme": "scheme-0cf8f8cb-efab-4593-9a11-d9e4036b83d5",
+        "padding_top_mobile": 32,
+        "padding_bottom_mobile": 32,
+        "padding_left_mobile": 0,
+        "padding_right_mobile": 0,
+        "padding_top_desktop": 32,
+        "padding_bottom_desktop": 32,
+        "padding_left_desktop": 0,
+        "padding_right_desktop": 0
+      }
+    },
     "generic_text_content_fU4BdM": {
       "type": "generic-text-content",
       "blocks": {
@@ -803,6 +851,7 @@
     "generic_text_content_xJr49r",
     "radiant_skin_experience_kFNKmK",
     "radiant_skin_experience_T9fhx4",
+    "custom_image_with_text_wKNUqe",
     "generic_text_content_fU4BdM",
     "custom_image_with_text_9Lggga",
     "generic_content_yGKNnH",
