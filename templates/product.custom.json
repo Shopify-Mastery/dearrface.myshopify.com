@@ -244,6 +244,87 @@
         "padding_right_desktop": 0
       }
     },
+    "generic_text_content_fU4BdM": {
+      "type": "generic-text-content",
+      "blocks": {
+        "heading_W3xK6X": {
+          "type": "heading",
+          "settings": {
+            "heading": "Glow Starts with | Deep Care",
+            "heading_2nd_part_color": "{{ shop.brand.colors.primary[0].background }}",
+            "heading_size": "h1",
+            "heading_alignment": "center",
+            "heading_max_width": 1200,
+            "show_on_mobile": true,
+            "show_on_desktop": true
+          }
+        },
+        "description_xFeycJ": {
+          "type": "description",
+          "settings": {
+            "description": "<p>Unlock radiant, youthful skin with every use of our bio-collagen mask. Designed to deeply hydrate, smooth fine lines, and boost collagen, it delivers visible results.</p>",
+            "description_alignment": "center",
+            "description_max_width": 500,
+            "show_on_mobile": true,
+            "show_on_desktop": true
+          }
+        }
+      },
+      "block_order": [
+        "heading_W3xK6X",
+        "description_xFeycJ"
+      ],
+      "name": "Glow Starts With Deep Care Text",
+      "settings": {
+        "color_scheme": "scheme-0cf8f8cb-efab-4593-9a11-d9e4036b83d5",
+        "padding_top_mobile": 24,
+        "padding_bottom_mobile": 24,
+        "padding_left_mobile": 0,
+        "padding_right_mobile": 0,
+        "padding_top_desktop": 16,
+        "padding_bottom_desktop": 16,
+        "padding_left_desktop": 0,
+        "padding_right_desktop": 0
+      }
+    },
+    "custom_image_with_text_9Lggga": {
+      "type": "custom-image-with-text",
+      "blocks": {
+        "text_WmjgM8": {
+          "type": "text",
+          "settings": {
+            "text": "<h2>Transform Your Skin in Minutes</h2><p>This collagen-infused mask deeply hydrates and firms your skin. It smooths fine lines and restores your natural glow, making you look refreshed and rejuvenated. Made with clean, gentle ingredients, it’s perfect for all skin types. Experience visible results after just one use — your glow begins now.</p>",
+            "text_style": "body"
+          }
+        }
+      },
+      "block_order": [
+        "text_WmjgM8"
+      ],
+      "name": "Glow Starts With Deep Care",
+      "settings": {
+        "image": "shopify://shop_images/olimpia-campean-yCKDTD2J9lU-unsplash.jpg",
+        "image_border_color": "{{ shop.brand.colors.primary[0].background }}",
+        "height": "medium",
+        "desktop_image_width": "medium",
+        "layout": "image_first",
+        "image_behavior": "none",
+        "content_layout": "no-overlap",
+        "desktop_content_position": "top",
+        "desktop_content_alignment": "left",
+        "mobile_content_alignment": "left",
+        "section_color_scheme": "scheme-0cf8f8cb-efab-4593-9a11-d9e4036b83d5",
+        "color_scheme": "scheme-0cf8f8cb-efab-4593-9a11-d9e4036b83d5",
+        "padding_top_mobile": 32,
+        "padding_bottom_mobile": 32,
+        "padding_left_mobile": 0,
+        "padding_right_mobile": 0,
+        "padding_top_desktop": 32,
+        "padding_bottom_desktop": 56,
+        "padding_left_desktop": 0,
+        "padding_right_desktop": 0
+      }
+    },
     "generic_content_yGKNnH": {
       "type": "generic-text-content",
       "blocks": {
@@ -697,6 +778,8 @@
     "generic_text_content_xJr49r",
     "radiant_skin_experience_kFNKmK",
     "radiant_skin_experience_T9fhx4",
+    "generic_text_content_fU4BdM",
+    "custom_image_with_text_9Lggga",
     "generic_content_yGKNnH",
     "why_our_product_3QeDQx",
     "generic_text_content_xkNwEh",

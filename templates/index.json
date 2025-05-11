@@ -9,62 +9,23 @@
  */
 {
   "sections": {
-    "image_banner": {
-      "type": "image-banner",
-      "blocks": {
-        "heading": {
-          "type": "heading",
-          "settings": {
-            "heading": "Browse our latest products",
-            "heading_size": "h0"
-          }
-        },
-        "button": {
-          "type": "buttons",
-          "settings": {
-            "button_label_1": "Shop all",
-            "button_link_1": "shopify://collections/all",
-            "button_style_secondary_1": true,
-            "button_label_2": "",
-            "button_link_2": "",
-            "button_style_secondary_2": false
-          }
-        }
-      },
-      "block_order": [
-        "heading",
-        "button"
-      ],
-      "settings": {
-        "image_overlay_opacity": 40,
-        "image_height": "large",
-        "desktop_content_position": "bottom-center",
-        "show_text_box": false,
-        "image_behavior": "none",
-        "desktop_content_alignment": "center",
-        "color_scheme": "scheme-3",
-        "mobile_content_alignment": "center",
-        "stack_images_on_mobile": false,
-        "show_text_below": false
-      }
-    },
     "featured_collection": {
       "type": "featured-collection",
+      "disabled": true,
       "settings": {
+        "collection": "all",
+        "products_to_show": 8,
         "title": "Featured products",
         "heading_size": "h2",
         "description": "",
         "show_description": false,
         "description_style": "body",
-        "collection": "all",
-        "products_to_show": 8,
         "columns_desktop": 4,
-        "color_scheme": "scheme-1",
+        "enable_desktop_slider": false,
         "full_width": false,
         "show_view_all": true,
         "view_all_style": "solid",
-        "enable_desktop_slider": false,
-        "swipe_on_mobile": false,
+        "color_scheme": "scheme-1",
         "image_ratio": "adapt",
         "image_shape": "default",
         "show_secondary_image": true,
@@ -72,13 +33,118 @@
         "show_rating": false,
         "quick_add": "none",
         "columns_mobile": "2",
+        "swipe_on_mobile": false,
         "padding_top": 44,
         "padding_bottom": 36
+      }
+    },
+    "generic_text_content_CA7Qbw": {
+      "type": "generic-text-content",
+      "blocks": {
+        "heading_wbAqxh": {
+          "type": "heading",
+          "settings": {
+            "heading": "Achieve Glass Skin With This |Powerful Collagen Mask",
+            "heading_2nd_part_color": "{{ shop.brand.colors.primary[0].background }}",
+            "heading_size": "h1",
+            "heading_alignment": "center",
+            "heading_max_width": 600,
+            "show_on_mobile": true,
+            "show_on_desktop": true
+          }
+        },
+        "description_P9itmi": {
+          "type": "description",
+          "settings": {
+            "description": "<p>Revive dull, aging skin with intense hydration and collagen. Instantly smooth, firm, and glow — naturally and effortlessly.</p>",
+            "description_alignment": "center",
+            "description_max_width": 500,
+            "show_on_mobile": true,
+            "show_on_desktop": true
+          }
+        }
+      },
+      "block_order": [
+        "heading_wbAqxh",
+        "description_P9itmi"
+      ],
+      "name": "Active Glass Skin Text",
+      "settings": {
+        "color_scheme": "scheme-0cf8f8cb-efab-4593-9a11-d9e4036b83d5",
+        "padding_top_mobile": 24,
+        "padding_bottom_mobile": 24,
+        "padding_left_mobile": 0,
+        "padding_right_mobile": 0,
+        "padding_top_desktop": 24,
+        "padding_bottom_desktop": 24,
+        "padding_left_desktop": 0,
+        "padding_right_desktop": 0
+      }
+    },
+    "custom_image_with_text_NL6i9N": {
+      "type": "custom-image-with-text",
+      "blocks": {
+        "heading_6UDmBR": {
+          "type": "heading",
+          "settings": {
+            "heading": "Gentle On Skin, |Powerful On Results",
+            "heading_size": "h1",
+            "heading_2nd_part_color": "{{ shop.brand.colors.primary[0].background }}"
+          }
+        },
+        "text_rRJ3hC": {
+          "type": "text",
+          "settings": {
+            "text": "<p>This collagen-infused mask deeply hydrates and firms your skin. It smooths fine lines and restores your natural glow, making you look refreshed and rejuvenated. Made with clean, gentle ingredients, it’s perfect for all skin types. Experience visible results after just one use — your glow begins now.</p>",
+            "text_style": "body"
+          }
+        },
+        "testimonial_zEEE9T": {
+          "type": "testimonial",
+          "settings": {
+            "image": "shopify://shop_images/christopher-campbell-rDEOVtE7vOs-unsplash.jpg",
+            "testimonial_border_color": "{{ shop.brand.colors.secondary[1].background }}",
+            "testimonial_image_border_color": "{{ shop.brand.colors.primary[0].background }}",
+            "stars": 5,
+            "star_color": "{{ shop.brand.colors.primary[0].background }}",
+            "text": "<p>I've tried so many masks, but this one is incredible! My skin feels firmer, smoother, and so hydrated. Even my friends noticed the glow — absolutely love it!</p>",
+            "author": "Zaria McCray"
+          }
+        }
+      },
+      "block_order": [
+        "heading_6UDmBR",
+        "text_rRJ3hC",
+        "testimonial_zEEE9T"
+      ],
+      "name": "Active Glass Skin",
+      "settings": {
+        "image": "shopify://shop_images/olimpia-campean-m6bIAov5RQA-unsplash.jpg",
+        "image_border_color": "{{ shop.brand.colors.primary[0].background }}",
+        "height": "medium",
+        "desktop_image_width": "medium",
+        "layout": "text_first",
+        "image_behavior": "ambient",
+        "content_layout": "no-overlap",
+        "desktop_content_position": "top",
+        "desktop_content_alignment": "left",
+        "mobile_content_alignment": "left",
+        "section_color_scheme": "scheme-0cf8f8cb-efab-4593-9a11-d9e4036b83d5",
+        "color_scheme": "scheme-0cf8f8cb-efab-4593-9a11-d9e4036b83d5",
+        "padding_top_mobile": 32,
+        "padding_bottom_mobile": 32,
+        "padding_left_mobile": 0,
+        "padding_right_mobile": 0,
+        "padding_top_desktop": 32,
+        "padding_bottom_desktop": 32,
+        "padding_left_desktop": 0,
+        "padding_right_desktop": 0
       }
     }
   },
   "order": [
-    "image_banner",
-    "featured_collection"
+    "featured_collection",
+    "generic_text_content_CA7Qbw",
+    "custom_image_with_text_NL6i9N"
   ]
 }
