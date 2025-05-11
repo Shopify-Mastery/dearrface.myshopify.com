@@ -30,6 +30,10 @@
     }
   }
 
+  .section-{{ section.id }}-padding .image-with-text__content .image-with-text__text {
+    line-height: 1.5;
+  }
+
   .testimonial-block-{{ section.id }} {
     display: flex;
     flex-direction: column;
@@ -190,11 +194,18 @@
             {%- for block in section.blocks -%}
               {% case block.type %}
                 {%- when 'heading' -%}
+                  {% assign heading_parts = block.settings.heading | split: '|' %}
                   <h2
                     class="image-with-text__heading inline-richtext {{ block.settings.heading_size }}"
                     {{ block.shopify_attributes }}
                   >
-                    {{ block.settings.heading }}
+                    <span class="image-with-text__heading-part-1">{{ heading_parts[0] | strip }}</span>
+                    <span
+                      class="image-with-text__heading-part-2"
+                      style="color: {{ block.settings.heading_2nd_part_color }};"
+                    >
+                      {{- heading_parts[1] | strip -}}
+                    </span>
                   </h2>
                 {%- when 'caption' -%}
                   <p
@@ -489,20 +500,27 @@
           "type": "inline_richtext",
           "id": "heading",
           "default": "Your headline",
-          "label": "Heading"
+          "label": "Heading",
+          "info": "Use | to split heading into two parts. First part uses text color, second part uses heading 2nd part color. Example: First part|Second part"
         },
         {
           "type": "select",
           "id": "heading_size",
           "options": [
-            { "value": "h2", "label": "H2" },
-            { "value": "h1", "label": "H1" },
-            { "value": "h0", "label": "H0" },
-            { "value": "hxl", "label": "HXL" },
-            { "value": "hxxl", "label": "HXXL" }
+            { "value": "h2", "label": "Small" },
+            { "value": "h1", "label": "Medium" },
+            { "value": "h0", "label": "Large" },
+            { "value": "hxl", "label": "Extra Large" },
+            { "value": "hxxl", "label": "Extra Extra Large" }
           ],
           "default": "h1",
           "label": "Heading size"
+        },
+        {
+          "type": "color",
+          "id": "heading_2nd_part_color",
+          "label": "Heading 2nd Part Color",
+          "default": "#000000"
         }
       ]
     },
