@@ -116,28 +116,6 @@
     .testimonial-block-{{ section.id }}__quote {
       justify-content: flex-start;
     }
-    .testimonial-block-{{ section.id }}--align-desktop-center .testimonial-block-{{ section.id }}__content {
-      align-items: center;
-      text-align: center;
-    }
-    .testimonial-block-{{ section.id }}--align-desktop-right .testimonial-block-{{ section.id }}__content {
-      align-items: flex-end;
-      text-align: right;
-    }
-  }
-  @media (max-width: 1023px) {
-    .testimonial-block-{{ section.id }}--align-mobile-center .testimonial-block-{{ section.id }}__content {
-      align-items: center;
-      text-align: center;
-    }
-    .testimonial-block-{{ section.id }}--align-mobile-right .testimonial-block-{{ section.id }}__content {
-      align-items: flex-end;
-      text-align: right;
-    }
-    .testimonial-block-{{ section.id }}--align-mobile-left .testimonial-block-{{ section.id }}__content {
-      align-items: flex-start;
-      text-align: left;
-    }
   }
 {%- endstyle -%}
 
@@ -240,7 +218,7 @@
                       --testimonial-star-color-{{ section.id }}: {{ block.settings.star_color }};
                     }
                   </style>
-                  <div class="testimonial-block-{{ section.id }} testimonial-block-{{ section.id }}--align-desktop-{{ block.settings.align_desktop }} testimonial-block-{{ section.id }}--align-mobile-{{ block.settings.align_mobile }}">
+                  <div class="testimonial-block-{{ section.id }}">
                     {% if block.settings.image != blank %}
                       <img
                         class="testimonial-block-{{ section.id }}__image"
@@ -652,28 +630,6 @@
           "id": "author",
           "label": "Review author",
           "default": "Zaria McCray"
-        },
-        {
-          "type": "select",
-          "id": "align_desktop",
-          "label": "Content alignment (desktop)",
-          "options": [
-            { "value": "left", "label": "Left" },
-            { "value": "center", "label": "Center" },
-            { "value": "right", "label": "Right" }
-          ],
-          "default": "left"
-        },
-        {
-          "type": "select",
-          "id": "align_mobile",
-          "label": "Content alignment (mobile)",
-          "options": [
-            { "value": "left", "label": "Left" },
-            { "value": "center", "label": "Center" },
-            { "value": "right", "label": "Right" }
-          ],
-          "default": "center"
         }
       ]
     }
