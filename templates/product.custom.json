@@ -296,10 +296,24 @@
             "text": "<h2>Transform Your Skin in Minutes</h2><p>This collagen-infused mask deeply hydrates and firms your skin. It smooths fine lines and restores your natural glow, making you look refreshed and rejuvenated. Made with clean, gentle ingredients, it’s perfect for all skin types. Experience visible results after just one use — your glow begins now.</p>",
             "text_style": "body"
           }
+        },
+        "attributes_VwcAVN": {
+          "type": "attributes",
+          "settings": {
+            "icon_1": "shopify://shop_images/Icon_1.png",
+            "details_1": "<h4>Fast Results</h4><p>Visible glow after one use</p>",
+            "icon_2": "shopify://shop_images/Icon_2.png",
+            "details_2": "<h4>Aloe Infused</h4><p>Calms and refreshes skin</p>",
+            "icon_3": "shopify://shop_images/Icon_3.png",
+            "details_3": "<h4>LED Compatible</h4><p>Works under LED light therapy</p>",
+            "icon_4": "shopify://shop_images/Icon_4.png",
+            "details_4": "<h4>Clean Beauty</h4><p>92% natural origin ingredients</p>"
+          }
         }
       },
       "block_order": [
-        "text_WmjgM8"
+        "text_WmjgM8",
+        "attributes_VwcAVN"
       ],
       "name": "Glow Starts With Deep Care",
       "settings": {
