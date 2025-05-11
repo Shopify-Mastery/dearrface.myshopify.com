@@ -22,7 +22,7 @@
     {% else %}
       border: none !important;
     {% endif %}
-    border-radius: {{ section.settings.media_border_radius }}px;
+    border-radius: {{ section.settings.media_border_radius_top_left }}px {{ section.settings.media_border_radius_top_right }}px {{ section.settings.media_border_radius_bottom_right }}px {{ section.settings.media_border_radius_bottom_left }}px !important;
     {% if section.settings.media_box_shadow_visible %}
       box-shadow: {{ section.settings.media_box_shadow_x_offset }}px {{ section.settings.media_box_shadow_y_offset }}px 0 0 {{ section.settings.media_box_shadow_color }} !important;
     {% else %}
@@ -511,16 +511,43 @@
       "type": "checkbox",
       "id": "media_border_visible",
       "label": "Show image border",
-      "default": true
+      "default": false
     },
     {
       "type": "range",
-      "id": "media_border_radius",
-      "label": "Image border radius (px)",
+      "id": "media_border_radius_top_left",
+      "label": "Image border radius top-left (px)",
       "min": 0,
-      "max": 100,
-      "step": 1,
-      "default": 20
+      "max": 120,
+      "step": 4,
+      "default": 0
+    },
+    {
+      "type": "range",
+      "id": "media_border_radius_top_right",
+      "label": "Image border radius top-right (px)",
+      "min": 0,
+      "max": 120,
+      "step": 4,
+      "default": 0
+    },
+    {
+      "type": "range",
+      "id": "media_border_radius_bottom_right",
+      "label": "Image border radius bottom-right (px)",
+      "min": 0,
+      "max": 120,
+      "step": 4,
+      "default": 0
+    },
+    {
+      "type": "range",
+      "id": "media_border_radius_bottom_left",
+      "label": "Image border radius bottom-left (px)",
+      "min": 0,
+      "max": 120,
+      "step": 4,
+      "default": 0
     },
     {
       "type": "checkbox",

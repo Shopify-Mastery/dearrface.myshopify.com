@@ -68,7 +68,7 @@
         "heading_wbAqxh",
         "description_P9itmi"
       ],
-      "name": "Active Glass Skin Text",
+      "name": "Achieve Glass Skin Text",
       "settings": {
         "color_scheme": "scheme-0cf8f8cb-efab-4593-9a11-d9e4036b83d5",
         "padding_top_mobile": 24,
@@ -117,10 +117,19 @@
         "text_rRJ3hC",
         "testimonial_zEEE9T"
       ],
-      "name": "Active Glass Skin",
+      "name": "Achieve Glass Skin",
       "settings": {
         "image": "shopify://shop_images/olimpia-campean-m6bIAov5RQA-unsplash.jpg",
         "image_border_color": "{{ shop.brand.colors.primary[0].background }}",
+        "media_border_visible": false,
+        "media_border_radius_top_left": 8,
+        "media_border_radius_top_right": 8,
+        "media_border_radius_bottom_right": 8,
+        "media_border_radius_bottom_left": 8,
+        "media_box_shadow_visible": true,
+        "media_box_shadow_color": "{{ shop.brand.colors.primary[0].background }}",
+        "media_box_shadow_x_offset": 15,
+        "media_box_shadow_y_offset": 16,
         "height": "medium",
         "desktop_image_width": "medium",
         "layout": "text_first",
@@ -165,7 +174,11 @@
             "icon_1": "shopify://shop_images/Cooling_Sensation_Icon_7c604901-cbf0-401c-a463-03ec3309f5f5.png",
             "details_1": "<h4> Cooling Sensation</h4><p>Soothes the skin instantly with a refreshing cooling effect that calms redness and puffiness.</p>",
             "icon_2": "shopify://shop_images/Doctor_Icon_6134ff43-1115-4ca7-965b-1d17f636ea00.png",
-            "details_2": "<h4>Dermatologist Tested</h4><p>Clinically tested suitable for all skin types, including sensitive and mature skin.</p>"
+            "details_2": "<h4>Dermatologist Tested</h4><p>Clinically tested suitable for all skin types, including sensitive and mature skin.</p>",
+            "card_bg": "#fcebea",
+            "card_radius": 20,
+            "card_shadow_color": "{{ shop.brand.colors.primary[0].background }}",
+            "icon_shadow_color": "{{ shop.brand.colors.primary[0].background }}"
           }
         }
       },
@@ -174,10 +187,19 @@
         "text_VYaqUq",
         "feature_cards_jDnWwK"
       ],
-      "name": "Active Glass Skin",
+      "name": "Glow Natural Feel Confident",
       "settings": {
         "image": "shopify://shop_images/olimpia-campean-m6bIAov5RQA-unsplash.jpg",
         "image_border_color": "{{ shop.brand.colors.primary[0].background }}",
+        "media_border_visible": false,
+        "media_border_radius_top_left": 120,
+        "media_border_radius_top_right": 0,
+        "media_border_radius_bottom_right": 0,
+        "media_border_radius_bottom_left": 0,
+        "media_box_shadow_visible": true,
+        "media_box_shadow_color": "{{ shop.brand.colors.primary[0].background }}",
+        "media_box_shadow_x_offset": 16,
+        "media_box_shadow_y_offset": 16,
         "height": "medium",
         "desktop_image_width": "medium",
         "layout": "text_first",
@@ -197,12 +219,78 @@
         "padding_left_desktop": 0,
         "padding_right_desktop": 0
       }
+    },
+    "custom_image_with_text_rwaDVT": {
+      "type": "custom-image-with-text",
+      "blocks": {
+        "heading_FVNfwe": {
+          "type": "heading",
+          "settings": {
+            "heading": "Collagen Care For Timeless Beauty",
+            "heading_size": "h1",
+            "heading_2nd_part_color": "#000000"
+          }
+        },
+        "text_UqhzKD": {
+          "type": "text",
+          "settings": {
+            "text": "<p>Experience the power of deep hydration and collagen renewal in just one use. This mask revives tired, dull skin and smooths away fine lines for a firmer, youthful look. Gentle, effective, and packed with natural ingredients — your skin will thank you.</p>",
+            "text_style": "body"
+          }
+        },
+        "button_cjcGQR": {
+          "type": "button",
+          "settings": {
+            "button_label": "BUY NOW",
+            "button_link": "#",
+            "button_style_secondary": false
+          }
+        }
+      },
+      "block_order": [
+        "heading_FVNfwe",
+        "text_UqhzKD",
+        "button_cjcGQR"
+      ],
+      "name": "Custom Image with Text",
+      "settings": {
+        "image": "shopify://shop_images/Transparent_Mask_Peeling.png",
+        "image_border_color": "#e5e5e5",
+        "media_border_visible": false,
+        "media_border_radius_top_left": 0,
+        "media_border_radius_top_right": 0,
+        "media_border_radius_bottom_right": 0,
+        "media_border_radius_bottom_left": 0,
+        "media_box_shadow_visible": false,
+        "media_box_shadow_color": "#00000014",
+        "media_box_shadow_x_offset": 0,
+        "media_box_shadow_y_offset": 0,
+        "height": "adapt",
+        "desktop_image_width": "medium",
+        "layout": "image_first",
+        "image_behavior": "none",
+        "content_layout": "no-overlap",
+        "desktop_content_position": "middle",
+        "desktop_content_alignment": "center",
+        "mobile_content_alignment": "center",
+        "section_color_scheme": "scheme-23a29e7f-f949-4e5f-9ecb-31639c0c2c42",
+        "color_scheme": "scheme-1b712716-c289-4973-9398-e76fdf4f9ee4",
+        "padding_top_mobile": 32,
+        "padding_bottom_mobile": 32,
+        "padding_left_mobile": 0,
+        "padding_right_mobile": 0,
+        "padding_top_desktop": 32,
+        "padding_bottom_desktop": 32,
+        "padding_left_desktop": 0,
+        "padding_right_desktop": 0
+      }
     }
   },
   "order": [
     "featured_collection",
     "generic_text_content_CA7Qbw",
     "custom_image_with_text_NL6i9N",
-    "custom_image_with_text_4NTDTi"
+    "custom_image_with_text_4NTDTi",
+    "custom_image_with_text_rwaDVT"
   ]
 }

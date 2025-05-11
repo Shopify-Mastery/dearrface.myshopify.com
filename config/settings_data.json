@@ -234,7 +234,7 @@
       "scheme-1b712716-c289-4973-9398-e76fdf4f9ee4": {
         "settings": {
           "background": "#ffffff",
-          "background_gradient": "linear-gradient(274deg, rgba(255, 102, 196, 0.8) 5%, rgba(255, 110, 175, 1) 43%, rgba(255, 102, 196, 1) 91%)",
+          "background_gradient": "linear-gradient(180deg, rgba(255, 102, 196, 1) 3%, rgba(255, 110, 175, 0.9) 38%, rgba(255, 102, 196, 1) 95%)",
           "text": "{{ shop.brand.colors.secondary[1].background }}",
           "button": "{{ shop.brand.colors.secondary[1].background }}",
           "button_label": "{{ shop.brand.colors.secondary[0].background }}",
