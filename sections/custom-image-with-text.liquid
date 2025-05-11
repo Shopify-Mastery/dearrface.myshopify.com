@@ -117,15 +117,15 @@
       justify-content: flex-start;
     }
   }
-  .attributes-block {
+  .section-{{ section.id }}-padding .attributes-block {
     margin-top: 2.5rem;
   }
-  .attributes-grid {
+  .section-{{ section.id }}-padding .attributes-grid {
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 2.5rem 2rem;
   }
-  .attribute-item {
+  .section-{{ section.id }}-padding .attribute-item {
     display: flex;
     flex-flow: column nowrap;
     align-items: center;
@@ -133,20 +133,19 @@
     max-width: 100%;
     box-sizing: border-box;
   }
-  .attribute-icon {
+  .section-{{ section.id }}-padding .attribute-icon {
     width: 5rem;
     height: 5rem;
     display: flex;
     align-items: center;
     justify-content: center;
   }
-
-  .attribute-icon img {
+  .section-{{ section.id }}-padding .attribute-icon img {
     width: 100%;
     height: 100%;
     object-fit: contain;
   }
-  .attribute-details {
+  .section-{{ section.id }}-padding .attribute-details {
     font-size: 1.1rem;
     color: #222;
     font-weight: 500;
@@ -156,27 +155,27 @@
     white-space: normal;
     max-width: 90vw;
   }
-  .attribute-details h1,
-  .attribute-details h2,
-  .attribute-details h3,
-  .attribute-details h4,
-  .attribute-details h5,
-  .attribute-details h6 {
+  .section-{{ section.id }}-padding .attribute-details h1,
+  .section-{{ section.id }}-padding .attribute-details h2,
+  .section-{{ section.id }}-padding .attribute-details h3,
+  .section-{{ section.id }}-padding .attribute-details h4,
+  .section-{{ section.id }}-padding .attribute-details h5,
+  .section-{{ section.id }}-padding .attribute-details h6 {
     margin-bottom: 0;
   }
   @media (min-width: 1024px) {
-    .attribute-item {
+    .section-{{ section.id }}-padding .attribute-item {
       flex-flow: row nowrap;
       align-items: center;
       gap: 1.5rem;
     }
-    .attribute-details {
+    .section-{{ section.id }}-padding .attribute-details {
       text-align: left;
       max-width: none;
     }
   }
   @media (min-width: 1440px) {
-    .attribute-icon {
+    .section-{{ section.id }}-padding .attribute-icon {
       width: 7rem;
       height: 7rem;
     }
