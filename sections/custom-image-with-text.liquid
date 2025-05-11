@@ -1,0 +1,664 @@
+{{ 'component-image-with-text.css' | asset_url | stylesheet_tag }}
+
+{%- style -%}
+  .section-{{ section.id }}-padding {
+    padding-top: {{ section.settings.padding_top_mobile }}px;
+    padding-bottom: {{ section.settings.padding_bottom_mobile }}px;
+    padding-left: {{ section.settings.padding_left_mobile }}px;
+    padding-right: {{ section.settings.padding_right_mobile }}px;
+  }
+  @media (min-width: 1024px) {
+    .section-{{ section.id }}-padding {
+      padding-top: {{ section.settings.padding_top_desktop }}px;
+      padding-bottom: {{ section.settings.padding_bottom_desktop }}px;
+      padding-left: {{ section.settings.padding_left_desktop }}px;
+      padding-right: {{ section.settings.padding_right_desktop }}px;
+    }
+  }
+
+  .section-{{ section.id }}-padding .image-with-text__media {
+    border: 0.3rem solid {{ section.settings.image_border_color }} !important;
+  }
+
+  .section-{{ section.id }}-padding .image-with-text__content {
+    padding: 4rem calc(2rem / var(--font-body-scale)) 5rem;
+  }
+
+  @media (min-width: 768px) {
+    .section-{{ section.id }}-padding .image-with-text__content {
+      padding: 4rem calc(4rem / var(--font-body-scale)) 5rem;
+    }
+  }
+
+  .testimonial-block-{{ section.id }} {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background: #fff;
+    border-radius: 1rem;
+    box-shadow: 0 0.2rem 1rem rgba(0,0,0,0.04);
+    padding: 2rem 1.5rem;
+    margin: 3rem auto 0;
+    max-width: 36rem;
+    /* border: 0.2rem solid var(--testimonial-border-{{ section.id }}); */
+  }
+  .testimonial-block-{{ section.id }}__image {
+    width: 6rem;
+    height: 6rem;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 0.3rem solid var(--testimonial-image-border-{{ section.id }});
+    margin-bottom: 1.2rem;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .testimonial-block-{{ section.id }}__quote {
+    margin-bottom: 0.8rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .testimonial-block-{{ section.id }}__quote svg {
+    transform: rotate(180deg);
+    width: 2rem;
+    height: 2rem;
+  }
+  .testimonial-block-{{ section.id }}__quote svg path {
+    fill: var(--testimonial-star-color-{{ section.id }});
+  }
+  .testimonial-block-{{ section.id }}__stars {
+    color: var(--testimonial-star-color-{{ section.id }});
+    margin-left: 1rem;
+    font-size: 1.4rem;
+    letter-spacing: 0.1rem;
+  }
+  .testimonial-block-{{ section.id }}__text {
+    font-size: 1.2rem;
+    margin-bottom: 1rem;
+    text-align: center;
+  }
+  .testimonial-block-{{ section.id }}__author {
+    font-weight: bold;
+    font-size: 1.1rem;
+    text-align: center;
+  }
+  @media (min-width: 1024px) {
+    .testimonial-block-{{ section.id }} {
+      flex-direction: row;
+      align-items: flex-start;
+      max-width: 48rem;
+      padding: 2.5rem 2.5rem;
+      text-align: left;
+    }
+    .testimonial-block-{{ section.id }}__image {
+      align-self: center;
+      margin-bottom: 0;
+      margin-right: 2rem;
+      width: 7rem;
+      height: 7rem;
+      margin-left: 0;
+    }
+    .testimonial-block-{{ section.id }}__content {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+    }
+    .testimonial-block-{{ section.id }}__text,
+    .testimonial-block-{{ section.id }}__author {
+      text-align: left;
+    }
+    .testimonial-block-{{ section.id }}__quote {
+      justify-content: flex-start;
+    }
+    .testimonial-block-{{ section.id }}--align-desktop-center .testimonial-block-{{ section.id }}__content {
+      align-items: center;
+      text-align: center;
+    }
+    .testimonial-block-{{ section.id }}--align-desktop-right .testimonial-block-{{ section.id }}__content {
+      align-items: flex-end;
+      text-align: right;
+    }
+  }
+  @media (max-width: 1023px) {
+    .testimonial-block-{{ section.id }}--align-mobile-center .testimonial-block-{{ section.id }}__content {
+      align-items: center;
+      text-align: center;
+    }
+    .testimonial-block-{{ section.id }}--align-mobile-right .testimonial-block-{{ section.id }}__content {
+      align-items: flex-end;
+      text-align: right;
+    }
+    .testimonial-block-{{ section.id }}--align-mobile-left .testimonial-block-{{ section.id }}__content {
+      align-items: flex-start;
+      text-align: left;
+    }
+  }
+{%- endstyle -%}
+
+{%- liquid
+  assign fetch_priority = 'auto'
+  if section.index == 1
+    assign fetch_priority = 'high'
+  endif
+  if section.settings.color_scheme == section.settings.section_color_scheme and section.settings.content_layout == 'no-overlap'
+    assign remove_color_classes = true
+  endif
+-%}
+
+<div class="section-{{ section.id }}-padding gradient color-{{ section.settings.section_color_scheme }}">
+  <div class="page-width">
+    <div class="image-with-text image-with-text--{{ section.settings.content_layout }} isolate{% if settings.text_boxes_border_thickness > 0 and settings.text_boxes_border_opacity > 0 and settings.media_border_thickness > 0 and settings.media_border_opacity > 0 %} collapse-borders{% endif %}{% unless section.settings.color_scheme == section.settings.section_color_scheme and settings.media_border_thickness > 0 and settings.text_boxes_shadow_opacity == 0 and settings.text_boxes_border_thickness == 0 or settings.text_boxes_border_opacity == 0 %} collapse-corners{% endunless %}{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}">
+      <div class="image-with-text__grid grid grid--gapless grid--1-col grid--{% if section.settings.desktop_image_width == 'medium' %}2-col-tablet{% else %}3-col-tablet{% endif %}{% if section.settings.layout == 'text_first' %} image-with-text__grid--reverse{% endif %}">
+        <div class="image-with-text__media-item image-with-text__media-item--{{ section.settings.desktop_image_width }} image-with-text__media-item--{{ section.settings.desktop_content_position }} grid__item">
+          <div
+            class="image-with-text__media image-with-text__media--{{ section.settings.height }} global-media-settings{% unless remove_color_classes %} gradient color-{{ section.settings.color_scheme }}{% else %} background-transparent{% endunless %}{% if section.settings.image != blank %} media{% else %} image-with-text__media--placeholder placeholder{% endif %}{% if section.settings.image_behavior != 'none' %} animate--{{ section.settings.image_behavior }}{% endif %}"
+            {% if section.settings.height == 'adapt' and section.settings.image != blank %}
+              style="padding-bottom: {{ 1 | divided_by: section.settings.image.aspect_ratio | times: 100 }}%;"
+            {% endif %}
+          >
+            {%- if section.settings.image != blank -%}
+              {%- if section.settings.image_behavior == 'ambient' or section.settings.image_behavior == 'zoom-in' -%}
+                {%- assign widths = '198, 432, 642, 900, 1284, 1800' -%}
+                {%- capture sizes -%}
+              (min-width: {{ settings.page_width }}px) {{ settings.page_width | minus: 100 | divided_by: 1.6667 }}px,
+              (min-width: 750px) calc((100vw - 130px) / 1.667), calc((100vw - 50px) / 1.667)
+            {%- endcapture -%}
+              {%- else -%}
+                {%- assign widths = '165, 360, 535, 750, 1070, 1500' -%}
+                {%- capture sizes -%}
+              (min-width: {{ settings.page_width }}px) {{ settings.page_width | minus: 100 | divided_by: 2 }}px,
+              (min-width: 750px) calc((100vw - 130px) / 2), calc((100vw - 50px) / 2)
+            {%- endcapture -%}
+              {%- endif -%}
+              {{
+                section.settings.image
+                | image_url: width: 1500
+                | image_tag: sizes: sizes, widths: widths, fetchpriority: fetch_priority
+              }}
+            {%- else -%}
+              {{ 'detailed-apparel-1' | placeholder_svg_tag: 'placeholder-svg' }}
+            {%- endif -%}
+          </div>
+        </div>
+        <div class="image-with-text__text-item grid__item">
+          <div
+            id="ImageWithText--{{ section.id }}"
+            class="image-with-text__content image-with-text__content--{{ section.settings.desktop_content_position }} image-with-text__content--desktop-{{ section.settings.desktop_content_alignment }} image-with-text__content--mobile-{{ section.settings.mobile_content_alignment }} image-with-text__content--{{ section.settings.height }} content-container{% unless remove_color_classes %} gradient color-{{ section.settings.color_scheme }}{% else %} background-transparent{% endunless %}"
+          >
+            {%- for block in section.blocks -%}
+              {% case block.type %}
+                {%- when 'heading' -%}
+                  <h2
+                    class="image-with-text__heading inline-richtext {{ block.settings.heading_size }}"
+                    {{ block.shopify_attributes }}
+                  >
+                    {{ block.settings.heading }}
+                  </h2>
+                {%- when 'caption' -%}
+                  <p
+                    class="image-with-text__text image-with-text__text--caption {{ block.settings.text_style }} {{ block.settings.text_style }}--{{ block.settings.text_size }} {{ block.settings.text_style }}"
+                    {{ block.shopify_attributes }}
+                  >
+                    {{ block.settings.caption | escape }}
+                  </p>
+                {%- when 'text' -%}
+                  <div class="image-with-text__text rte {{ block.settings.text_style }}" {{ block.shopify_attributes }}>
+                    {{ block.settings.text }}
+                  </div>
+                {%- when 'button' -%}
+                  {%- if block.settings.button_label != blank -%}
+                    <a
+                      {% if block.settings.button_link == blank %}
+                        role="link" aria-disabled="true"
+                      {% else %}
+                        href="{{ block.settings.button_link }}"
+                      {% endif %}
+                      class="button{% if block.settings.button_style_secondary %} button--secondary{% else %} button--primary{% endif %}"
+                      {{ block.shopify_attributes }}
+                    >
+                      {{ block.settings.button_label | escape }}
+                    </a>
+                  {%- endif -%}
+                {%- when 'testimonial' -%}
+                  <style>
+                    :root {
+                      --testimonial-border-{{ section.id }}: {{ block.settings.border_color }};
+                      --testimonial-image-border-{{ section.id }}: {{ block.settings.border_color }};
+                      --testimonial-star-color-{{ section.id }}: {{ block.settings.star_color }};
+                    }
+                  </style>
+                  <div class="testimonial-block-{{ section.id }} testimonial-block-{{ section.id }}--align-desktop-{{ block.settings.align_desktop }} testimonial-block-{{ section.id }}--align-mobile-{{ block.settings.align_mobile }}">
+                    {% if block.settings.image != blank %}
+                      <img
+                        class="testimonial-block-{{ section.id }}__image"
+                        src="{{ block.settings.image | image_url: width: 120, height: 120, crop: 'center' }}"
+                        alt="{{ block.settings.author | escape }}"
+                      >
+                    {% endif %}
+                    <div class="testimonial-block-{{ section.id }}__content">
+                      <div class="testimonial-block-{{ section.id }}__quote">
+                        {{ 'quotation-mark.svg' | inline_asset_content }}
+                        {% comment %}
+                          <svg width="24" height="24" fill="none" viewBox="0 0 24 24" aria-hidden="true">
+                            <path d="M7.5 9.5C7.5 7.01472 9.51472 5 12 5C14.4853 5 16.5 7.01472 16.5 9.5C16.5 11.9853 14.4853 14 12 14C9.51472 14 7.5 11.9853 7.5 9.5Z" fill="#E5E5E5"/>
+                          </svg>
+                        {% endcomment %}
+                        <span class="testimonial-block-{{ section.id }}__stars">
+                          {% for i in (1..5) %}
+                            {% if i <= block.settings.stars %}
+                              <span>★</span>
+                            {% else %}
+                              <span style="opacity:0.3;">★</span>
+                            {% endif %}
+                          {% endfor %}
+                        </span>
+                      </div>
+                      <div class="testimonial-block-{{ section.id }}__text">
+                        {{ block.settings.text | replace: '<p>', '<p style="margin: 0;">' }}
+                      </div>
+                      <div class="testimonial-block-{{ section.id }}__author">-{{ block.settings.author }}</div>
+                    </div>
+                  </div>
+              {%- endcase -%}
+            {%- endfor -%}
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "Custom Image with Text",
+  "class": "section",
+  "disabled_on": {
+    "groups": ["header", "footer"]
+  },
+  "settings": [
+    {
+      "type": "image_picker",
+      "id": "image",
+      "label": "Image"
+    },
+    {
+      "type": "color",
+      "id": "image_border_color",
+      "label": "Image border color",
+      "default": "#E5E5E5"
+    },
+    {
+      "type": "select",
+      "id": "height",
+      "options": [
+        { "value": "adapt", "label": "Adapt to image" },
+        { "value": "small", "label": "Small" },
+        { "value": "medium", "label": "Medium" },
+        { "value": "large", "label": "Large" }
+      ],
+      "default": "adapt",
+      "label": "Section height"
+    },
+    {
+      "type": "select",
+      "id": "desktop_image_width",
+      "options": [
+        { "value": "small", "label": "Small" },
+        { "value": "medium", "label": "Medium" },
+        { "value": "large", "label": "Large" }
+      ],
+      "default": "medium",
+      "label": "Desktop image width"
+    },
+    {
+      "type": "select",
+      "id": "layout",
+      "options": [
+        { "value": "image_first", "label": "Image first" },
+        { "value": "text_first", "label": "Text first" }
+      ],
+      "default": "image_first",
+      "label": "Layout"
+    },
+    {
+      "type": "select",
+      "id": "image_behavior",
+      "options": [
+        { "value": "none", "label": "None" },
+        { "value": "ambient", "label": "Ambient" },
+        { "value": "zoom-in", "label": "Zoom in" }
+      ],
+      "default": "none",
+      "label": "Image animation"
+    },
+    {
+      "type": "header",
+      "content": "Content layout"
+    },
+    {
+      "type": "select",
+      "id": "content_layout",
+      "options": [
+        { "value": "no-overlap", "label": "No overlap" },
+        { "value": "overlap", "label": "Overlap" }
+      ],
+      "default": "no-overlap",
+      "label": "Content layout"
+    },
+    {
+      "type": "select",
+      "id": "desktop_content_position",
+      "options": [
+        { "value": "top", "label": "Top" },
+        { "value": "middle", "label": "Middle" },
+        { "value": "bottom", "label": "Bottom" }
+      ],
+      "default": "top",
+      "label": "Desktop content position"
+    },
+    {
+      "type": "select",
+      "id": "desktop_content_alignment",
+      "options": [
+        { "value": "left", "label": "Left" },
+        { "value": "center", "label": "Center" },
+        { "value": "right", "label": "Right" }
+      ],
+      "default": "left",
+      "label": "Desktop content alignment"
+    },
+    {
+      "type": "select",
+      "id": "mobile_content_alignment",
+      "options": [
+        { "value": "left", "label": "Left" },
+        { "value": "center", "label": "Center" },
+        { "value": "right", "label": "Right" }
+      ],
+      "default": "left",
+      "label": "Mobile content alignment"
+    },
+    {
+      "type": "header",
+      "content": "Color scheme"
+    },
+    {
+      "type": "color_scheme",
+      "id": "section_color_scheme",
+      "label": "Section color scheme",
+      "default": "scheme-1"
+    },
+    {
+      "type": "color_scheme",
+      "id": "color_scheme",
+      "label": "Container color scheme",
+      "default": "scheme-1"
+    },
+    { "type": "header", "content": "Section Padding (Mobile)" },
+    {
+      "type": "range",
+      "id": "padding_top_mobile",
+      "label": "Top Padding (Mobile)",
+      "min": 0,
+      "max": 120,
+      "step": 4,
+      "default": 32,
+      "unit": "px"
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom_mobile",
+      "label": "Bottom Padding (Mobile)",
+      "min": 0,
+      "max": 120,
+      "step": 4,
+      "default": 32,
+      "unit": "px"
+    },
+    {
+      "type": "range",
+      "id": "padding_left_mobile",
+      "label": "Left Padding (Mobile)",
+      "min": 0,
+      "max": 96,
+      "step": 8,
+      "default": 0,
+      "unit": "px"
+    },
+    {
+      "type": "range",
+      "id": "padding_right_mobile",
+      "label": "Right Padding (Mobile)",
+      "min": 0,
+      "max": 96,
+      "step": 8,
+      "default": 0,
+      "unit": "px"
+    },
+    { "type": "header", "content": "Section Padding (Desktop)" },
+    {
+      "type": "range",
+      "id": "padding_top_desktop",
+      "label": "Top Padding (Desktop)",
+      "min": 0,
+      "max": 160,
+      "step": 8,
+      "default": 32,
+      "unit": "px"
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom_desktop",
+      "label": "Bottom Padding (Desktop)",
+      "min": 0,
+      "max": 160,
+      "step": 8,
+      "default": 32,
+      "unit": "px"
+    },
+    {
+      "type": "range",
+      "id": "padding_left_desktop",
+      "label": "Left Padding (Desktop)",
+      "min": 0,
+      "max": 96,
+      "step": 8,
+      "default": 0,
+      "unit": "px"
+    },
+    {
+      "type": "range",
+      "id": "padding_right_desktop",
+      "label": "Right Padding (Desktop)",
+      "min": 0,
+      "max": 96,
+      "step": 8,
+      "default": 0,
+      "unit": "px"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "heading",
+      "name": "Heading",
+      "limit": 1,
+      "settings": [
+        {
+          "type": "inline_richtext",
+          "id": "heading",
+          "default": "Your headline",
+          "label": "Heading"
+        },
+        {
+          "type": "select",
+          "id": "heading_size",
+          "options": [
+            { "value": "h2", "label": "H2" },
+            { "value": "h1", "label": "H1" },
+            { "value": "h0", "label": "H0" },
+            { "value": "hxl", "label": "HXL" },
+            { "value": "hxxl", "label": "HXXL" }
+          ],
+          "default": "h1",
+          "label": "Heading size"
+        }
+      ]
+    },
+    {
+      "type": "caption",
+      "name": "Caption",
+      "limit": 1,
+      "settings": [
+        {
+          "type": "text",
+          "id": "caption",
+          "default": "Your caption",
+          "label": "Caption"
+        },
+        {
+          "type": "select",
+          "id": "text_style",
+          "options": [
+            { "value": "subtitle", "label": "Subtitle" },
+            { "value": "caption-with-letter-spacing", "label": "Caption with letter spacing" }
+          ],
+          "default": "caption-with-letter-spacing",
+          "label": "Text style"
+        },
+        {
+          "type": "select",
+          "id": "text_size",
+          "options": [
+            { "value": "small", "label": "Small" },
+            { "value": "medium", "label": "Medium" },
+            { "value": "large", "label": "Large" }
+          ],
+          "default": "medium",
+          "label": "Caption size"
+        }
+      ]
+    },
+    {
+      "type": "text",
+      "name": "Text",
+      "limit": 1,
+      "settings": [
+        {
+          "type": "richtext",
+          "id": "text",
+          "default": "<p>Your text goes here.</p>",
+          "label": "Text"
+        },
+        {
+          "type": "select",
+          "id": "text_style",
+          "options": [
+            { "value": "body", "label": "Body" },
+            { "value": "subtitle", "label": "Subtitle" }
+          ],
+          "default": "body",
+          "label": "Text style"
+        }
+      ]
+    },
+    {
+      "type": "button",
+      "name": "Button",
+      "limit": 1,
+      "settings": [
+        {
+          "type": "text",
+          "id": "button_label",
+          "default": "Shop now",
+          "label": "Button label"
+        },
+        {
+          "type": "url",
+          "id": "button_link",
+          "label": "Button link"
+        },
+        {
+          "type": "checkbox",
+          "id": "button_style_secondary",
+          "default": false,
+          "label": "Outline button"
+        }
+      ]
+    },
+    {
+      "type": "testimonial",
+      "name": "Testimonial",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Reviewer image"
+        },
+        {
+          "type": "color",
+          "id": "border_color",
+          "label": "Border color",
+          "default": "#E5E5E5"
+        },
+        {
+          "type": "range",
+          "id": "stars",
+          "label": "Star rating",
+          "min": 1,
+          "max": 5,
+          "step": 1,
+          "default": 5
+        },
+        {
+          "type": "color",
+          "id": "star_color",
+          "label": "Star color",
+          "default": "#FF6EC7"
+        },
+        {
+          "type": "richtext",
+          "id": "text",
+          "label": "Review text",
+          "default": "<p>I've tried so many masks, but this one is incredible! My skin feels firmer, smoother, and so hydrated. Even my friends noticed the glow — absolutely love it!</p>"
+        },
+        {
+          "type": "text",
+          "id": "author",
+          "label": "Review author",
+          "default": "Zaria McCray"
+        },
+        {
+          "type": "select",
+          "id": "align_desktop",
+          "label": "Content alignment (desktop)",
+          "options": [
+            { "value": "left", "label": "Left" },
+            { "value": "center", "label": "Center" },
+            { "value": "right", "label": "Right" }
+          ],
+          "default": "left"
+        },
+        {
+          "type": "select",
+          "id": "align_mobile",
+          "label": "Content alignment (mobile)",
+          "options": [
+            { "value": "left", "label": "Left" },
+            { "value": "center", "label": "Center" },
+            { "value": "right", "label": "Right" }
+          ],
+          "default": "center"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Custom Image with Text",
+      "blocks": [{ "type": "heading" }, { "type": "text" }, { "type": "button" }, { "type": "testimonial" }]
+    }
+  ]
+}
+{% endschema %}
