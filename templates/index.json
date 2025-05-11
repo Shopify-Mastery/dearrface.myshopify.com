@@ -140,11 +140,69 @@
         "padding_left_desktop": 0,
         "padding_right_desktop": 0
       }
+    },
+    "custom_image_with_text_4NTDTi": {
+      "type": "custom-image-with-text",
+      "blocks": {
+        "heading_zqKgFU": {
+          "type": "heading",
+          "settings": {
+            "heading": "Gentle On Skin, |Powerful On Results",
+            "heading_size": "h1",
+            "heading_2nd_part_color": "{{ shop.brand.colors.primary[0].background }}"
+          }
+        },
+        "text_VYaqUq": {
+          "type": "text",
+          "settings": {
+            "text": "<p>Reveal smoother, healthier skin with every application. This collagen mask doesn't just hydrate — it transforms, giving you a fresh, radiant glow while supporting long-term skin health.</p>",
+            "text_style": "body"
+          }
+        },
+        "feature_cards_jDnWwK": {
+          "type": "feature-cards",
+          "settings": {
+            "icon_1": "shopify://shop_images/Cooling_Sensation_Icon_7c604901-cbf0-401c-a463-03ec3309f5f5.png",
+            "details_1": "<h4> Cooling Sensation</h4><p>Soothes the skin instantly with a refreshing cooling effect that calms redness and puffiness.</p>",
+            "icon_2": "shopify://shop_images/Doctor_Icon_6134ff43-1115-4ca7-965b-1d17f636ea00.png",
+            "details_2": "<h4>Dermatologist Tested</h4><p>Clinically tested suitable for all skin types, including sensitive and mature skin.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "heading_zqKgFU",
+        "text_VYaqUq",
+        "feature_cards_jDnWwK"
+      ],
+      "name": "Active Glass Skin",
+      "settings": {
+        "image": "shopify://shop_images/olimpia-campean-m6bIAov5RQA-unsplash.jpg",
+        "image_border_color": "{{ shop.brand.colors.primary[0].background }}",
+        "height": "medium",
+        "desktop_image_width": "medium",
+        "layout": "text_first",
+        "image_behavior": "ambient",
+        "content_layout": "no-overlap",
+        "desktop_content_position": "top",
+        "desktop_content_alignment": "left",
+        "mobile_content_alignment": "left",
+        "section_color_scheme": "scheme-23a29e7f-f949-4e5f-9ecb-31639c0c2c42",
+        "color_scheme": "scheme-23a29e7f-f949-4e5f-9ecb-31639c0c2c42",
+        "padding_top_mobile": 32,
+        "padding_bottom_mobile": 32,
+        "padding_left_mobile": 0,
+        "padding_right_mobile": 0,
+        "padding_top_desktop": 32,
+        "padding_bottom_desktop": 32,
+        "padding_left_desktop": 0,
+        "padding_right_desktop": 0
+      }
     }
   },
   "order": [
     "featured_collection",
     "generic_text_content_CA7Qbw",
-    "custom_image_with_text_NL6i9N"
+    "custom_image_with_text_NL6i9N",
+    "custom_image_with_text_4NTDTi"
   ]
 }
