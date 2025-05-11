@@ -44,14 +44,14 @@
     padding: 2rem 1.5rem;
     margin: 3rem auto 0;
     max-width: 36rem;
-    /* border: 0.2rem solid var(--testimonial-border-{{ section.id }}); */
+    border: 0.3rem solid var(--testimonial-border-color-{{ section.id }});
   }
   .testimonial-block-{{ section.id }}__image {
     width: 6rem;
     height: 6rem;
     border-radius: 50%;
     object-fit: cover;
-    border: 0.3rem solid var(--testimonial-image-border-{{ section.id }});
+    border: 0.3rem solid var(--testimonial-image-border-color-{{ section.id }});
     margin-bottom: 1.2rem;
     display: block;
     margin-left: auto;
@@ -235,8 +235,8 @@
                 {%- when 'testimonial' -%}
                   <style>
                     :root {
-                      --testimonial-border-{{ section.id }}: {{ block.settings.border_color }};
-                      --testimonial-image-border-{{ section.id }}: {{ block.settings.border_color }};
+                      --testimonial-border-color-{{ section.id }}: {{ block.settings.testimonial_border_color }};
+                      --testimonial-image-border-color-{{ section.id }}: {{ block.settings.testimonial_image_border_color }};
                       --testimonial-star-color-{{ section.id }}: {{ block.settings.star_color }};
                     }
                   </style>
@@ -616,9 +616,15 @@
         },
         {
           "type": "color",
-          "id": "border_color",
-          "label": "Border color",
+          "id": "testimonial_border_color",
+          "label": "Testimonial border color",
           "default": "#E5E5E5"
+        },
+        {
+          "type": "color",
+          "id": "testimonial_image_border_color",
+          "label": "Testimonial image border color",
+          "default": "#FFFFFF"
         },
         {
           "type": "range",
