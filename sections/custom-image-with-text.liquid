@@ -338,19 +338,44 @@
             {%- for block in section.blocks -%}
               {% case block.type %}
                 {%- when 'heading' -%}
-                  {% assign heading_parts = block.settings.heading | split: '|' %}
-                  <h2
-                    class="image-with-text__heading inline-richtext {{ block.settings.heading_size }}"
-                    {{ block.shopify_attributes }}
-                  >
-                    <span class="image-with-text__heading-part-1">{{ heading_parts[0] | strip }}</span>
-                    <span
-                      class="image-with-text__heading-part-2"
-                      style="color: {{ block.settings.heading_2nd_part_color }};"
+                  {% assign heading_split_count = block.settings.heading | split: '|' | size %}
+                  {% if heading_split_count == 2 %}
+                    {% assign heading_parts = block.settings.heading | split: '|' %}
+                    <h2
+                      class="image-with-text__heading inline-richtext {{ block.settings.heading_size }}"
+                      {{ block.shopify_attributes }}
                     >
-                      {{- heading_parts[1] | strip -}}
-                    </span>
-                  </h2>
+                      <span class="image-with-text__heading-part-1">{{ heading_parts[0] | strip }}</span>
+                      <span
+                        class="image-with-text__heading-part-2"
+                        style="color: {{ block.settings.heading_2nd_part_color }};"
+                      >
+                        {{- heading_parts[1] | strip -}}
+                      </span>
+                    </h2>
+                  {% elsif heading_split_count == 3 %}
+                    {% assign heading_parts = block.settings.heading | split: '|' %}
+                    <h2
+                      class="image-with-text__heading inline-richtext {{ block.settings.heading_size }}"
+                      {{ block.shopify_attributes }}
+                    >
+                      <span class="image-with-text__heading-part-1">{{ heading_parts[0] | strip }}</span>
+                      <span
+                        class="image-with-text__heading-part-2"
+                        style="color: {{ block.settings.heading_2nd_part_color }};"
+                      >
+                        {{- heading_parts[1] | strip -}}
+                      </span>
+                      <span class="image-with-text__heading-part-3">{{ heading_parts[2] | strip }}</span>
+                    </h2>
+                  {% else %}
+                    <h2
+                      class="image-with-text__heading inline-richtext {{ block.settings.heading_size }}"
+                      {{ block.shopify_attributes }}
+                    >
+                      {{ block.settings.heading }}
+                    </h2>
+                  {% endif %}
                 {%- when 'caption' -%}
                   <p
                     class="image-with-text__text image-with-text__text--caption {{ block.settings.text_style }} {{ block.settings.text_style }}--{{ block.settings.text_size }} {{ block.settings.text_style }}"
@@ -417,6 +442,8 @@
                         class="testimonial-block-{{ section.id }}__image"
                         src="{{ block.settings.image | image_url: width: 120, height: 120, crop: 'center' }}"
                         alt="{{ block.settings.author | escape }}"
+                        width="120"
+                        height="120"
                       >
                     {% endif %}
                     <div class="testimonial-block-{{ section.id }}__content">
@@ -812,7 +839,7 @@
           "id": "heading",
           "default": "Your headline",
           "label": "Heading",
-          "info": "Use | to split heading into two parts. First part uses text color, second part uses heading 2nd part color. Example: First part|Second part"
+          "info": "Use | to split heading into two parts. First part uses text color, second part uses heading 2nd part color. Example: First part|Second part. You can also use | to split heading into three parts. Example: First part|Second part|Third part. In this case, only the second part will use the heading 2nd part color."
         },
         {
           "type": "select",
