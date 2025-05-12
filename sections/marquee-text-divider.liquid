@@ -1,0 +1,220 @@
+{% style %}
+  .marquee-text-divider-{{ section.id }} {
+    padding-top: {{ section.settings.padding_top_mobile }}px;
+    padding-bottom: {{ section.settings.padding_bottom_mobile }}px;
+    padding-left: {{ section.settings.padding_left_mobile }}px;
+    padding-right: {{ section.settings.padding_right_mobile }}px;
+  }
+  @media (min-width: 1024px) {
+    .marquee-text-divider-{{ section.id }} {
+      padding-top: {{ section.settings.padding_top_desktop }}px;
+      padding-bottom: {{ section.settings.padding_bottom_desktop }}px;
+      padding-left: {{ section.settings.padding_left_desktop }}px;
+      padding-right: {{ section.settings.padding_right_desktop }}px;
+    }
+  }
+  .marquee-text-divider__marquee-{{ section.id }} {
+    overflow: hidden;
+    width: 100%;
+    white-space: nowrap;
+    position: relative;
+  }
+  .marquee-text-divider__track-{{ section.id }} {
+    display: inline-flex;
+    align-items: center;
+    gap: 3rem;
+    animation: marquee-text-divider-{{ section.id }}-scroll 30s linear infinite;
+  }
+  .marquee-text-divider__item-{{ section.id }} {
+    display: flex;
+    align-items: center;
+    white-space: nowrap;
+    column-gap: 3rem;
+    font-size: 1.5rem;
+    font-weight: bold;
+  }
+  .marquee-text-divider__star-{{ section.id }} {
+    display: inline-flex;
+    align-items: center;
+    width: 1.2rem;
+    height: 1.6rem;
+  }
+  @keyframes marquee-text-divider-{{ section.id }}-scroll {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(-50%); }
+  }
+  .marquee-text-divider__marquee-{{ section.id }}[data-direction="rtl"] .marquee-text-divider__track-{{ section.id }} {
+    animation-direction: reverse;
+  }
+{% endstyle %}
+
+<div class="marquee-text-divider-{{ section.id }} color-{{ section.settings.section_color_scheme }}">
+  <div class="marquee-text-divider__marquee-{{ section.id }}" data-direction="{{ section.settings.direction }}">
+    <div class="marquee-text-divider__track-{{ section.id }}">
+      {% for block in section.blocks %}
+        <span class="marquee-text-divider__item-{{ section.id }}">
+          {{- block.settings.text }}
+          {% unless forloop.last %}
+            <span class="marquee-text-divider__star-{{ section.id }}">
+              {{- 'star.svg' | asset_url | img_tag: '', 'divider star' -}}
+            </span>
+          {% endunless %}
+        </span>
+      {% endfor %}
+      {% comment %} Duplicate for seamless loop {% endcomment %}
+      {% for block in section.blocks %}
+        <span class="marquee-text-divider__item-{{ section.id }}">
+          {{- block.settings.text }}
+          {% unless forloop.last %}
+            <span class="marquee-text-divider__star-{{ section.id }}">
+              {{- 'star.svg' | asset_url | img_tag: '', 'divider star' -}}
+            </span>
+          {% endunless %}
+        </span>
+      {% endfor %}
+    </div>
+  </div>
+</div>
+
+{% javascript %}
+  const marquee = document.querySelector('.marquee-text-divider__marquee-{{ section.id }}');
+  if (marquee) {
+    const track = marquee.querySelector('.marquee-text-divider__track-{{ section.id }}');
+    let direction = marquee.getAttribute('data-direction');
+    // Responsive speed or direction logic can be added here if needed
+  }
+{% endjavascript %}
+
+{% schema %}
+{
+  "name": "Marquee Text Divider",
+  "tag": "section",
+  "class": "section",
+  "settings": [
+    {
+      "type": "color_scheme",
+      "id": "section_color_scheme",
+      "label": "Section color scheme",
+      "default": "scheme-1"
+    },
+    {
+      "type": "select",
+      "id": "direction",
+      "label": "Scroll direction",
+      "options": [
+        { "value": "ltr", "label": "Left to right" },
+        { "value": "rtl", "label": "Right to left" }
+      ],
+      "default": "ltr"
+    },
+    {
+      "type": "header",
+      "content": "Section Padding (Mobile)"
+    },
+    {
+      "type": "range",
+      "id": "padding_top_mobile",
+      "label": "Top padding (mobile)",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "default": 24
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom_mobile",
+      "label": "Bottom padding (mobile)",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "default": 24
+    },
+    {
+      "type": "range",
+      "id": "padding_left_mobile",
+      "label": "Left padding (mobile)",
+      "min": 0,
+      "max": 40,
+      "step": 4,
+      "default": 0
+    },
+    {
+      "type": "range",
+      "id": "padding_right_mobile",
+      "label": "Right padding (mobile)",
+      "min": 0,
+      "max": 40,
+      "step": 4,
+      "default": 0
+    },
+    {
+      "type": "header",
+      "content": "Section Padding (Desktop)"
+    },
+    {
+      "type": "range",
+      "id": "padding_top_desktop",
+      "label": "Top padding (desktop)",
+      "min": 0,
+      "max": 160,
+      "step": 8,
+      "default": 48
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom_desktop",
+      "label": "Bottom padding (desktop)",
+      "min": 0,
+      "max": 160,
+      "step": 8,
+      "default": 48
+    },
+    {
+      "type": "range",
+      "id": "padding_left_desktop",
+      "label": "Left padding (desktop)",
+      "min": 0,
+      "max": 120,
+      "step": 8,
+      "default": 0
+    },
+    {
+      "type": "range",
+      "id": "padding_right_desktop",
+      "label": "Right padding (desktop)",
+      "min": 0,
+      "max": 120,
+      "step": 8,
+      "default": 0
+    }
+  ],
+  "blocks": [
+    {
+      "type": "text",
+      "name": "Text block",
+      "settings": [
+        {
+          "type": "text",
+          "id": "text",
+          "label": "Text",
+          "default": "Sample text block"
+        }
+      ]
+    }
+  ],
+  "max_blocks": 12,
+  "presets": [
+    {
+      "name": "Marquee Text Divider",
+      "blocks": [
+        { "type": "text", "settings": { "text": "Collagen Boost" } },
+        { "type": "text", "settings": { "text": "Deep Hydration" } },
+        { "type": "text", "settings": { "text": "Glowing Skin" } },
+        { "type": "text", "settings": { "text": "Wrinkle Reduction" } },
+        { "type": "text", "settings": { "text": "Skin Firming" } },
+        { "type": "text", "settings": { "text": "Youthful Look" } }
+      ]
+    }
+  ]
+}
+{% endschema %}
