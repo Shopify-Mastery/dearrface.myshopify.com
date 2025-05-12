@@ -18,17 +18,6 @@
     object-fit: cover;
     z-index: 0;
   }
-  .section-{{ section.id }}-background-overlay {
-    position: absolute;
-    inset: 0;
-    width: 100%;
-    height: 100%;
-    z-index: 1;
-    pointer-events: none;
-    background: var(--color-background, transparent);
-    opacity: {{ section.settings.background_overlay_opacity | divided_by: 100.0 }};
-    transition: opacity 0.2s;
-  }
   .section-{{ section.id }}-padding {
     position: relative;
     z-index: 2;
@@ -341,10 +330,6 @@
         width="2000"
         height="auto"
       >
-      <div
-        class="section-{{ section.id }}-background-overlay"
-        style="background: var(--color-background, transparent); opacity: {{ section.settings.background_overlay_opacity | divided_by: 100.0 }};"
-      ></div>
     </div>
   {% endif %}
   <div class="page-width">
@@ -886,15 +871,6 @@
       "type": "image_picker",
       "id": "background_image",
       "label": "Section background image"
-    },
-    {
-      "type": "range",
-      "id": "background_overlay_opacity",
-      "label": "Color scheme overlay opacity (when background image is set)",
-      "min": 0,
-      "max": 100,
-      "step": 5,
-      "default": 80
     }
   ],
   "blocks": [
