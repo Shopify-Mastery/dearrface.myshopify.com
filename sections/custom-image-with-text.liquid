@@ -311,6 +311,27 @@
       height: 5rem;
     }
   }
+  .section-{{ section.id }}-padding .button-group-block-{{ section.id }} {
+    display: flex;
+    gap: 1rem;
+    margin-top: 2.5rem;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+  .section-{{ section.id }}-padding .button-group-block-{{ section.id }} .button {
+    margin: 0;
+    min-width: 100%;
+    flex: 1 1 0;
+    text-align: center;
+  }
+  @media (min-width: 768px) {
+    .section-{{ section.id }}-padding .button-group-block-{{ section.id }} {
+      gap: 2rem;
+    }
+    .section-{{ section.id }}-padding .button-group-block-{{ section.id }} .button {
+      min-width: 16rem;
+    }
+  }
 {%- endstyle -%}
 
 {%- liquid
@@ -538,6 +559,41 @@
                         </div>
                       {% endfor %}
                     </div>
+                  </div>
+                {%- when 'button-group' -%}
+                  <div class="button-group-block-{{ section.id }}">
+                    {%- assign btn1_label = block.settings.button_1_label -%}
+                    {%- assign btn1_link = block.settings.button_1_link -%}
+                    {%- assign btn1_outline = block.settings.button_1_outline -%}
+                    {%- assign btn2_label = block.settings.button_2_label -%}
+                    {%- assign btn2_link = block.settings.button_2_link -%}
+                    {%- assign btn2_outline = block.settings.button_2_outline -%}
+                    {%- if btn1_label != blank -%}
+                      <a
+                        {% if btn1_link == blank %}
+                          role="link" aria-disabled="true"
+                        {% else %}
+                          href="{{ btn1_link }}"
+                        {% endif %}
+                        class="button button--primary{% if btn1_outline %} button--secondary{% endif %}"
+                        {{ block.shopify_attributes }}
+                      >
+                        {{ btn1_label | escape }}
+                      </a>
+                    {%- endif -%}
+                    {%- if btn2_label != blank -%}
+                      <a
+                        {% if btn2_link == blank %}
+                          role="link" aria-disabled="true"
+                        {% else %}
+                          href="{{ btn2_link }}"
+                        {% endif %}
+                        class="button button--secondary{% if btn2_outline %} button--primary{% endif %}"
+                        {{ block.shopify_attributes }}
+                      >
+                        {{ btn2_label | escape }}
+                      </a>
+                    {%- endif -%}
                   </div>
               {%- endcase -%}
             {%- endfor -%}
@@ -1066,6 +1122,47 @@
         },
         { "type": "color", "id": "card_shadow_color", "label": "Card box shadow color", "default": "#FF69B4" },
         { "type": "color", "id": "icon_shadow_color", "label": "Icon box shadow color", "default": "#FF0080" }
+      ]
+    },
+    {
+      "type": "button-group",
+      "name": "Button Group",
+      "limit": 1,
+      "settings": [
+        {
+          "type": "text",
+          "id": "button_1_label",
+          "default": "Buy Now",
+          "label": "First Button Label"
+        },
+        {
+          "type": "url",
+          "id": "button_1_link",
+          "label": "First Button Link"
+        },
+        {
+          "type": "checkbox",
+          "id": "button_1_outline",
+          "default": false,
+          "label": "First Button Outline Style (Primary Outline)"
+        },
+        {
+          "type": "text",
+          "id": "button_2_label",
+          "default": "Learn More",
+          "label": "Second Button Label"
+        },
+        {
+          "type": "url",
+          "id": "button_2_link",
+          "label": "Second Button Link"
+        },
+        {
+          "type": "checkbox",
+          "id": "button_2_outline",
+          "default": true,
+          "label": "Second Button Outline Style (Secondary Outline)"
+        }
       ]
     }
   ],
