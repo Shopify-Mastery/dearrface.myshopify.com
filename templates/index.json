@@ -340,72 +340,52 @@
         "padding_right_desktop": 0
       }
     },
-    "custom_image_with_text_rwaDVT": {
-      "type": "custom-image-with-text",
+    "collagen_care_image_with_text_GYbdJh": {
+      "type": "collagen-care-image-with-text",
       "blocks": {
-        "heading_FVNfwe": {
+        "heading_cbxJfJ": {
           "type": "heading",
           "settings": {
             "heading": "Collagen Care For Timeless Beauty",
-            "heading_size": "h1",
-            "heading_2nd_part_color": "#000000"
+            "heading_size": "h1"
           }
         },
-        "text_UqhzKD": {
+        "text_VVGBA7": {
           "type": "text",
           "settings": {
             "text": "<p>Experience the power of deep hydration and collagen renewal in just one use. This mask revives tired, dull skin and smooths away fine lines for a firmer, youthful look. Gentle, effective, and packed with natural ingredients — your skin will thank you.</p>",
             "text_style": "body"
           }
         },
-        "button_cjcGQR": {
+        "button_P4zRtw": {
           "type": "button",
           "settings": {
             "button_label": "BUY NOW",
-            "button_link": "#",
+            "button_link": "shopify://products/deeply-hydrating-bio-collagen-mask",
             "button_style_secondary": false
           }
         }
       },
       "block_order": [
-        "heading_FVNfwe",
-        "text_UqhzKD",
-        "button_cjcGQR"
+        "heading_cbxJfJ",
+        "text_VVGBA7",
+        "button_P4zRtw"
       ],
-      "name": "Custom Image with Text",
+      "name": "Collagen Care Image with Text",
       "settings": {
         "image": "shopify://shop_images/Transparent_Mask_Peeling.png",
-        "image_border_color": "#e5e5e5",
-        "media_border_visible": false,
-        "media_border_radius_top_left": 0,
-        "media_border_radius_top_right": 0,
-        "media_border_radius_bottom_right": 0,
-        "media_border_radius_bottom_left": 0,
-        "media_box_shadow_visible": false,
-        "media_box_shadow_color": "#00000014",
-        "media_box_shadow_x_offset": 0,
-        "media_box_shadow_y_offset": 0,
+        "height": "medium",
         "desktop_image_width": "medium",
-        "image_behavior": "none",
-        "show_content_border": false,
-        "content_border_color": "#e5e5e5",
-        "content_border_width": 1,
-        "height": "adapt",
         "layout": "image_first",
+        "image_behavior": "none",
         "content_layout": "no-overlap",
         "desktop_content_position": "middle",
         "desktop_content_alignment": "center",
         "mobile_content_alignment": "center",
-        "section_color_scheme": "scheme-23a29e7f-f949-4e5f-9ecb-31639c0c2c42",
+        "section_color_scheme": "scheme-1",
         "color_scheme": "scheme-1b712716-c289-4973-9398-e76fdf4f9ee4",
-        "padding_top_mobile": 32,
-        "padding_bottom_mobile": 32,
-        "padding_left_mobile": 0,
-        "padding_right_mobile": 0,
-        "padding_top_desktop": 32,
-        "padding_bottom_desktop": 32,
-        "padding_left_desktop": 0,
-        "padding_right_desktop": 0
+        "padding_top": 36,
+        "padding_bottom": 36
       }
     },
     "our_promises_RbJnYb": {
@@ -480,7 +460,7 @@
         "padding_top": 44,
         "padding_bottom": 36
       }
-    },
+    }
   },
   "order": [
     "custom_image_with_text_WdYrgT",
@@ -488,8 +468,8 @@
     "generic_text_content_CA7Qbw",
     "custom_image_with_text_NL6i9N",
     "custom_image_with_text_4NTDTi",
-    "custom_image_with_text_rwaDVT",
+    "collagen_care_image_with_text_GYbdJh",
     "our_promises_RbJnYb",
-    "featured_collection",
+    "featured_collection"
   ]
 }
