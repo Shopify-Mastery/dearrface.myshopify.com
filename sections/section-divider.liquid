@@ -1,0 +1,54 @@
+{% style %}
+  .section-divider-{{ section.id }} {
+    /* display: flex; */
+  }
+
+  .section-divider-{{ section.id }}__svg {
+    min-width: 100%;
+    width: 100%;
+    display: block;
+  }
+{% endstyle %}
+
+<div class="section-divider-{{ section.id }} color-{{ section.settings.color_scheme }}">
+  {% if section.settings.divider_style == 'divider-1' %}
+    {% render 'section-divider-1-svg', fill_color: section.settings.svg_fill_color %}
+  {% elsif section.settings.divider_style == 'divider-2' %}
+    {% render 'section-divider-2-svg', fill_color: section.settings.svg_fill_color %}
+  {% endif %}
+</div>
+
+{% schema %}
+{
+  "name": "Section Divider",
+  "settings": [
+    {
+      "type": "select",
+      "id": "divider_style",
+      "label": "Divider Style",
+      "options": [
+        { "value": "divider-1", "label": "Divider 1" },
+        { "value": "divider-2", "label": "Divider 2" }
+      ],
+      "default": "divider-1"
+    },
+    {
+      "type": "color_scheme",
+      "id": "color_scheme",
+      "label": "Color scheme",
+      "default": "background-1"
+    },
+    {
+      "type": "color",
+      "id": "svg_fill_color",
+      "label": "Divider fill color",
+      "default": "#FFDAF5"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Section Divider"
+    }
+  ]
+}
+{% endschema %}
