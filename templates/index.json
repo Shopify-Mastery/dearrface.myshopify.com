@@ -284,6 +284,50 @@
         "padding_left_desktop": 0,
         "padding_right_desktop": 0
       }
+    },
+    "our_promises_RbJnYb": {
+      "type": "our-promises",
+      "blocks": {
+        "promise_F6R3cf": {
+          "type": "promise",
+          "settings": {
+            "icon": "shopify://shop_images/Money_Back_Guarantee_Icon_16e09f98-2125-4317-a226-018358b12c06.png",
+            "label": "<strong>30-Day Money-Back Guarantee</strong>"
+          }
+        },
+        "promise_HETFzY": {
+          "type": "promise",
+          "settings": {
+            "icon": "shopify://shop_images/Free_Shipping_Worldwide_Icon_eea8b33a-40d8-4e4e-98f0-51f6fcfcd10e.png",
+            "label": "<strong>Free Shipping Worldwide</strong>"
+          }
+        },
+        "promise_ka3Fhk": {
+          "type": "promise",
+          "settings": {
+            "icon": "shopify://shop_images/Customer_Support_Icon_51a6ac59-c96a-45bb-a4b3-d2f13f907d03.png",
+            "label": "<strong>Fast Customer Support</strong>"
+          }
+        }
+      },
+      "block_order": [
+        "promise_F6R3cf",
+        "promise_HETFzY",
+        "promise_ka3Fhk"
+      ],
+      "name": "Our Promises",
+      "settings": {
+        "section_color_scheme": "scheme-0cf8f8cb-efab-4593-9a11-d9e4036b83d5",
+        "carousel_active_dot_color": "{{ shop.brand.colors.primary[0].background }}",
+        "padding_top_mobile": 64,
+        "padding_bottom_mobile": 64,
+        "padding_left_mobile": 0,
+        "padding_right_mobile": 0,
+        "padding_top_desktop": 64,
+        "padding_bottom_desktop": 64,
+        "padding_left_desktop": 0,
+        "padding_right_desktop": 0
+      }
     }
   },
   "order": [
@@ -291,6 +335,7 @@
     "generic_text_content_CA7Qbw",
     "custom_image_with_text_NL6i9N",
     "custom_image_with_text_4NTDTi",
-    "custom_image_with_text_rwaDVT"
+    "custom_image_with_text_rwaDVT",
+    "our_promises_RbJnYb"
   ]
 }
