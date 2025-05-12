@@ -7,6 +7,3 @@ password = "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"
 theme = "146435604645"
 store = "dearrface.myshopify.com"
 password = "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"
-output = "json"
-live = true
-allow-live = true
