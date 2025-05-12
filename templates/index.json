@@ -41,6 +41,14 @@
     "custom_image_with_text_WdYrgT": {
       "type": "custom-image-with-text",
       "blocks": {
+        "caption_DTKXbR": {
+          "type": "caption",
+          "settings": {
+            "caption": "Best Anti-Age Formula",
+            "text_style": "subtitle",
+            "text_size": "small"
+          }
+        },
         "heading_x3jrqJ": {
           "type": "heading",
           "settings": {
@@ -55,14 +63,28 @@
             "text": "<p>Say goodbye to dull, tired skin and hello to a radiant, youthful glow with our Deeply Hydrating Bio-Collagen Mask.</p>",
             "text_style": "body"
           }
+        },
+        "button_group_brdPBm": {
+          "type": "button-group",
+          "settings": {
+            "button_1_label": "Buy Now",
+            "button_1_link": "shopify://products/deeply-hydrating-bio-collagen-mask",
+            "button_1_outline": false,
+            "button_2_label": "Learn More",
+            "button_2_link": "#",
+            "button_2_outline": true
+          }
         }
       },
       "block_order": [
+        "caption_DTKXbR",
         "heading_x3jrqJ",
-        "text_7WRJYd"
+        "text_7WRJYd",
+        "button_group_brdPBm"
       ],
       "name": "Reveal Radiant Youthful Skin",
       "settings": {
+        "background_image": "shopify://shop_images/Hero_Background.png",
         "image": "shopify://shop_images/Hero_Image.png",
         "image_border_color": "#e5e5e5",
         "media_border_visible": false,
@@ -94,9 +116,7 @@
         "padding_top_desktop": 0,
         "padding_bottom_desktop": 0,
         "padding_left_desktop": 0,
-        "padding_right_desktop": 0,
-        "background_image": "shopify://shop_images/Hero_Background.png",
-        "background_overlay_opacity": 100
+        "padding_right_desktop": 0
       }
     },
     "generic_text_content_CA7Qbw": {
@@ -211,8 +231,7 @@
         "padding_top_desktop": 32,
         "padding_bottom_desktop": 32,
         "padding_left_desktop": 0,
-        "padding_right_desktop": 0,
-        "background_overlay_opacity": 80
+        "padding_right_desktop": 0
       }
     },
     "custom_image_with_text_4NTDTi": {
@@ -285,8 +304,7 @@
         "padding_top_desktop": 32,
         "padding_bottom_desktop": 32,
         "padding_left_desktop": 0,
-        "padding_right_desktop": 0,
-        "background_overlay_opacity": 80
+        "padding_right_desktop": 0
       }
     },
     "custom_image_with_text_rwaDVT": {
@@ -354,8 +372,7 @@
         "padding_top_desktop": 32,
         "padding_bottom_desktop": 32,
         "padding_left_desktop": 0,
-        "padding_right_desktop": 0,
-        "background_overlay_opacity": 80
+        "padding_right_desktop": 0
       }
     },
     "our_promises_RbJnYb": {
