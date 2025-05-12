@@ -38,6 +38,65 @@
         "padding_bottom": 36
       }
     },
+    "custom_image_with_text_WdYrgT": {
+      "type": "custom-image-with-text",
+      "blocks": {
+        "heading_x3jrqJ": {
+          "type": "heading",
+          "settings": {
+            "heading": "Reveal Radiant, |Youthful Skin Instantly Today",
+            "heading_size": "h1",
+            "heading_2nd_part_color": "{{ shop.brand.colors.primary[0].background }}"
+          }
+        },
+        "text_7WRJYd": {
+          "type": "text",
+          "settings": {
+            "text": "<p>Say goodbye to dull, tired skin and hello to a radiant, youthful glow with our Deeply Hydrating Bio-Collagen Mask.</p>",
+            "text_style": "body"
+          }
+        }
+      },
+      "block_order": [
+        "heading_x3jrqJ",
+        "text_7WRJYd"
+      ],
+      "name": "Reveal Radiant Youthful Skin",
+      "settings": {
+        "image": "shopify://shop_images/Hero_Image.png",
+        "image_border_color": "#E5E5E5",
+        "media_border_visible": false,
+        "media_border_radius_top_left": 0,
+        "media_border_radius_top_right": 0,
+        "media_border_radius_bottom_right": 0,
+        "media_border_radius_bottom_left": 0,
+        "media_box_shadow_visible": false,
+        "media_box_shadow_color": "rgba(0,0,0,0.08)",
+        "media_box_shadow_x_offset": 0,
+        "media_box_shadow_y_offset": 0,
+        "desktop_image_width": "medium",
+        "image_behavior": "none",
+        "show_content_border": false,
+        "content_border_color": "#E5E5E5",
+        "content_border_width": 1,
+        "height": "adapt",
+        "layout": "image_first",
+        "content_layout": "no-overlap",
+        "desktop_content_position": "middle",
+        "desktop_content_alignment": "left",
+        "mobile_content_alignment": "left",
+        "section_color_scheme": "scheme-0cf8f8cb-efab-4593-9a11-d9e4036b83d5",
+        "color_scheme": "scheme-0cf8f8cb-efab-4593-9a11-d9e4036b83d5",
+        "padding_top_mobile": 0,
+        "padding_bottom_mobile": 0,
+        "padding_left_mobile": 0,
+        "padding_right_mobile": 0,
+        "padding_top_desktop": 0,
+        "padding_bottom_desktop": 0,
+        "padding_left_desktop": 0,
+        "padding_right_desktop": 0
+      }
+    },
     "generic_text_content_CA7Qbw": {
       "type": "generic-text-content",
       "blocks": {
@@ -130,10 +189,13 @@
         "media_box_shadow_color": "{{ shop.brand.colors.primary[0].background }}",
         "media_box_shadow_x_offset": 15,
         "media_box_shadow_y_offset": 16,
-        "height": "medium",
         "desktop_image_width": "medium",
-        "layout": "text_first",
         "image_behavior": "ambient",
+        "show_content_border": false,
+        "content_border_color": "#e5e5e5",
+        "content_border_width": 1,
+        "height": "medium",
+        "layout": "text_first",
         "content_layout": "no-overlap",
         "desktop_content_position": "top",
         "desktop_content_alignment": "left",
@@ -200,10 +262,13 @@
         "media_box_shadow_color": "{{ shop.brand.colors.primary[0].background }}",
         "media_box_shadow_x_offset": 16,
         "media_box_shadow_y_offset": 16,
-        "height": "medium",
         "desktop_image_width": "medium",
-        "layout": "text_first",
         "image_behavior": "ambient",
+        "show_content_border": false,
+        "content_border_color": "#e5e5e5",
+        "content_border_width": 1,
+        "height": "medium",
+        "layout": "text_first",
         "content_layout": "no-overlap",
         "desktop_content_position": "top",
         "desktop_content_alignment": "left",
@@ -265,10 +330,13 @@
         "media_box_shadow_color": "#00000014",
         "media_box_shadow_x_offset": 0,
         "media_box_shadow_y_offset": 0,
-        "height": "adapt",
         "desktop_image_width": "medium",
-        "layout": "image_first",
         "image_behavior": "none",
+        "show_content_border": false,
+        "content_border_color": "#e5e5e5",
+        "content_border_width": 1,
+        "height": "adapt",
+        "layout": "image_first",
         "content_layout": "no-overlap",
         "desktop_content_position": "middle",
         "desktop_content_alignment": "center",
@@ -332,6 +400,7 @@
   },
   "order": [
     "featured_collection",
+    "custom_image_with_text_WdYrgT",
     "generic_text_content_CA7Qbw",
     "custom_image_with_text_NL6i9N",
     "custom_image_with_text_4NTDTi",
