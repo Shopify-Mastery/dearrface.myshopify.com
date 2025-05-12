@@ -54,22 +54,31 @@
       {% for block in section.blocks %}
         <span class="marquee-text-divider__item-{{ section.id }}">
           {{- block.settings.text }}
-          {% unless forloop.last %}
-            <span class="marquee-text-divider__star-{{ section.id }}">
-              {{- 'star.svg' | asset_url | img_tag: '', 'divider star' -}}
-            </span>
-          {% endunless %}
+          {% comment %} {% unless forloop.last %} {% endcomment %}
+          <span class="marquee-text-divider__star-{{ section.id }}">
+            {{- 'star.svg' | asset_url | img_tag: '', 'divider star' -}}
+          </span>
+          {% comment %} {% endunless %} {% endcomment %}
         </span>
       {% endfor %}
-      {% comment %} Duplicate for seamless loop {% endcomment %}
       {% for block in section.blocks %}
         <span class="marquee-text-divider__item-{{ section.id }}">
           {{- block.settings.text }}
-          {% unless forloop.last %}
-            <span class="marquee-text-divider__star-{{ section.id }}">
-              {{- 'star.svg' | asset_url | img_tag: '', 'divider star' -}}
-            </span>
-          {% endunless %}
+          {% comment %} {% unless forloop.last %} {% endcomment %}
+          <span class="marquee-text-divider__star-{{ section.id }}">
+            {{- 'star.svg' | asset_url | img_tag: '', 'divider star' -}}
+          </span>
+          {% comment %} {% endunless %} {% endcomment %}
+        </span>
+      {% endfor %}
+      {% for block in section.blocks %}
+        <span class="marquee-text-divider__item-{{ section.id }}">
+          {{- block.settings.text }}
+          {% comment %} {% unless forloop.last %} {% endcomment %}
+          <span class="marquee-text-divider__star-{{ section.id }}">
+            {{- 'star.svg' | asset_url | img_tag: '', 'divider star' -}}
+          </span>
+          {% comment %} {% endunless %} {% endcomment %}
         </span>
       {% endfor %}
     </div>
