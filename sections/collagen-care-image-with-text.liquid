@@ -13,18 +13,18 @@
     }
   }
 
-  div.image-with-text__grid.grid {
+  .section-{{ section.id }}-padding div.image-with-text__grid.grid {
     flex-flow: column-reverse wrap;
   }
 
-  div.image-with-text__grid.grid div.image-with-text__text-item div.image-with-text__content {
+  .section-{{ section.id }}-padding div.image-with-text__grid.grid div.image-with-text__text-item div.image-with-text__content {
     border-top-left-radius: 1rem !important;
     border-top-right-radius: 1rem !important;
     border-bottom-right-radius: 0 !important;
     border-bottom-left-radius: 0 !important;
   }
 
-  div.image-with-text__grid.grid div.image-with-text__media-item div.image-with-text__media {
+  .section-{{ section.id }}-padding div.image-with-text__grid.grid div.image-with-text__media-item div.image-with-text__media {
     border-top-right-radius: 0 !important;
     border-top-left-radius: 0 !important;
     border-bottom-right-radius: 1rem !important;
@@ -32,18 +32,18 @@
   }
 
   @media screen and (min-width: 750px) {
-    div.image-with-text__grid.grid {
+    .section-{{ section.id }}-padding div.image-with-text__grid.grid {
       flex-flow: row nowrap;
     }
 
-    div.image-with-text__grid.grid div.image-with-text__media-item div.image-with-text__media {
+    .section-{{ section.id }}-padding div.image-with-text__grid.grid div.image-with-text__media-item div.image-with-text__media {
       border-top-right-radius: 0 !important;
       border-top-left-radius: 1rem !important;
       border-bottom-right-radius: 0 !important;
       border-bottom-left-radius: 1rem !important;
     }
 
-    div.image-with-text__grid.grid div.image-with-text__text-item div.image-with-text__content {
+    .section-{{ section.id }}-padding div.image-with-text__grid.grid div.image-with-text__text-item div.image-with-text__content {
       border-top-left-radius: 0 !important;
       border-top-right-radius: 1rem !important;
       border-bottom-right-radius: 1rem !important;
@@ -51,9 +51,9 @@
     }
   }
 
-  div.image-with-text__media {
+  .section-{{ section.id }}-padding div.image-with-text__media {
     border: none !important;
-    border-radius: 5rem;
+    border-radius: 5rem !important;
   }
 {%- endstyle -%}
 
