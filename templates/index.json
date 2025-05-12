@@ -9,35 +9,6 @@
  */
 {
   "sections": {
-    "featured_collection": {
-      "type": "featured-collection",
-      "disabled": true,
-      "settings": {
-        "collection": "all",
-        "products_to_show": 8,
-        "title": "Featured products",
-        "heading_size": "h2",
-        "description": "",
-        "show_description": false,
-        "description_style": "body",
-        "columns_desktop": 4,
-        "enable_desktop_slider": false,
-        "full_width": false,
-        "show_view_all": true,
-        "view_all_style": "solid",
-        "color_scheme": "scheme-1",
-        "image_ratio": "adapt",
-        "image_shape": "default",
-        "show_secondary_image": true,
-        "show_vendor": false,
-        "show_rating": false,
-        "quick_add": "none",
-        "columns_mobile": "2",
-        "swipe_on_mobile": false,
-        "padding_top": 44,
-        "padding_bottom": 36
-      }
-    },
     "custom_image_with_text_WdYrgT": {
       "type": "custom-image-with-text",
       "blocks": {
@@ -480,16 +451,45 @@
         "padding_left_desktop": 0,
         "padding_right_desktop": 0
       }
-    }
+    },
+    "featured_collection": {
+      "type": "featured-collection",
+      "disabled": true,
+      "settings": {
+        "collection": "all",
+        "products_to_show": 8,
+        "title": "Featured products",
+        "heading_size": "h2",
+        "description": "",
+        "show_description": false,
+        "description_style": "body",
+        "columns_desktop": 4,
+        "enable_desktop_slider": false,
+        "full_width": false,
+        "show_view_all": true,
+        "view_all_style": "solid",
+        "color_scheme": "scheme-1",
+        "image_ratio": "adapt",
+        "image_shape": "default",
+        "show_secondary_image": true,
+        "show_vendor": false,
+        "show_rating": false,
+        "quick_add": "none",
+        "columns_mobile": "2",
+        "swipe_on_mobile": false,
+        "padding_top": 44,
+        "padding_bottom": 36
+      }
+    },
   },
   "order": [
-    "featured_collection",
     "custom_image_with_text_WdYrgT",
     "marquee_text_divider_9TKzPA",
     "generic_text_content_CA7Qbw",
     "custom_image_with_text_NL6i9N",
     "custom_image_with_text_4NTDTi",
     "custom_image_with_text_rwaDVT",
-    "our_promises_RbJnYb"
+    "our_promises_RbJnYb",
+    "featured_collection",
   ]
 }
