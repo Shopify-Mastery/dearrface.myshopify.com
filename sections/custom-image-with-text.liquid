@@ -27,6 +27,13 @@
     padding-bottom: {{ section.settings.padding_bottom_mobile }}px;
     padding-left: {{ section.settings.padding_left_mobile }}px;
     padding-right: {{ section.settings.padding_right_mobile }}px;
+    {% if section.settings.background_image != blank %}
+      background-image: url('{{ section.settings.background_image | image_url: width: 2000 }}');
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+      background-attachment: fixed;
+    {% endif %}
   }
   @media (min-width: 1024px) {
     .section-{{ section.id }}-padding {
@@ -318,20 +325,7 @@
 
 <div
   class="section-{{ section.id }}-padding gradient color-{{ section.settings.section_color_scheme }}"
-  style="position: relative;"
 >
-  {% if section.settings.background_image != blank %}
-    <div class="section-{{ section.id }}-background">
-      <img
-        class="section-{{ section.id }}-background-image"
-        src="{{ section.settings.background_image | image_url: width: 2000 }}"
-        alt=""
-        loading="lazy"
-        width="2000"
-        height="auto"
-      >
-    </div>
-  {% endif %}
   <div class="page-width">
     <div class="image-with-text image-with-text--{{ section.settings.content_layout }} isolate{% if settings.text_boxes_border_thickness > 0 and settings.text_boxes_border_opacity > 0 and settings.media_border_thickness > 0 and settings.media_border_opacity > 0 %} collapse-borders{% endif %}{% unless section.settings.color_scheme == section.settings.section_color_scheme and settings.media_border_thickness > 0 and settings.text_boxes_shadow_opacity == 0 and settings.text_boxes_border_thickness == 0 or settings.text_boxes_border_opacity == 0 %} collapse-corners{% endunless %}{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}">
       <div class="image-with-text__grid grid grid--gapless grid--1-col grid--{% if section.settings.desktop_image_width == 'medium' %}2-col-tablet{% else %}3-col-tablet{% endif %}{% if section.settings.layout == 'text_first' %} image-with-text__grid--reverse{% endif %}">
@@ -562,6 +556,15 @@
     "groups": ["header", "footer"]
   },
   "settings": [
+    {
+      "type": "header",
+      "content": "Background Settings"
+    },
+    {
+      "type": "image_picker",
+      "id": "background_image",
+      "label": "Section Background Image"
+    },
     {
       "type": "header",
       "content": "Image Settings"
@@ -862,15 +865,6 @@
       "step": 8,
       "default": 0,
       "unit": "px"
-    },
-    {
-      "type": "header",
-      "content": "Background Settings"
-    },
-    {
-      "type": "image_picker",
-      "id": "background_image",
-      "label": "Section background image"
     }
   ],
   "blocks": [
