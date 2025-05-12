@@ -8,7 +8,7 @@
   .section-{{ section.id }} .section-{{ section.id }}__list {
     display: flex;
     flex-flow: row wrap;
-    justify-content: space-between;
+    justify-content: center;
     align-items: center;
     gap: 2rem;
     list-style: none;
@@ -16,7 +16,7 @@
     padding: 0;
   }
   .section-{{ section.id }} .section-{{ section.id }}__item {
-    width: 45%;
+    /* width: 45%; */
     display: flex;
     flex-flow: column wrap;
     justify-content: center;
@@ -60,12 +60,22 @@
         width: auto;
     }
   }
+  .section-{{ section.id }} .owl-theme .owl-dots .owl-dot span {
+    background: {{ section.settings.carousel_active_dot_color }};
+    opacity: 0.3;
+    transition: background 0.3s;
+  }
+  .section-{{ section.id }} .owl-theme .owl-dots .owl-dot.active span,
+  .section-{{ section.id }} .owl-theme .owl-dots .owl-dot:hover span {
+    background: {{ section.settings.carousel_active_dot_color }};
+    opacity: 1;
+  }
 {% endstyle %}
 
 <div class="section-{{ section.id }} color-{{ section.settings.section_color_scheme }}">
   <div class="page-width">
     {% if section.blocks.size > 0 %}
-      <ul class="section-{{ section.id }}__list" role="list">
+      <ul class="section-{{ section.id }}__list promises-list owl-carousel owl-theme" role="list">
         {% for block in section.blocks %}
           <li class="section-{{ section.id }}__item" role="listitem" {{ block.shopify_attributes }}>
             <div class="section-{{ section.id }}__icon-wrapper">
@@ -103,18 +113,42 @@
     {% endif %}
   </div>
 </div>
-
+{% javascript %}
+  (function () {
+    const $carousel = $('.promises-list');
+    $carousel.owlCarousel({
+      loop: true,
+      margin: 0,
+      nav: false,
+      dots: true,
+      responsive: {
+        0: {
+          items: 2,
+        },
+        768: {
+          items: 3,
+        },
+      },
+    });
+  })();
+{% endjavascript %}
 {% schema %}
 {
-  "name": "Product Attributes V2",
+  "name": "Our Promises",
   "tag": "section",
-  "class": "section-product-attributes-redesigned",
+  "class": "section-our-promises",
   "settings": [
     {
       "type": "color_scheme",
       "id": "section_color_scheme",
       "label": "Section color scheme",
       "default": "scheme-1"
+    },
+    {
+      "type": "color",
+      "id": "carousel_active_dot_color",
+      "label": "Active Dot Color",
+      "default": "#000"
     },
     {
       "type": "header",
@@ -207,8 +241,8 @@
   ],
   "blocks": [
     {
-      "type": "attribute",
-      "name": "Attribute",
+      "type": "promise",
+      "name": "Promise",
       "settings": [
         {
           "type": "image_picker",
@@ -219,20 +253,20 @@
           "type": "inline_richtext",
           "id": "label",
           "label": "Label Text",
-          "default": "Attribute Label"
+          "default": "Promise Label"
         }
       ]
     }
   ],
   "presets": [
     {
-      "name": "Product Attributes (Redesigned)",
+      "name": "Our Promises",
       "blocks": [
-        { "type": "attribute", "settings": { "label": "30-Day Money-Back Guarantee" } },
-        { "type": "attribute", "settings": { "label": "Free Shipping Worldwide" } },
-        { "type": "attribute", "settings": { "label": "Fast Customer Support" } },
-        { "type": "attribute", "settings": { "label": "Secure Checkout" } },
-        { "type": "attribute", "settings": { "label": "Ships from USA" } }
+        { "type": "promise", "settings": { "label": "30-Day Money-Back Guarantee" } },
+        { "type": "promise", "settings": { "label": "Free Shipping Worldwide" } },
+        { "type": "promise", "settings": { "label": "Fast Customer Support" } },
+        { "type": "promise", "settings": { "label": "Secure Checkout" } },
+        { "type": "promise", "settings": { "label": "Ships from USA" } }
       ]
     }
   ]
