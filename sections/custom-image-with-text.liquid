@@ -1,6 +1,38 @@
 {{ 'component-image-with-text.css' | asset_url | stylesheet_tag }}
 
 {%- style -%}
+  .section-{{ section.id }}-background {
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    overflow: hidden;
+  }
+  .section-{{ section.id }}-background-image {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: 0;
+  }
+  .section-{{ section.id }}-background-overlay {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+    pointer-events: none;
+    background: var(--color-background, transparent);
+    opacity: {{ section.settings.background_overlay_opacity | divided_by: 100.0 }};
+    transition: opacity 0.2s;
+  }
+  .section-{{ section.id }}-padding {
+    position: relative;
+    z-index: 2;
+  }
   .section-{{ section.id }}-padding {
     padding-top: {{ section.settings.padding_top_mobile }}px;
     padding-bottom: {{ section.settings.padding_bottom_mobile }}px;
@@ -295,7 +327,26 @@
   endif
 -%}
 
-<div class="section-{{ section.id }}-padding gradient color-{{ section.settings.section_color_scheme }}">
+<div
+  class="section-{{ section.id }}-padding gradient color-{{ section.settings.section_color_scheme }}"
+  style="position: relative;"
+>
+  {% if section.settings.background_image != blank %}
+    <div class="section-{{ section.id }}-background">
+      <img
+        class="section-{{ section.id }}-background-image"
+        src="{{ section.settings.background_image | image_url: width: 2000 }}"
+        alt=""
+        loading="lazy"
+        width="2000"
+        height="auto"
+      >
+      <div
+        class="section-{{ section.id }}-background-overlay"
+        style="background: var(--color-background, transparent); opacity: {{ section.settings.background_overlay_opacity | divided_by: 100.0 }};"
+      ></div>
+    </div>
+  {% endif %}
   <div class="page-width">
     <div class="image-with-text image-with-text--{{ section.settings.content_layout }} isolate{% if settings.text_boxes_border_thickness > 0 and settings.text_boxes_border_opacity > 0 and settings.media_border_thickness > 0 and settings.media_border_opacity > 0 %} collapse-borders{% endif %}{% unless section.settings.color_scheme == section.settings.section_color_scheme and settings.media_border_thickness > 0 and settings.text_boxes_shadow_opacity == 0 and settings.text_boxes_border_thickness == 0 or settings.text_boxes_border_opacity == 0 %} collapse-corners{% endunless %}{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}">
       <div class="image-with-text__grid grid grid--gapless grid--1-col grid--{% if section.settings.desktop_image_width == 'medium' %}2-col-tablet{% else %}3-col-tablet{% endif %}{% if section.settings.layout == 'text_first' %} image-with-text__grid--reverse{% endif %}">
@@ -826,6 +877,24 @@
       "step": 8,
       "default": 0,
       "unit": "px"
+    },
+    {
+      "type": "header",
+      "content": "Background Settings"
+    },
+    {
+      "type": "image_picker",
+      "id": "background_image",
+      "label": "Section background image"
+    },
+    {
+      "type": "range",
+      "id": "background_overlay_opacity",
+      "label": "Color scheme overlay opacity (when background image is set)",
+      "min": 0,
+      "max": 100,
+      "step": 5,
+      "default": 80
     }
   ],
   "blocks": [
