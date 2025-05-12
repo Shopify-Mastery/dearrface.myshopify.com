@@ -1,0 +1,240 @@
+{% style %}
+  .section-{{ section.id }} {
+    padding-top: {{ section.settings.padding_top_mobile }}px;
+    padding-bottom: {{ section.settings.padding_bottom_mobile }}px;
+    padding-left: {{ section.settings.padding_left_mobile }}px;
+    padding-right: {{ section.settings.padding_right_mobile }}px;
+  }
+  .section-{{ section.id }} .section-{{ section.id }}__list {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-between;
+    align-items: center;
+    gap: 2rem;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+  .section-{{ section.id }} .section-{{ section.id }}__item {
+    width: 45%;
+    display: flex;
+    flex-flow: column wrap;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+    text-align: center;
+  }
+  .section-{{ section.id }} .section-{{ section.id }}__icon-wrapper {
+    width: 10rem;
+    height: 10rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .section-{{ section.id }} .section-{{ section.id }}__icon {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain;
+    display: block;
+  }
+  .section-{{ section.id }} .section-{{ section.id }}__label {
+    font-size: 1.5rem;
+    line-height: 1.4;
+    margin: 0;
+    font-weight: inherit;
+  }
+  @media (min-width: 768px) {
+    .section-{{ section.id }} {
+      padding-top: {{ section.settings.padding_top_desktop }}px;
+      padding-bottom: {{ section.settings.padding_bottom_desktop }}px;
+      padding-left: {{ section.settings.padding_left_desktop }}px;
+      padding-right: {{ section.settings.padding_right_desktop }}px;
+    }
+    .section-{{ section.id }} .section-{{ section.id }}__list {
+        flex-flow: row wrap;
+        justify-content: space-between;
+        align-items: center;
+        gap: 0;
+    }
+    .section-{{ section.id }} .section-{{ section.id }}__item {
+        width: auto;
+    }
+  }
+{% endstyle %}
+
+<div class="section-{{ section.id }} color-{{ section.settings.section_color_scheme }}">
+  <div class="page-width">
+    {% if section.blocks.size > 0 %}
+      <ul class="section-{{ section.id }}__list" role="list">
+        {% for block in section.blocks %}
+          <li class="section-{{ section.id }}__item" role="listitem" {{ block.shopify_attributes }}>
+            <div class="section-{{ section.id }}__icon-wrapper">
+              {% if block.settings.icon != blank %}
+                {% assign icon_class = 'section-' | append: section.id | append: '__icon' %}
+                {{
+                  block.settings.icon
+                  | image_url: width: section.settings.icon_size
+                  | default: 48
+                  | image_tag: class: icon_class, loading: 'lazy', width: section.settings.icon_size
+                  | default: 48, height: section.settings.icon_size
+                  | default: 48, alt: block.settings.label
+                }}
+              {% else %}
+                <svg
+                  class="section-{{ section.id }}__icon"
+                  viewBox="0 0 100 100"
+                  xmlns="http://www.w3.org/2000/svg"
+                  role="img"
+                  aria-hidden="true"
+                  focusable="false"
+                >
+                  <circle cx="50" cy="50" r="45" fill="none" stroke="currentColor" stroke-width="5"/>
+                  <line x1="20" y1="20" x2="80" y2="80" stroke="currentColor" stroke-width="5"/>
+                  <line x1="20" y1="80" x2="80" y2="20" stroke="currentColor" stroke-width="5"/>
+                </svg>
+              {% endif %}
+            </div>
+            {% if block.settings.label != blank %}
+              <p class="section-{{ section.id }}__label">{{ block.settings.label }}</p>
+            {% endif %}
+          </li>
+        {% endfor %}
+      </ul>
+    {% endif %}
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "Product Attributes V2",
+  "tag": "section",
+  "class": "section-product-attributes-redesigned",
+  "settings": [
+    {
+      "type": "color_scheme",
+      "id": "section_color_scheme",
+      "label": "Section color scheme",
+      "default": "scheme-1"
+    },
+    {
+      "type": "header",
+      "content": "Section Padding (Mobile)"
+    },
+    {
+      "type": "range",
+      "id": "padding_top_mobile",
+      "min": 0,
+      "max": 96,
+      "step": 4,
+      "unit": "px",
+      "label": "Top Padding (Mobile)",
+      "default": 24
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom_mobile",
+      "min": 0,
+      "max": 96,
+      "step": 4,
+      "unit": "px",
+      "label": "Bottom Padding (Mobile)",
+      "default": 24
+    },
+    {
+      "type": "range",
+      "id": "padding_left_mobile",
+      "min": 0,
+      "max": 48,
+      "step": 4,
+      "unit": "px",
+      "label": "Left Padding (Mobile)",
+      "default": 0
+    },
+    {
+      "type": "range",
+      "id": "padding_right_mobile",
+      "min": 0,
+      "max": 48,
+      "step": 4,
+      "unit": "px",
+      "label": "Right Padding (Mobile)",
+      "default": 0
+    },
+    {
+      "type": "header",
+      "content": "Section Padding (Desktop)"
+    },
+    {
+      "type": "range",
+      "id": "padding_top_desktop",
+      "min": 0,
+      "max": 160,
+      "step": 8,
+      "unit": "px",
+      "label": "Top Padding (Desktop)",
+      "default": 40
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom_desktop",
+      "min": 0,
+      "max": 160,
+      "step": 8,
+      "unit": "px",
+      "label": "Bottom Padding (Desktop)",
+      "default": 40
+    },
+    {
+      "type": "range",
+      "id": "padding_left_desktop",
+      "min": 0,
+      "max": 96,
+      "step": 8,
+      "unit": "px",
+      "label": "Left Padding (Desktop)",
+      "default": 0
+    },
+    {
+      "type": "range",
+      "id": "padding_right_desktop",
+      "min": 0,
+      "max": 96,
+      "step": 8,
+      "unit": "px",
+      "label": "Right Padding (Desktop)",
+      "default": 0
+    }
+  ],
+  "blocks": [
+    {
+      "type": "attribute",
+      "name": "Attribute",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "icon",
+          "label": "Icon Image"
+        },
+        {
+          "type": "inline_richtext",
+          "id": "label",
+          "label": "Label Text",
+          "default": "Attribute Label"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Product Attributes (Redesigned)",
+      "blocks": [
+        { "type": "attribute", "settings": { "label": "30-Day Money-Back Guarantee" } },
+        { "type": "attribute", "settings": { "label": "Free Shipping Worldwide" } },
+        { "type": "attribute", "settings": { "label": "Fast Customer Support" } },
+        { "type": "attribute", "settings": { "label": "Secure Checkout" } },
+        { "type": "attribute", "settings": { "label": "Ships from USA" } }
+      ]
+    }
+  ]
+}
+{% endschema %}
