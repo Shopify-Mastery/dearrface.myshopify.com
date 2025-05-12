@@ -1,16 +1,22 @@
 {% style %}
-  .section-divider-{{ section.id }} {
-    /* display: flex; */
+  .section-divider-{{ section.id }}__svg {
+      min-width: 100%;
+      width: 100%;
+      display: block;
   }
 
-  .section-divider-{{ section.id }}__svg {
-    min-width: 100%;
-    width: 100%;
-    display: block;
+  .section-divider-{{ section.id }} .section-divider-svg--1 {
+    vertical-align: top;
+    margin-top: -1px;
+  }
+
+  .section-divider-{{ section.id }} .section-divider-svg--2 {
+    vertical-align: bottom;
+    margin-bottom: -1px;
   }
 {% endstyle %}
 
-<div class="section-divider-{{ section.id }} color-{{ section.settings.color_scheme }}">
+<div class="section-divider-{{ section.id }} color-{{ section.settings.color_scheme }}" style="line-height: 0;">
   {% if section.settings.divider_style == 'divider-1' %}
     {% render 'section-divider-1-svg', fill_color: section.settings.svg_fill_color %}
   {% elsif section.settings.divider_style == 'divider-2' %}
