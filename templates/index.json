@@ -119,6 +119,68 @@
         "padding_right_desktop": 0
       }
     },
+    "marquee_text_divider_9TKzPA": {
+      "type": "marquee-text-divider",
+      "blocks": {
+        "text_F9Xpac": {
+          "type": "text",
+          "settings": {
+            "text": "Collagen Boost"
+          }
+        },
+        "text_xMMQQn": {
+          "type": "text",
+          "settings": {
+            "text": "Deep Hydration"
+          }
+        },
+        "text_PgAVjk": {
+          "type": "text",
+          "settings": {
+            "text": "Glowing Skin"
+          }
+        },
+        "text_PQLVYg": {
+          "type": "text",
+          "settings": {
+            "text": "Wrinkle Reduction"
+          }
+        },
+        "text_APUrwr": {
+          "type": "text",
+          "settings": {
+            "text": "Skin Firming"
+          }
+        },
+        "text_ezENNp": {
+          "type": "text",
+          "settings": {
+            "text": "Youthful Look"
+          }
+        }
+      },
+      "block_order": [
+        "text_F9Xpac",
+        "text_xMMQQn",
+        "text_PgAVjk",
+        "text_PQLVYg",
+        "text_APUrwr",
+        "text_ezENNp"
+      ],
+      "name": "Marquee Text Divider",
+      "settings": {
+        "section_color_scheme": "scheme-f6140e01-26ff-4b71-9176-5f33f84a4f5f",
+        "direction": "ltr",
+        "padding_top_mobile": 16,
+        "padding_bottom_mobile": 16,
+        "padding_left_mobile": 0,
+        "padding_right_mobile": 0,
+        "padding_top_desktop": 24,
+        "padding_bottom_desktop": 24,
+        "padding_left_desktop": 0,
+        "padding_right_desktop": 0
+      }
+    },
     "generic_text_content_CA7Qbw": {
       "type": "generic-text-content",
       "blocks": {
@@ -423,6 +485,7 @@
   "order": [
     "featured_collection",
     "custom_image_with_text_WdYrgT",
+    "marquee_text_divider_9TKzPA",
     "generic_text_content_CA7Qbw",
     "custom_image_with_text_NL6i9N",
     "custom_image_with_text_4NTDTi",
