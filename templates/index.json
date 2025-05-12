@@ -258,13 +258,245 @@
         "section_color_scheme": "scheme-0cf8f8cb-efab-4593-9a11-d9e4036b83d5",
         "color_scheme": "scheme-0cf8f8cb-efab-4593-9a11-d9e4036b83d5",
         "padding_top_mobile": 32,
-        "padding_bottom_mobile": 32,
+        "padding_bottom_mobile": 0,
         "padding_left_mobile": 0,
         "padding_right_mobile": 0,
         "padding_top_desktop": 32,
-        "padding_bottom_desktop": 32,
+        "padding_bottom_desktop": 0,
         "padding_left_desktop": 0,
         "padding_right_desktop": 0
+      }
+    },
+    "section_divider_QknApc": {
+      "type": "section-divider",
+      "name": "Section Divider",
+      "settings": {
+        "divider_style": "divider-1",
+        "color_scheme": "",
+        "svg_fill_color": "{{ shop.brand.colors.primary[0].foreground }}"
+      }
+    },
+    "generic_text_content_FKiW7D": {
+      "type": "generic-text-content",
+      "blocks": {
+        "heading_dNxx3r": {
+          "type": "heading",
+          "settings": {
+            "heading": "Powerful Ingredients, |Visible Results",
+            "heading_2nd_part_color": "{{ shop.brand.colors.primary[0].background }}",
+            "heading_size": "h1",
+            "heading_alignment": "center",
+            "heading_max_width": 780,
+            "show_on_mobile": true,
+            "show_on_desktop": true
+          }
+        },
+        "description_H8YHj6": {
+          "type": "description",
+          "settings": {
+            "description": "<p>Formulated with collagen extract, niacinamide, and aloe vera, this mask targets multiple skin concerns in one treatment. These powerhouse ingredients hydrate, brighten, and firm your skin — revealing a smooth, youthful glow.</p>",
+            "description_alignment": "center",
+            "description_max_width": 780,
+            "show_on_mobile": true,
+            "show_on_desktop": true
+          }
+        }
+      },
+      "block_order": [
+        "heading_dNxx3r",
+        "description_H8YHj6"
+      ],
+      "name": "Ingredients Visible Results Text",
+      "settings": {
+        "color_scheme": "scheme-23a29e7f-f949-4e5f-9ecb-31639c0c2c42",
+        "padding_top_mobile": 24,
+        "padding_bottom_mobile": 24,
+        "padding_left_mobile": 0,
+        "padding_right_mobile": 0,
+        "padding_top_desktop": 24,
+        "padding_bottom_desktop": 0,
+        "padding_left_desktop": 0,
+        "padding_right_desktop": 0
+      }
+    },
+    "ingredients_visible_results_3xrE6C": {
+      "type": "ingredients-visible-results",
+      "blocks": {
+        "result_Adc784": {
+          "type": "result",
+          "settings": {
+            "image": "shopify://shop_images/olimpia-campean-yCKDTD2J9lU-unsplash.jpg",
+            "border_color": "{{ shop.brand.colors.primary[0].background }}",
+            "card_bg": "#fcebea",
+            "text_color": "#222222",
+            "title": "Collagen Boosting Power",
+            "title_align": "center",
+            "description": "<p>This mask is packed with collagen to help restore skin's firmness and reduce the appearance of fine lines. It works deep within the skin to promote elasticity and youthful structure. Say goodbye to sagging and hello to a lifted, firmer look.</p>",
+            "desc_align": "center"
+          }
+        },
+        "result_FkX3Rw": {
+          "type": "result",
+          "settings": {
+            "image": "shopify://shop_images/olimpia-campean-yCKDTD2J9lU-unsplash.jpg",
+            "border_color": "{{ shop.brand.colors.primary[0].background }}",
+            "card_bg": "#fcebea",
+            "text_color": "#222222",
+            "title": "Deep Hydration",
+            "title_align": "center",
+            "description": "<p>Formulated to deliver intense moisture, this mask deeply hydrates dry and tired skin. It locks in hydration, leaving your face soft, smooth, and plump. Perfect for restoring your skin’s natural balance and glow.</p>",
+            "desc_align": "center"
+          }
+        },
+        "result_bk7GPw": {
+          "type": "result",
+          "settings": {
+            "image": "shopify://shop_images/olimpia-campean-yCKDTD2J9lU-unsplash.jpg",
+            "border_color": "{{ shop.brand.colors.primary[0].background }}",
+            "card_bg": "#fcebea",
+            "text_color": "{{ shop.brand.colors.secondary[0].background }}",
+            "title": "Radiant Glow Effect",
+            "title_align": "center",
+            "description": "<p>It enhances your skin’s natural brightness and improves overall texture. Dullness and uneven tone are visibly reduced, revealing a fresh, luminous glow. Enjoy the glass-skin effect after just one use.</p>",
+            "desc_align": "center"
+          }
+        }
+      },
+      "block_order": [
+        "result_Adc784",
+        "result_FkX3Rw",
+        "result_bk7GPw"
+      ],
+      "name": "Ingredients Visible Results",
+      "settings": {
+        "color_scheme": "",
+        "carousel_active_dot_color": "{{ shop.brand.colors.primary[0].background }}",
+        "carousel_inactive_dot_color": "{{ shop.brand.colors.primary[0].foreground }}",
+        "padding_top_mobile": 24,
+        "padding_bottom_mobile": 24,
+        "padding_left_mobile": 0,
+        "padding_right_mobile": 0,
+        "padding_top_desktop": 48,
+        "padding_bottom_desktop": 80,
+        "padding_left_desktop": 0,
+        "padding_right_desktop": 0
+      }
+    },
+    "section_divider_hpzLkV": {
+      "type": "section-divider",
+      "name": "Section Divider",
+      "settings": {
+        "divider_style": "divider-2",
+        "color_scheme": "",
+        "svg_fill_color": "{{ shop.brand.colors.primary[0].foreground }}"
+      }
+    },
+    "generic_text_content_EXqxdR": {
+      "type": "generic-text-content",
+      "blocks": {
+        "heading_NRkhAd": {
+          "type": "heading",
+          "settings": {
+            "heading": "Reveal Your Glow |With Collagen",
+            "heading_2nd_part_color": "{{ shop.brand.colors.primary[0].background }}",
+            "heading_size": "h1",
+            "heading_alignment": "center",
+            "heading_max_width": 780,
+            "show_on_mobile": true,
+            "show_on_desktop": true
+          }
+        },
+        "description_48mCU6": {
+          "type": "description",
+          "settings": {
+            "description": "<p>Uncover radiant, youthful skin with our deeply hydrating bio-collagen mask. Packed with skin-loving ingredients, it boosts collagen, smooths fine lines, and deeply moisturizes.</p>",
+            "description_alignment": "center",
+            "description_max_width": 560,
+            "show_on_mobile": true,
+            "show_on_desktop": true
+          }
+        }
+      },
+      "block_order": [
+        "heading_NRkhAd",
+        "description_48mCU6"
+      ],
+      "name": "Reveal Your Glow With Collagen Text",
+      "settings": {
+        "color_scheme": "scheme-0cf8f8cb-efab-4593-9a11-d9e4036b83d5",
+        "padding_top_mobile": 24,
+        "padding_bottom_mobile": 24,
+        "padding_left_mobile": 0,
+        "padding_right_mobile": 0,
+        "padding_top_desktop": 16,
+        "padding_bottom_desktop": 0,
+        "padding_left_desktop": 0,
+        "padding_right_desktop": 0
+      }
+    },
+    "reveal_your_glow_collagen_eLxjHa": {
+      "type": "reveal-your-glow-collagen",
+      "blocks": {
+        "image_enjjBm": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/kateryna-hliznitsova-LogMzW2a05E-unsplash.jpg",
+            "show_border": true,
+            "image_border_color": "#e87fc1",
+            "image_radius_tl": 80,
+            "image_radius_tr": 16,
+            "image_radius_br": 80,
+            "image_radius_bl": 16
+          }
+        },
+        "content_nVJmgj": {
+          "type": "content",
+          "settings": {
+            "logo": "shopify://shop_images/Anti_Aging.png",
+            "heading": "Glow Instantly With Every|Collagen Mask Use",
+            "heading_2nd_part_color": "{{ shop.brand.colors.primary[0].background }}",
+            "description": "<p>Deeply hydrates, firms skin, and reveals a youthful radiant glow.</p>",
+            "button_text": "Buy Now"
+          }
+        },
+        "image_wAhqCx": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/olimpia-campean-m6bIAov5RQA-unsplash.jpg",
+            "show_border": true,
+            "image_border_color": "#e87fc1",
+            "image_radius_tl": 16,
+            "image_radius_tr": 80,
+            "image_radius_br": 16,
+            "image_radius_bl": 80
+          }
+        }
+      },
+      "block_order": [
+        "image_enjjBm",
+        "content_nVJmgj",
+        "image_wAhqCx"
+      ],
+      "name": "Reveal Your Glow With Collagen",
+      "settings": {
+        "color_scheme": "scheme-0cf8f8cb-efab-4593-9a11-d9e4036b83d5",
+        "padding_top_mobile": 24,
+        "padding_bottom_mobile": 24,
+        "padding_left_mobile": 0,
+        "padding_right_mobile": 0,
+        "padding_top_desktop": 48,
+        "padding_bottom_desktop": 48,
+        "padding_left_desktop": 0,
+        "padding_right_desktop": 0
+      }
+    },
+    "section_divider_jHfDte": {
+      "type": "section-divider",
+      "name": "Section Divider",
+      "settings": {
+        "divider_style": "divider-1",
+        "color_scheme": "",
+        "svg_fill_color": "{{ shop.brand.colors.primary[0].foreground }}"
       }
     },
     "custom_image_with_text_4NTDTi": {
@@ -273,7 +505,7 @@
         "heading_zqKgFU": {
           "type": "heading",
           "settings": {
-            "heading": "Gentle On Skin, |Powerful On Results",
+            "heading": "Glow Naturally, Feel |Confident Daily",
             "heading_size": "h1",
             "heading_2nd_part_color": "{{ shop.brand.colors.primary[0].background }}"
           }
@@ -331,13 +563,138 @@
         "section_color_scheme": "scheme-23a29e7f-f949-4e5f-9ecb-31639c0c2c42",
         "color_scheme": "scheme-23a29e7f-f949-4e5f-9ecb-31639c0c2c42",
         "padding_top_mobile": 32,
-        "padding_bottom_mobile": 32,
+        "padding_bottom_mobile": 16,
         "padding_left_mobile": 0,
+        "padding_right_mobile": 16,
+        "padding_top_desktop": 48,
+        "padding_bottom_desktop": 80,
+        "padding_left_desktop": 0,
+        "padding_right_desktop": 0
+      }
+    },
+    "section_divider_iRyDjk": {
+      "type": "section-divider",
+      "name": "Section Divider",
+      "settings": {
+        "divider_style": "divider-2",
+        "color_scheme": "",
+        "svg_fill_color": "{{ shop.brand.colors.primary[0].foreground }}"
+      }
+    },
+    "generic_text_content_nxbb6b": {
+      "type": "generic-text-content",
+      "blocks": {
+        "heading_q33MtX": {
+          "type": "heading",
+          "settings": {
+            "heading": "Glow Starts with |Deep Care",
+            "heading_2nd_part_color": "{{ shop.brand.colors.primary[0].background }}",
+            "heading_size": "h1",
+            "heading_alignment": "center",
+            "heading_max_width": 1200,
+            "show_on_mobile": true,
+            "show_on_desktop": true
+          }
+        },
+        "description_tULgpJ": {
+          "type": "description",
+          "settings": {
+            "description": "<p>Unlock radiant, youthful skin with every use of our bio-collagen mask. Designed to deeply hydrate, smooth fine lines, and boost collagen, it delivers visible results.</p>",
+            "description_alignment": "center",
+            "description_max_width": 600,
+            "show_on_mobile": true,
+            "show_on_desktop": true
+          }
+        }
+      },
+      "block_order": [
+        "heading_q33MtX",
+        "description_tULgpJ"
+      ],
+      "name": "Glow Starts With Deep Care Text",
+      "settings": {
+        "color_scheme": "scheme-0cf8f8cb-efab-4593-9a11-d9e4036b83d5",
+        "padding_top_mobile": 24,
+        "padding_bottom_mobile": 24,
+        "padding_left_mobile": 0,
+        "padding_right_mobile": 0,
+        "padding_top_desktop": 16,
+        "padding_bottom_desktop": 36,
+        "padding_left_desktop": 0,
+        "padding_right_desktop": 0
+      }
+    },
+    "custom_image_with_text_UWG7Gh": {
+      "type": "custom-image-with-text",
+      "blocks": {
+        "text_DdifR6": {
+          "type": "text",
+          "settings": {
+            "text": "<h2>Transform Your Skin in Minutes</h2><p>This powerful collagen mask is your shortcut to firmer, smoother, and deeply hydrated skin. With every use, it revives tired, dull skin and leaves you glowing with confidence — all in just one treatment.</p>",
+            "text_style": "body"
+          }
+        },
+        "attributes_3JQDAN": {
+          "type": "attributes",
+          "settings": {
+            "icon_1": "shopify://shop_images/Icon_1.png",
+            "details_1": "<h3>Fast Results</h3><p>Visible glow after one use</p>",
+            "icon_2": "shopify://shop_images/Icon_2.png",
+            "details_2": "<h3>Aloe Infused</h3><p>Calms and refreshes skin</p>",
+            "icon_3": "shopify://shop_images/Icon_3.png",
+            "details_3": "<h3>LED Compatible</h3><p>Works under LED light therapy</p>",
+            "icon_4": "shopify://shop_images/Icon_4.png",
+            "details_4": "<h3>Clean Beauty</h3><p>92% natural origin ingredients</p>"
+          }
+        }
+      },
+      "block_order": [
+        "text_DdifR6",
+        "attributes_3JQDAN"
+      ],
+      "name": "Glow Natural Feel Confident",
+      "settings": {
+        "image": "shopify://shop_images/olimpia-campean-m6bIAov5RQA-unsplash.jpg",
+        "image_border_color": "{{ shop.brand.colors.primary[0].background }}",
+        "media_border_visible": false,
+        "media_border_radius_top_left": 16,
+        "media_border_radius_top_right": 16,
+        "media_border_radius_bottom_right": 16,
+        "media_border_radius_bottom_left": 16,
+        "media_box_shadow_visible": true,
+        "media_box_shadow_color": "{{ shop.brand.colors.primary[0].background }}",
+        "media_box_shadow_x_offset": -16,
+        "media_box_shadow_y_offset": -16,
+        "desktop_image_width": "medium",
+        "image_behavior": "ambient",
+        "show_content_border": false,
+        "content_border_color": "#e5e5e5",
+        "content_border_width": 1,
+        "height": "medium",
+        "layout": "image_first",
+        "content_layout": "no-overlap",
+        "desktop_content_position": "top",
+        "desktop_content_alignment": "left",
+        "mobile_content_alignment": "left",
+        "section_color_scheme": "scheme-0cf8f8cb-efab-4593-9a11-d9e4036b83d5",
+        "color_scheme": "scheme-0cf8f8cb-efab-4593-9a11-d9e4036b83d5",
+        "padding_top_mobile": 32,
+        "padding_bottom_mobile": 32,
+        "padding_left_mobile": 16,
         "padding_right_mobile": 0,
         "padding_top_desktop": 32,
         "padding_bottom_desktop": 32,
         "padding_left_desktop": 0,
         "padding_right_desktop": 0
+      }
+    },
+    "section_divider_J6epPL": {
+      "type": "section-divider",
+      "name": "Section Divider",
+      "settings": {
+        "divider_style": "divider-1",
+        "color_scheme": "scheme-23a29e7f-f949-4e5f-9ecb-31639c0c2c42",
+        "svg_fill_color": "{{ shop.brand.colors.primary[0].foreground }}"
       }
     },
     "collagen_care_image_with_text_GYbdJh": {
@@ -467,7 +824,18 @@
     "marquee_text_divider_9TKzPA",
     "generic_text_content_CA7Qbw",
     "custom_image_with_text_NL6i9N",
+    "section_divider_QknApc",
+    "generic_text_content_FKiW7D",
+    "ingredients_visible_results_3xrE6C",
+    "section_divider_hpzLkV",
+    "generic_text_content_EXqxdR",
+    "reveal_your_glow_collagen_eLxjHa",
+    "section_divider_jHfDte",
     "custom_image_with_text_4NTDTi",
+    "section_divider_iRyDjk",
+    "generic_text_content_nxbb6b",
+    "custom_image_with_text_UWG7Gh",
+    "section_divider_J6epPL",
     "collagen_care_image_with_text_GYbdJh",
     "our_promises_RbJnYb",
     "featured_collection"
