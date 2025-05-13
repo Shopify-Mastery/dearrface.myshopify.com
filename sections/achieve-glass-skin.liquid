@@ -107,13 +107,6 @@
     margin-bottom: 0;
   }
   @media (min-width: 1024px) {
-    .glass-skin-{{ section.id }}-attributes-list {
-      gap: 3rem;
-    }
-    .glass-skin-{{ section.id }}-attribute__icon {
-      width: 6rem;
-      height: 6rem;
-    }
     .glass-skin-{{ section.id }}-attributes-block--left .glass-skin-{{ section.id }}-attribute {
       flex-direction: row-reverse;
     }
@@ -125,6 +118,64 @@
     }
     .glass-skin-{{ section.id }}-attributes-block--right .glass-skin-{{ section.id }}-attribute .glass-skin-{{ section.id }}-attribute__info {
       text-align: left;
+    }
+
+    .glass-skin-{{ section.id }}-attributes-list {
+      gap: 3rem;
+    }
+    .glass-skin-{{ section.id }}-attribute__icon {
+      width: 6rem;
+      height: 6rem;
+    }
+    .glass-skin-{{ section.id }}-attributes-block--left .glass-skin-{{ section.id }}-attribute:nth-child(1) {
+      margin-right: -5rem;
+      margin-left: 5rem;
+    }
+    .glass-skin-{{ section.id }}-attributes-block--left .glass-skin-{{ section.id }}-attribute:nth-child(2) {
+      margin-right: 0;
+      margin-left: 0;
+    }
+    .glass-skin-{{ section.id }}-attributes-block--left .glass-skin-{{ section.id }}-attribute:nth-child(3) {
+      margin-right: -2rem;
+      margin-left: 2rem;
+    }
+    .glass-skin-{{ section.id }}-attributes-block--right .glass-skin-{{ section.id }}-attribute:nth-child(1) {
+      margin-right: 5rem;
+      margin-left: -5rem;
+    }
+    .glass-skin-{{ section.id }}-attributes-block--right .glass-skin-{{ section.id }}-attribute:nth-child(2) {
+      margin-right: 0;
+      margin-left: 0;
+    }
+    .glass-skin-{{ section.id }}-attributes-block--right .glass-skin-{{ section.id }}-attribute:nth-child(3) {
+      margin-right: 2rem;
+      margin-left: -2rem;
+    }
+  }
+  @media (min-width: 1120px) {
+    .glass-skin-{{ section.id }}-attributes-block--left .glass-skin-{{ section.id }}-attribute:nth-child(1) {
+      margin-right: -9rem;
+      margin-left: 9rem;
+    }
+    .glass-skin-{{ section.id }}-attributes-block--left .glass-skin-{{ section.id }}-attribute:nth-child(2) {
+      margin-right: -3rem;
+      margin-left: 3rem;
+    }
+    .glass-skin-{{ section.id }}-attributes-block--left .glass-skin-{{ section.id }}-attribute:nth-child(3) {
+      margin-right: -6rem;
+      margin-left: 6rem;
+    }
+    .glass-skin-{{ section.id }}-attributes-block--right .glass-skin-{{ section.id }}-attribute:nth-child(1) {
+      margin-right: 9rem;
+      margin-left: -9rem;
+    }
+    .glass-skin-{{ section.id }}-attributes-block--right .glass-skin-{{ section.id }}-attribute:nth-child(2) {
+      margin-right: 3rem;
+      margin-left: -3rem;
+    }
+    .glass-skin-{{ section.id }}-attributes-block--right .glass-skin-{{ section.id }}-attribute:nth-child(3) {
+      margin-right: 6rem;
+      margin-left: -6rem;
     }
   }
   .glass-skin-{{ section.id }}-center {
