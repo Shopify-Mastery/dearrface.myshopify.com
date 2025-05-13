@@ -34,6 +34,36 @@
             "show_gift_card_recipient": true
           }
         },
+        "collapsible_tab_gT7TmA": {
+          "type": "collapsible_tab",
+          "name": "How It Works Collapsible row",
+          "settings": {
+            "heading": "How It Works",
+            "icon": "none",
+            "content": "<p>Discover the Power of Lorem Ipsum in Boosting Productivity.</p>",
+            "page": ""
+          }
+        },
+        "collapsible_tab_EC3p7K": {
+          "type": "collapsible_tab",
+          "name": "Shipping Collapsible row",
+          "settings": {
+            "heading": "Shipping",
+            "icon": "none",
+            "content": "<p>Discover the Power of Lorem Ipsum in Boosting Productivity.</p>",
+            "page": ""
+          }
+        },
+        "collapsible_tab_HjYTxP": {
+          "type": "collapsible_tab",
+          "name": "Refund Policy Collapsible row",
+          "settings": {
+            "heading": "Refund Policy",
+            "icon": "none",
+            "content": "<p>Discover the Power of Lorem Ipsum in Boosting Productivity.</p>",
+            "page": ""
+          }
+        },
         "product_attributes_fMFDwn": {
           "type": "product-attributes",
           "settings": {
@@ -54,6 +84,9 @@
         "description",
         "variant_picker",
         "buy_buttons",
+        "collapsible_tab_gT7TmA",
+        "collapsible_tab_EC3p7K",
+        "collapsible_tab_HjYTxP",
         "product_attributes_fMFDwn"
       ],
       "settings": {
