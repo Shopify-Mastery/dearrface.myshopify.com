@@ -67,6 +67,49 @@
         "svg_fill_color": "#ffdaf5"
       }
     },
+    "generic_text_content_PnK8qK": {
+      "type": "generic-text-content",
+      "blocks": {
+        "heading_NwfJ8W": {
+          "type": "heading",
+          "settings": {
+            "heading": "Achieve Glass | Skin With This",
+            "heading_2nd_part_color": "{{ shop.brand.colors.primary[0].background }}",
+            "heading_size": "h1",
+            "heading_alignment": "center",
+            "heading_max_width": 1200,
+            "show_on_mobile": true,
+            "show_on_desktop": true
+          }
+        },
+        "description_Ep6FQR": {
+          "type": "description",
+          "settings": {
+            "description": "<p>Revive dull, aging skin with intense hydration and collagen. Instantly smooth, firm, and glow — naturally and effortlessly.</p>",
+            "description_alignment": "center",
+            "description_max_width": 640,
+            "show_on_mobile": true,
+            "show_on_desktop": true
+          }
+        }
+      },
+      "block_order": [
+        "heading_NwfJ8W",
+        "description_Ep6FQR"
+      ],
+      "name": "Ingredients Visible Result Text",
+      "settings": {
+        "color_scheme": "scheme-23a29e7f-f949-4e5f-9ecb-31639c0c2c42",
+        "padding_top_mobile": 0,
+        "padding_bottom_mobile": 24,
+        "padding_left_mobile": 0,
+        "padding_right_mobile": 0,
+        "padding_top_desktop": 0,
+        "padding_bottom_desktop": 32,
+        "padding_left_desktop": 0,
+        "padding_right_desktop": 0
+      }
+    },
     "achieve_glass_skin_DDHRef": {
       "type": "achieve-glass-skin",
       "name": "Achieve Glass Skin With This",
@@ -86,10 +129,12 @@
         "right_icon_3": "shopify://shop_images/Deep_Hydration_Icon_e2b280db-4e8e-42da-9d2e-421c4c35ebbc.png",
         "right_info_3": "<h3>Deep Hydration</h3><p>Penetrates layers to keep skin plump and nourished.</p>",
         "testimonial_image": "shopify://shop_images/christopher-campbell-rDEOVtE7vOs-unsplash.jpg",
+        "testimonial_bg_color": "{{ shop.brand.colors.primary[0].background }}",
+        "testimonial_text_color": "{{ shop.brand.colors.secondary[1].background }}",
         "testimonial_border_color": "{{ shop.brand.colors.primary[0].background }}",
         "testimonial_image_border_color": "{{ shop.brand.colors.secondary[1].background }}",
         "testimonial_stars": 5,
-        "testimonial_star_color": "{{ shop.brand.colors.primary[0].background }}",
+        "testimonial_star_color": "{{ shop.brand.colors.secondary[1].background }}",
         "testimonial_text": "<p>Absolutely love this mask! My skin feels so hydrated, smooth, and fresh. I've noticed fewer fine lines already. It's become my weekly skincare essential!</p>",
         "testimonial_author": "Emily R.",
         "padding_top_mobile": 32,
@@ -102,10 +147,19 @@
         "padding_right_desktop": 0
       }
     },
-    "generic_text_content_PnK8qK": {
+    "section_divider_6dTTQk": {
+      "type": "section-divider",
+      "name": "Section Divider",
+      "settings": {
+        "divider_style": "divider-2",
+        "color_scheme": "",
+        "svg_fill_color": "#FFDAF5"
+      }
+    },
+    "generic_text_content_n9XBkX": {
       "type": "generic-text-content",
       "blocks": {
-        "heading_NwfJ8W": {
+        "heading_4AMCb8": {
           "type": "heading",
           "settings": {
             "heading": "Powerful Ingredients, |Visible Results",
@@ -117,7 +171,7 @@
             "show_on_desktop": true
           }
         },
-        "description_Ep6FQR": {
+        "description_gCXiPk": {
           "type": "description",
           "settings": {
             "description": "<p>Formulated with collagen extract, niacinamide, and aloe vera, this mask targets multiple skin concerns in one treatment. These powerhouse ingredients hydrate, brighten, and firm your skin — revealing a smooth, youthful glow.</p>",
@@ -129,10 +183,9 @@
         }
       },
       "block_order": [
-        "heading_NwfJ8W",
-        "description_Ep6FQR"
+        "heading_4AMCb8",
+        "description_gCXiPk"
       ],
-      "disabled": true,
       "name": "Ingredients Visible Result Text",
       "settings": {
         "color_scheme": "scheme-0cf8f8cb-efab-4593-9a11-d9e4036b83d5",
@@ -140,7 +193,7 @@
         "padding_bottom_mobile": 24,
         "padding_left_mobile": 0,
         "padding_right_mobile": 0,
-        "padding_top_desktop": 16,
+        "padding_top_desktop": 8,
         "padding_bottom_desktop": 32,
         "padding_left_desktop": 0,
         "padding_right_desktop": 0
@@ -194,7 +247,6 @@
         "result_mhmDha",
         "result_YrmL9p"
       ],
-      "disabled": true,
       "name": "Ingredients Visible Results",
       "settings": {
         "color_scheme": "scheme-0cf8f8cb-efab-4593-9a11-d9e4036b83d5",
@@ -205,9 +257,18 @@
         "padding_left_mobile": 0,
         "padding_right_mobile": 0,
         "padding_top_desktop": 0,
-        "padding_bottom_desktop": 48,
+        "padding_bottom_desktop": 0,
         "padding_left_desktop": 0,
         "padding_right_desktop": 0
+      }
+    },
+    "section_divider_bYtDjt": {
+      "type": "section-divider",
+      "name": "Section Divider",
+      "settings": {
+        "divider_style": "divider-1",
+        "color_scheme": "",
+        "svg_fill_color": "#FFDAF5"
       }
     },
     "generic_text_content_xJr49r": {
@@ -229,7 +290,6 @@
       "block_order": [
         "heading_XKAB8F"
       ],
-      "disabled": true,
       "name": "Radiant Skin Experience Text",
       "settings": {
         "color_scheme": "scheme-23a29e7f-f949-4e5f-9ecb-31639c0c2c42",
@@ -257,7 +317,6 @@
       "block_order": [
         "text_ckL3qc"
       ],
-      "disabled": true,
       "name": "[LTR] Radian Skin Experience",
       "settings": {
         "image": "shopify://shop_images/olimpia-campean-m6bIAov5RQA-unsplash.jpg",
@@ -308,7 +367,6 @@
       "block_order": [
         "text_MTqHFq"
       ],
-      "disabled": true,
       "name": "[RTL] Radian Skin Experience",
       "settings": {
         "image": "shopify://shop_images/kateryna-hliznitsova-LogMzW2a05E-unsplash.jpg",
@@ -345,6 +403,15 @@
         "padding_right_desktop": 0
       }
     },
+    "section_divider_GKeEFM": {
+      "type": "section-divider",
+      "name": "Section Divider",
+      "settings": {
+        "divider_style": "divider-2",
+        "color_scheme": "scheme-1",
+        "svg_fill_color": "#FFDAF5"
+      }
+    },
     "generic_text_content_fU4BdM": {
       "type": "generic-text-content",
       "blocks": {
@@ -375,15 +442,14 @@
         "heading_W3xK6X",
         "description_xFeycJ"
       ],
-      "disabled": true,
       "name": "Glow Starts With Deep Care Text",
       "settings": {
         "color_scheme": "scheme-0cf8f8cb-efab-4593-9a11-d9e4036b83d5",
-        "padding_top_mobile": 24,
+        "padding_top_mobile": 8,
         "padding_bottom_mobile": 24,
         "padding_left_mobile": 0,
         "padding_right_mobile": 0,
-        "padding_top_desktop": 16,
+        "padding_top_desktop": 8,
         "padding_bottom_desktop": 16,
         "padding_left_desktop": 0,
         "padding_right_desktop": 0
@@ -417,7 +483,6 @@
         "text_WmjgM8",
         "attributes_VwcAVN"
       ],
-      "disabled": true,
       "name": "Glow Starts With Deep Care",
       "settings": {
         "image": "shopify://shop_images/olimpia-campean-yCKDTD2J9lU-unsplash.jpg",
@@ -449,9 +514,18 @@
         "padding_left_mobile": 16,
         "padding_right_mobile": 0,
         "padding_top_desktop": 32,
-        "padding_bottom_desktop": 56,
+        "padding_bottom_desktop": 0,
         "padding_left_desktop": 0,
         "padding_right_desktop": 0
+      }
+    },
+    "section_divider_7jRnYG": {
+      "type": "section-divider",
+      "name": "Section Divider",
+      "settings": {
+        "divider_style": "divider-1",
+        "color_scheme": "",
+        "svg_fill_color": "#FFDAF5"
       }
     },
     "generic_content_yGKNnH": {
@@ -473,7 +547,6 @@
       "block_order": [
         "heading_qzmNrP"
       ],
-      "disabled": true,
       "name": "Why Our Product Text",
       "settings": {
         "color_scheme": "scheme-23a29e7f-f949-4e5f-9ecb-31639c0c2c42",
@@ -548,7 +621,6 @@
         "feature_JxGbai",
         "feature_xCjbzt"
       ],
-      "disabled": true,
       "name": "Why Our Product Table",
       "settings": {
         "color_scheme": "scheme-1",
@@ -605,7 +677,6 @@
         "heading_wtdwad",
         "description_tMjLGy"
       ],
-      "disabled": true,
       "name": "Reveal Your Glow With Collagen",
       "settings": {
         "color_scheme": "",
@@ -662,7 +733,6 @@
         "content_FNTnfe",
         "image_TCFzYb"
       ],
-      "disabled": true,
       "name": "Reveal Your Glow With Collagen",
       "settings": {
         "color_scheme": "scheme-23a29e7f-f949-4e5f-9ecb-31639c0c2c42",
@@ -674,6 +744,15 @@
         "padding_bottom_desktop": 48,
         "padding_left_desktop": 0,
         "padding_right_desktop": 0
+      }
+    },
+    "section_divider_nKYrJR": {
+      "type": "section-divider",
+      "name": "Section Divider",
+      "settings": {
+        "divider_style": "divider-2",
+        "color_scheme": "",
+        "svg_fill_color": "#FFDAF5"
       }
     },
     "generic_text_content_L9YqWE": {
@@ -695,7 +774,6 @@
       "block_order": [
         "heading_RNyeDz"
       ],
-      "disabled": true,
       "name": "Real Results See The Glow Text",
       "settings": {
         "color_scheme": "scheme-0cf8f8cb-efab-4593-9a11-d9e4036b83d5",
@@ -703,7 +781,7 @@
         "padding_bottom_mobile": 24,
         "padding_left_mobile": 0,
         "padding_right_mobile": 0,
-        "padding_top_desktop": 16,
+        "padding_top_desktop": 4,
         "padding_bottom_desktop": 32,
         "padding_left_desktop": 0,
         "padding_right_desktop": 0
@@ -767,7 +845,6 @@
         "testimonial_WrEG3h",
         "testimonial_aNykPK"
       ],
-      "disabled": true,
       "name": "Real Results See The Glow",
       "settings": {
         "color_scheme": "scheme-0cf8f8cb-efab-4593-9a11-d9e4036b83d5",
@@ -778,9 +855,18 @@
         "padding_left_mobile": 0,
         "padding_right_mobile": 0,
         "padding_top_desktop": 0,
-        "padding_bottom_desktop": 64,
+        "padding_bottom_desktop": 0,
         "padding_left_desktop": 0,
         "padding_right_desktop": 0
+      }
+    },
+    "section_divider_UhbFxT": {
+      "type": "section-divider",
+      "name": "Section Divider",
+      "settings": {
+        "divider_style": "divider-1",
+        "color_scheme": "",
+        "svg_fill_color": "#FFDAF5"
       }
     },
     "generic_text_content_zyf8L3": {
@@ -802,16 +888,15 @@
       "block_order": [
         "heading_aAK7Jm"
       ],
-      "disabled": true,
       "name": "FAQ Text",
       "settings": {
         "color_scheme": "scheme-23a29e7f-f949-4e5f-9ecb-31639c0c2c42",
-        "padding_top_mobile": 24,
+        "padding_top_mobile": 8,
         "padding_bottom_mobile": 24,
         "padding_left_mobile": 0,
         "padding_right_mobile": 0,
-        "padding_top_desktop": 48,
-        "padding_bottom_desktop": 48,
+        "padding_top_desktop": 0,
+        "padding_bottom_desktop": 32,
         "padding_left_desktop": 0,
         "padding_right_desktop": 0
       }
@@ -882,7 +967,6 @@
         "collapsible_row_Uxm7Km",
         "collapsible_row_G6dVpQ"
       ],
-      "disabled": true,
       "name": "FAQ",
       "settings": {
         "caption": "",
@@ -903,20 +987,27 @@
   "order": [
     "main",
     "section_divider_HaJB3E",
-    "achieve_glass_skin_DDHRef",
     "generic_text_content_PnK8qK",
+    "achieve_glass_skin_DDHRef",
+    "section_divider_6dTTQk",
+    "generic_text_content_n9XBkX",
     "ingredients_visible_results_GWD3qT",
+    "section_divider_bYtDjt",
     "generic_text_content_xJr49r",
     "custom_image_with_text_wKNUqe",
     "custom_image_with_text_Fz3Mhm",
+    "section_divider_GKeEFM",
     "generic_text_content_fU4BdM",
     "custom_image_with_text_9Lggga",
+    "section_divider_7jRnYG",
     "generic_content_yGKNnH",
     "why_our_product_3QeDQx",
     "generic_text_content_xkNwEh",
     "reveal_your_glow_collagen_9tPpnp",
+    "section_divider_nKYrJR",
     "generic_text_content_L9YqWE",
     "real_results_see_the_glow_VFYjjN",
+    "section_divider_UhbFxT",
     "generic_text_content_zyf8L3",
     "faq_FdBj69"
   ]
