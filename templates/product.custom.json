@@ -153,7 +153,7 @@
       "settings": {
         "divider_style": "divider-2",
         "color_scheme": "",
-        "svg_fill_color": "#FFDAF5"
+        "svg_fill_color": "#ffdaf5"
       }
     },
     "generic_text_content_n9XBkX": {
@@ -268,7 +268,7 @@
       "settings": {
         "divider_style": "divider-1",
         "color_scheme": "",
-        "svg_fill_color": "#FFDAF5"
+        "svg_fill_color": "#ffdaf5"
       }
     },
     "generic_text_content_xJr49r": {
@@ -409,7 +409,7 @@
       "settings": {
         "divider_style": "divider-2",
         "color_scheme": "scheme-1",
-        "svg_fill_color": "#FFDAF5"
+        "svg_fill_color": "#ffdaf5"
       }
     },
     "generic_text_content_fU4BdM": {
@@ -525,7 +525,7 @@
       "settings": {
         "divider_style": "divider-1",
         "color_scheme": "",
-        "svg_fill_color": "#FFDAF5"
+        "svg_fill_color": "#ffdaf5"
       }
     },
     "generic_content_yGKNnH": {
@@ -697,8 +697,13 @@
           "type": "image",
           "settings": {
             "image": "shopify://shop_images/olimpia-campean-yCKDTD2J9lU-unsplash.jpg",
-            "show_border": true,
+            "show_border": false,
             "image_border_color": "{{ shop.brand.colors.primary[0].background }}",
+            "image_border_width": 2,
+            "image_box_shadow_visible": true,
+            "image_box_shadow_color": "{{ shop.brand.colors.primary[0].background }}",
+            "image_box_shadow_x_offset": -8,
+            "image_box_shadow_y_offset": -8,
             "image_radius_tl": 80,
             "image_radius_tr": 8,
             "image_radius_br": 80,
@@ -712,15 +717,21 @@
             "heading": "Glow Instantly With Every|Collagen Mask Use",
             "heading_2nd_part_color": "{{ shop.brand.colors.primary[0].background }}",
             "description": "<p>Deeply hydrates, firms skin, and reveals a youthful radiant glow.</p>",
-            "button_text": "Buy Now"
+            "button_text": "Buy Now",
+            "button_link": ""
           }
         },
         "image_TCFzYb": {
           "type": "image",
           "settings": {
             "image": "shopify://shop_images/olimpia-campean-SZgxfMYJsYo-unsplash.jpg",
-            "show_border": true,
+            "show_border": false,
             "image_border_color": "{{ shop.brand.colors.primary[0].background }}",
+            "image_border_width": 2,
+            "image_box_shadow_visible": true,
+            "image_box_shadow_color": "{{ shop.brand.colors.primary[0].background }}",
+            "image_box_shadow_x_offset": 8,
+            "image_box_shadow_y_offset": -8,
             "image_radius_tl": 8,
             "image_radius_tr": 80,
             "image_radius_br": 8,
@@ -752,7 +763,7 @@
       "settings": {
         "divider_style": "divider-2",
         "color_scheme": "",
-        "svg_fill_color": "#FFDAF5"
+        "svg_fill_color": "#ffdaf5"
       }
     },
     "generic_text_content_L9YqWE": {
@@ -866,7 +877,7 @@
       "settings": {
         "divider_style": "divider-1",
         "color_scheme": "",
-        "svg_fill_color": "#FFDAF5"
+        "svg_fill_color": "#ffdaf5"
       }
     },
     "generic_text_content_zyf8L3": {

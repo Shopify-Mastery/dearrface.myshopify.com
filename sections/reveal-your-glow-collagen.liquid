@@ -168,7 +168,16 @@
                 <div class="reveal-glow-{{ section.id }}__desc">
                   {{ block.settings.description }}
                 </div>
-                {% if product and product.selected_or_first_available_variant %}
+                {% if block.settings.button_link != blank %}
+                  <a href="{{ block.settings.button_link }}" class="reveal-glow-{{ section.id }}__button">
+                    <span class="reveal-glow-{{ section.id }}__button-text">{{ block.settings.button_text }}</span>
+                    <span class="reveal-glow-{{ section.id }}__button-icon" style="display: none;">
+                      <svg xmlns="http://www.w3.org/2000/svg" fill="none" class="icon icon-arrow" viewBox="0 0 14 10">
+                        <path fill="currentColor" fill-rule="evenodd" d="M8.537.808a.5.5 0 0 1 .817-.162l4 4a.5.5 0 0 1 0 .708l-4 4a.5.5 0 1 1-.708-.708L11.793 5.5H1a.5.5 0 0 1 0-1h10.793L8.646 1.354a.5.5 0 0 1-.109-.546" clip-rule="evenodd"/>
+                      </svg>
+                    </span>
+                  </a>
+                {% elsif product and product.selected_or_first_available_variant %}
                   <a
                     href="/cart/{{ product.selected_or_first_available_variant.id }}:1?checkout[attributes][from]=product-details"
                     class="reveal-glow-{{ section.id }}__button"
@@ -396,7 +405,13 @@
           "label": "Description",
           "default": "<p>Deeply hydrates, firms skin, and reveals a youthful radiant glow.</p>"
         },
-        { "type": "text", "id": "button_text", "label": "Button text", "default": "Buy Now" }
+        { "type": "text", "id": "button_text", "label": "Button text", "default": "Buy Now" },
+        {
+          "type": "url",
+          "id": "button_link",
+          "label": "Button link",
+          "info": "If link is not set, the button will go to checkout page if in product page. However, if the link is set, the button will go to the link."
+        }
       ]
     }
   ],

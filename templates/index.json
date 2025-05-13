@@ -441,8 +441,13 @@
           "type": "image",
           "settings": {
             "image": "shopify://shop_images/kateryna-hliznitsova-LogMzW2a05E-unsplash.jpg",
-            "show_border": true,
-            "image_border_color": "#ff66c4",
+            "show_border": false,
+            "image_border_color": "{{ shop.brand.colors.primary[0].background }}",
+            "image_border_width": 4,
+            "image_box_shadow_visible": true,
+            "image_box_shadow_color": "{{ shop.brand.colors.primary[0].background }}",
+            "image_box_shadow_x_offset": -8,
+            "image_box_shadow_y_offset": -8,
             "image_radius_tl": 80,
             "image_radius_tr": 16,
             "image_radius_br": 80,
@@ -456,15 +461,21 @@
             "heading": "Glow Instantly With Every|Collagen Mask Use",
             "heading_2nd_part_color": "{{ shop.brand.colors.primary[0].background }}",
             "description": "<p>Deeply hydrates, firms skin, and reveals a youthful radiant glow.</p>",
-            "button_text": "Buy Now"
+            "button_text": "Buy Now",
+            "button_link": "shopify://products/deeply-hydrating-bio-collagen-mask"
           }
         },
         "image_wAhqCx": {
           "type": "image",
           "settings": {
             "image": "shopify://shop_images/olimpia-campean-m6bIAov5RQA-unsplash.jpg",
-            "show_border": true,
-            "image_border_color": "#ff66c4",
+            "show_border": false,
+            "image_border_color": "{{ shop.brand.colors.primary[0].background }}",
+            "image_border_width": 4,
+            "image_box_shadow_visible": true,
+            "image_box_shadow_color": "{{ shop.brand.colors.primary[0].background }}",
+            "image_box_shadow_x_offset": 8,
+            "image_box_shadow_y_offset": -8,
             "image_radius_tl": 16,
             "image_radius_tr": 80,
             "image_radius_br": 16,
