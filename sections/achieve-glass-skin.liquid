@@ -23,7 +23,7 @@
     align-items: center;
     position: relative;
     width: 100%;
-    gap: 0;
+    gap: 1.5rem;
   }
   @media (min-width: 1024px) {
     .glass-skin-{{ section.id }}-container {
@@ -37,14 +37,14 @@
   .glass-skin-{{ section.id }}-attributes-block {
     width: 100%;
     max-width: 32rem;
-    margin: 0 auto 2rem;
+    margin: 0;
     z-index: 2;
   }
   .glass-skin-{{ section.id }}-attributes-block--left {
-    order: 1;
+    order: 0;
   }
   .glass-skin-{{ section.id }}-attributes-block--right {
-    order: 4;
+    order: 2;
   }
   @media (min-width: 1024px) {
     .glass-skin-{{ section.id }}-attributes-block {
@@ -71,7 +71,7 @@
   .glass-skin-{{ section.id }}-attributes-list {
     display: flex;
     flex-direction: column;
-    gap: 2.2rem;
+    gap: 1rem;
   }
   .glass-skin-{{ section.id }}-attribute {
     display: flex;
@@ -79,8 +79,8 @@
     gap: 1.2rem;
   }
   .glass-skin-{{ section.id }}-attribute__icon {
-    width: 4.2rem;
-    height: 4.2rem;
+    width: 5rem;
+    height: 5rem;
     flex-shrink: 0;
     display: flex;
     align-items: center;
@@ -178,6 +178,32 @@
       margin-left: -6rem;
     }
   }
+  @media (min-width: 1200px) {
+    .glass-skin-{{ section.id }}-attributes-block--left .glass-skin-{{ section.id }}-attribute:nth-child(1) {
+      margin-right: -12rem;
+      margin-left: 12rem;
+    }
+    .glass-skin-{{ section.id }}-attributes-block--left .glass-skin-{{ section.id }}-attribute:nth-child(2) {
+      margin-right: -6rem;
+      margin-left: 6rem;
+    }
+    .glass-skin-{{ section.id }}-attributes-block--left .glass-skin-{{ section.id }}-attribute:nth-child(3) {
+      margin-right: -9rem;
+      margin-left: 9rem;
+    }
+    .glass-skin-{{ section.id }}-attributes-block--right .glass-skin-{{ section.id }}-attribute:nth-child(1) {
+      margin-right: 12rem;
+      margin-left: -12rem;
+    }
+    .glass-skin-{{ section.id }}-attributes-block--right .glass-skin-{{ section.id }}-attribute:nth-child(2) {
+      margin-right: 6rem;
+      margin-left: -6rem;
+    }
+    .glass-skin-{{ section.id }}-attributes-block--right .glass-skin-{{ section.id }}-attribute:nth-child(3) {
+      margin-right: 9rem;
+      margin-left: -9rem;
+    }
+  }
   .glass-skin-{{ section.id }}-center {
     display: flex;
     flex-direction: column;
@@ -209,9 +235,9 @@
     object-fit: cover;
   }
   .glass-skin-{{ section.id }}-testimonial-block {
+    margin-top: -6rem;
     position: relative;
     z-index: 4;
-    margin-top: -3.5rem;
     width: 100%;
     max-width: 36rem;
   }
