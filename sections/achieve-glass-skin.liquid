@@ -1,0 +1,419 @@
+{{ 'component-image-with-text.css' | asset_url | stylesheet_tag }}
+
+{%- style -%}
+  .section-{{ section.id }}-padding {
+    position: relative;
+    z-index: 2;
+    padding-top: {{ section.settings.padding_top_mobile }}px;
+    padding-bottom: {{ section.settings.padding_bottom_mobile }}px;
+    padding-left: {{ section.settings.padding_left_mobile }}px;
+    padding-right: {{ section.settings.padding_right_mobile }}px;
+  }
+  @media (min-width: 1024px) {
+    .section-{{ section.id }}-padding {
+      padding-top: {{ section.settings.padding_top_desktop }}px;
+      padding-bottom: {{ section.settings.padding_bottom_desktop }}px;
+      padding-left: {{ section.settings.padding_left_desktop }}px;
+      padding-right: {{ section.settings.padding_right_desktop }}px;
+    }
+  }
+  .glass-skin-{{ section.id }}-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+    width: 100%;
+    gap: 0;
+  }
+  @media (min-width: 1024px) {
+    .glass-skin-{{ section.id }}-container {
+      flex-direction: row;
+      justify-content: center;
+      align-items: stretch;
+      gap: 0;
+      min-height: 48rem;
+    }
+  }
+  .glass-skin-{{ section.id }}-attributes-block {
+    width: 100%;
+    max-width: 32rem;
+    margin: 0 auto 2rem;
+    z-index: 2;
+  }
+  .glass-skin-{{ section.id }}-attributes-block--left {
+    order: 1;
+  }
+  .glass-skin-{{ section.id }}-attributes-block--right {
+    order: 4;
+  }
+  @media (min-width: 1024px) {
+    .glass-skin-{{ section.id }}-attributes-block {
+      position: absolute;
+      top: 0%;
+      /* top: 50%; */
+      /* transform: translateY(-50%); */
+      width: 25rem;
+      max-width: 24vw;
+    }
+    .glass-skin-{{ section.id }}-attributes-block--left {
+      left: 0;
+      right: auto;
+      margin: 0;
+      z-index: 3;
+    }
+    .glass-skin-{{ section.id }}-attributes-block--right {
+      right: 0;
+      left: auto;
+      margin: 0;
+      z-index: 3;
+    }
+  }
+  .glass-skin-{{ section.id }}-attributes-list {
+    display: flex;
+    flex-direction: column;
+    gap: 2.2rem;
+  }
+  .glass-skin-{{ section.id }}-attribute {
+    display: flex;
+    align-items: center;
+    gap: 1.2rem;
+  }
+  .glass-skin-{{ section.id }}-attribute__icon {
+    width: 4.2rem;
+    height: 4.2rem;
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .glass-skin-{{ section.id }}-attribute__icon img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+  }
+  .glass-skin-{{ section.id }}-attribute__info {
+    font-size: 1.15rem;
+    font-weight: 500;
+    color: #222;
+    line-height: 1.4;
+    text-align: left;
+  }
+  .glass-skin-{{ section.id }}-attribute__info h1,
+  .glass-skin-{{ section.id }}-attribute__info h2,
+  .glass-skin-{{ section.id }}-attribute__info h3,
+  .glass-skin-{{ section.id }}-attribute__info h4,
+  .glass-skin-{{ section.id }}-attribute__info h5,
+  .glass-skin-{{ section.id }}-attribute__info h6 {
+    margin-bottom: 0;
+  }
+  @media (min-width: 1024px) {
+    .glass-skin-{{ section.id }}-attributes-list {
+      gap: 3rem;
+    }
+    .glass-skin-{{ section.id }}-attribute__icon {
+      width: 6rem;
+      height: 6rem;
+    }
+    .glass-skin-{{ section.id }}-attributes-block--left .glass-skin-{{ section.id }}-attribute {
+      flex-direction: row-reverse;
+    }
+    .glass-skin-{{ section.id }}-attributes-block--left .glass-skin-{{ section.id }}-attribute .glass-skin-{{ section.id }}-attribute__info {
+      text-align: right;
+    }
+    .glass-skin-{{ section.id }}-attributes-block--right .glass-skin-{{ section.id }}-attribute {
+      flex-direction: row;
+    }
+    .glass-skin-{{ section.id }}-attributes-block--right .glass-skin-{{ section.id }}-attribute .glass-skin-{{ section.id }}-attribute__info {
+      text-align: left;
+    }
+  }
+  .glass-skin-{{ section.id }}-center {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+    width: 100%;
+    max-width: 36rem;
+    margin: 0 auto;
+    z-index: 2;
+  }
+  @media (min-width: 1024px) {
+    .glass-skin-{{ section.id }}-center {
+      /* margin: 0 7vw; */
+      margin: 0;
+      max-width: 45rem;
+      z-index: 2;
+    }
+  }
+  .glass-skin-{{ section.id }}-image-block {
+    width: 100%;
+    border-radius: 1.2rem;
+    overflow: hidden;
+    position: relative;
+    z-index: 2;
+  }
+  .glass-skin-{{ section.id }}-image-block img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+  .glass-skin-{{ section.id }}-testimonial-block {
+    position: relative;
+    z-index: 4;
+    margin-top: -3.5rem;
+    width: 100%;
+    max-width: 36rem;
+  }
+  @media (min-width: 1024px) {
+    .glass-skin-{{ section.id }}-testimonial-block {
+      margin-top: -4.5rem;
+      max-width: 36rem;
+    }
+  }
+{%- endstyle -%}
+
+<div class="section-{{ section.id }}-padding gradient color-{{ section.settings.color_scheme }}">
+  <div class="page-width">
+    <div class="glass-skin-{{ section.id }}-container">
+      <div class="glass-skin-{{ section.id }}-attributes-block glass-skin-{{ section.id }}-attributes-block--left">
+        <div class="glass-skin-{{ section.id }}-attributes-list">
+          {% for i in (1..3) %}
+            {% assign left_icon_name = 'left_icon_' | append: i %}
+            {% assign left_info_name = 'left_info_' | append: i %}
+            {% assign icon = section.settings[left_icon_name] %}
+            {% assign info = section.settings[left_info_name] %}
+            {% if icon != blank or info != blank %}
+              <div class="glass-skin-{{ section.id }}-attribute">
+                <div class="glass-skin-{{ section.id }}-attribute__icon">
+                  {% if icon != blank -%}
+                    <img
+                      src="{{ icon | image_url: width: 80, height: 80 }}"
+                      alt=""
+                      loading="lazy"
+                      width="80"
+                      height="80"
+                    >
+                  {%- endif %}
+                </div>
+                <div class="glass-skin-{{ section.id }}-attribute__info">{{ info }}</div>
+              </div>
+            {% endif %}
+          {% endfor %}
+        </div>
+      </div>
+      <div class="glass-skin-{{ section.id }}-center">
+        <div class="glass-skin-{{ section.id }}-image-block">
+          {% if section.settings.center_image != blank %}
+            <img
+              src="{{ section.settings.center_image | image_url: width: 600, height: 600 }}"
+              alt=""
+              style="width:100%;display:block;"
+              loading="lazy"
+              width="600"
+              height="600"
+            >
+          {% endif %}
+        </div>
+        <div class="glass-skin-{{ section.id }}-testimonial-block">
+          {% assign testimonial_image = section.settings.testimonial_image %}
+          <style>
+            :root {
+              --testimonial-border-color-{{ section.id }}: {{ section.settings.testimonial_border_color }};
+              --testimonial-image-border-color-{{ section.id }}: {{ section.settings.testimonial_image_border_color }};
+              --testimonial-star-color-{{ section.id }}: {{ section.settings.testimonial_star_color }};
+            }
+          </style>
+          <div class="testimonial-block-{{ section.id }}">
+            {% if testimonial_image != blank %}
+              <img
+                class="testimonial-block-{{ section.id }}__image"
+                src="{{ testimonial_image | image_url: width: 120, height: 120, crop: 'center' }}"
+                alt="{{ section.settings.testimonial_author | escape }}"
+                width="120"
+                height="120"
+              >
+            {% endif %}
+            <div class="testimonial-block-{{ section.id }}__content">
+              <div class="testimonial-block-{{ section.id }}__quote">
+                {{ 'quotation-mark.svg' | inline_asset_content }}
+                <span class="testimonial-block-{{ section.id }}__stars">
+                  {% for i in (1..5) %}
+                    {% if i <= section.settings.testimonial_stars -%}
+                      <span>★</span>
+                    {%- else -%}
+                      <span style="opacity:0.3;">★</span>
+                    {%- endif %}
+                  {% endfor %}
+                </span>
+              </div>
+              <div class="testimonial-block-{{ section.id }}__text">
+                {{ section.settings.testimonial_text | replace: '<p>', '<p style="margin: 0;">' }}
+              </div>
+              <div class="testimonial-block-{{ section.id }}__author">-{{ section.settings.testimonial_author }}</div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="glass-skin-{{ section.id }}-attributes-block glass-skin-{{ section.id }}-attributes-block--right">
+        <div class="glass-skin-{{ section.id }}-attributes-list">
+          {% for i in (1..3) %}
+            {% assign right_icon_name = 'right_icon_' | append: i %}
+            {% assign right_info_name = 'right_info_' | append: i %}
+            {% assign icon = section.settings[right_icon_name] %}
+            {% assign info = section.settings[right_info_name] %}
+            {% if icon != blank or info != blank %}
+              <div class="glass-skin-{{ section.id }}-attribute">
+                <div class="glass-skin-{{ section.id }}-attribute__icon">
+                  {% if icon != blank -%}
+                    <img
+                      src="{{ icon | image_url: width: 80, height: 80 }}"
+                      alt=""
+                      loading="lazy"
+                      width="80"
+                      height="80"
+                    >
+                  {%- endif %}
+                </div>
+                <div class="glass-skin-{{ section.id }}-attribute__info">{{ info }}</div>
+              </div>
+            {% endif %}
+          {% endfor %}
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "Glass Skin",
+  "class": "section",
+  "settings": [
+    { "type": "color_scheme", "id": "color_scheme", "label": "Color scheme", "default": "scheme-1" },
+    { "type": "image_picker", "id": "center_image", "label": "Center Image" },
+    { "type": "header", "content": "Left Attributes" },
+    { "type": "image_picker", "id": "left_icon_1", "label": "Left Attribute 1 Icon" },
+    { "type": "richtext", "id": "left_info_1", "label": "Left Attribute 1 Info" },
+    { "type": "image_picker", "id": "left_icon_2", "label": "Left Attribute 2 Icon" },
+    { "type": "richtext", "id": "left_info_2", "label": "Left Attribute 2 Info" },
+    { "type": "image_picker", "id": "left_icon_3", "label": "Left Attribute 3 Icon" },
+    { "type": "richtext", "id": "left_info_3", "label": "Left Attribute 3 Info" },
+    { "type": "header", "content": "Right Attributes" },
+    { "type": "image_picker", "id": "right_icon_1", "label": "Right Attribute 1 Icon" },
+    { "type": "richtext", "id": "right_info_1", "label": "Right Attribute 1 Info" },
+    { "type": "image_picker", "id": "right_icon_2", "label": "Right Attribute 2 Icon" },
+    { "type": "richtext", "id": "right_info_2", "label": "Right Attribute 2 Info" },
+    { "type": "image_picker", "id": "right_icon_3", "label": "Right Attribute 3 Icon" },
+    { "type": "richtext", "id": "right_info_3", "label": "Right Attribute 3 Info" },
+    { "type": "header", "content": "Testimonial" },
+    { "type": "image_picker", "id": "testimonial_image", "label": "Testimonial Image" },
+    { "type": "color", "id": "testimonial_border_color", "label": "Testimonial Border Color", "default": "#E5E5E5" },
+    {
+      "type": "color",
+      "id": "testimonial_image_border_color",
+      "label": "Testimonial Image Border Color",
+      "default": "#FFFFFF"
+    },
+    {
+      "type": "range",
+      "id": "testimonial_stars",
+      "label": "Testimonial Star Rating",
+      "min": 1,
+      "max": 5,
+      "step": 1,
+      "default": 5
+    },
+    { "type": "color", "id": "testimonial_star_color", "label": "Testimonial Star Color", "default": "#FF6EC7" },
+    {
+      "type": "richtext",
+      "id": "testimonial_text",
+      "label": "Testimonial Text",
+      "default": "<p>Absolutely love this mask! My skin feels so hydrated, smooth, and fresh. I've noticed fewer fine lines already. It's become my weekly skincare essential!</p>"
+    },
+    { "type": "text", "id": "testimonial_author", "label": "Testimonial Author", "default": "Emily R." },
+    { "type": "header", "content": "Section Padding (Mobile)" },
+    {
+      "type": "range",
+      "id": "padding_top_mobile",
+      "label": "Top Padding (Mobile)",
+      "min": 0,
+      "max": 120,
+      "step": 4,
+      "default": 32,
+      "unit": "px"
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom_mobile",
+      "label": "Bottom Padding (Mobile)",
+      "min": 0,
+      "max": 120,
+      "step": 4,
+      "default": 32,
+      "unit": "px"
+    },
+    {
+      "type": "range",
+      "id": "padding_left_mobile",
+      "label": "Left Padding (Mobile)",
+      "min": 0,
+      "max": 96,
+      "step": 8,
+      "default": 0,
+      "unit": "px"
+    },
+    {
+      "type": "range",
+      "id": "padding_right_mobile",
+      "label": "Right Padding (Mobile)",
+      "min": 0,
+      "max": 96,
+      "step": 8,
+      "default": 0,
+      "unit": "px"
+    },
+    { "type": "header", "content": "Section Padding (Desktop)" },
+    {
+      "type": "range",
+      "id": "padding_top_desktop",
+      "label": "Top Padding (Desktop)",
+      "min": 0,
+      "max": 160,
+      "step": 8,
+      "default": 32,
+      "unit": "px"
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom_desktop",
+      "label": "Bottom Padding (Desktop)",
+      "min": 0,
+      "max": 160,
+      "step": 8,
+      "default": 32,
+      "unit": "px"
+    },
+    {
+      "type": "range",
+      "id": "padding_left_desktop",
+      "label": "Left Padding (Desktop)",
+      "min": 0,
+      "max": 96,
+      "step": 8,
+      "default": 0,
+      "unit": "px"
+    },
+    {
+      "type": "range",
+      "id": "padding_right_desktop",
+      "label": "Right Padding (Desktop)",
+      "min": 0,
+      "max": 96,
+      "step": 8,
+      "default": 0,
+      "unit": "px"
+    }
+  ],
+  "presets": [{ "name": "Achieve Glass Skin With This" }]
+}
+{% endschema %}
