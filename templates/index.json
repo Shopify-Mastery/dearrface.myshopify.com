@@ -442,7 +442,7 @@
           "settings": {
             "image": "shopify://shop_images/kateryna-hliznitsova-LogMzW2a05E-unsplash.jpg",
             "show_border": true,
-            "image_border_color": "#e87fc1",
+            "image_border_color": "#ff66c4",
             "image_radius_tl": 80,
             "image_radius_tr": 16,
             "image_radius_br": 80,
@@ -464,7 +464,7 @@
           "settings": {
             "image": "shopify://shop_images/olimpia-campean-m6bIAov5RQA-unsplash.jpg",
             "show_border": true,
-            "image_border_color": "#e87fc1",
+            "image_border_color": "#ff66c4",
             "image_radius_tl": 16,
             "image_radius_tr": 80,
             "image_radius_br": 16,
