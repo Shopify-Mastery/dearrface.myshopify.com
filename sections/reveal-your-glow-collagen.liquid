@@ -52,18 +52,6 @@
     border-style: solid;
     border-width: 4px;
   }
-  .reveal-glow-{{ section.id }}__image-bg::after {
-    content: '';
-    display: var(--outline-display, block);
-    width: 100%;
-    height: 100%;
-    position: absolute;
-    top: var(--outline-y, 10px);
-    left: var(--outline-x, 10px);
-    border: var(--outline-width, 2px) solid var(--outline-color, #e87fc1);
-    pointer-events: none;
-    box-sizing: border-box;
-  }
 
   .reveal-glow-{{ section.id }}__content {
     width: 100%;
@@ -134,11 +122,6 @@
       {% for block in section.blocks %}
         {% case block.type %}
           {% when 'image' %}
-            <style>
-              :root {
-                ---{{ section.id }}: {{ block.settings.testimonial_border_color }};
-              }
-            </style>
             <div class="reveal-glow-{{ section.id }}__block">
               <div
                 class="reveal-glow-{{ section.id }}__image-bg"
@@ -146,7 +129,7 @@
                   background-image: url('{% if block.settings.image != blank %}{{ block.settings.image | image_url: width: 800 }}{% endif %}');
                   {% if block.settings.show_border %}
                     border-style: solid;
-                    border-width: 4px;
+                    border-width: {{ block.settings.image_border_width }}px;
                     border-color: {{ block.settings.image_border_color }};
                   {% else %}
                     border: none;
@@ -155,11 +138,6 @@
                   border-top-right-radius: {{ block.settings.image_radius_tr }}px;
                   border-bottom-right-radius: {{ block.settings.image_radius_br }}px;
                   border-bottom-left-radius: {{ block.settings.image_radius_bl }}px;
-                  --outline-display: {% if block.settings.show_outline %}block{% else %}none{% endif %};
-                  --outline-color: {{ block.settings.outline_color }};
-                  --outline-width: {{ block.settings.outline_width | default: 2 }}px;
-                  --outline-x: {{ block.settings.outline_offset_x | default: 10 }}px;
-                  --outline-y: {{ block.settings.outline_offset_y | default: 10 }}px;
                 "
               ></div>
             </div>
@@ -314,6 +292,16 @@
         { "type": "color", "id": "image_border_color", "label": "Image border color", "default": "#e87fc1" },
         {
           "type": "range",
+          "id": "image_border_width",
+          "label": "Image border width",
+          "min": 0,
+          "max": 16,
+          "step": 1,
+          "default": 2,
+          "unit": "px"
+        },
+        {
+          "type": "range",
           "id": "image_radius_tl",
           "min": 0,
           "max": 120,
@@ -351,38 +339,6 @@
           "unit": "px",
           "label": "Bottom left radius",
           "default": 32
-        },
-        { "type": "checkbox", "id": "show_outline", "label": "Show image outline", "default": true },
-        { "type": "color", "id": "outline_color", "label": "Image outline color", "default": "#e87fc1" },
-        {
-          "type": "range",
-          "id": "outline_width",
-          "min": 0,
-          "max": 10,
-          "step": 1,
-          "unit": "px",
-          "label": "Image outline width",
-          "default": 2
-        },
-        {
-          "type": "range",
-          "id": "outline_offset_x",
-          "min": -40,
-          "max": 40,
-          "step": 1,
-          "unit": "px",
-          "label": "Image outline X offset",
-          "default": 10
-        },
-        {
-          "type": "range",
-          "id": "outline_offset_y",
-          "min": -40,
-          "max": 40,
-          "step": 1,
-          "unit": "px",
-          "label": "Image outline Y offset",
-          "default": 10
         }
       ]
     },
