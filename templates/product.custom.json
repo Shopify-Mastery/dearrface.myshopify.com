@@ -33,13 +33,28 @@
             "show_dynamic_checkout": false,
             "show_gift_card_recipient": true
           }
+        },
+        "product_attributes_fMFDwn": {
+          "type": "product-attributes",
+          "settings": {
+            "attribute_image_1": "shopify://shop_images/Collagen_Boost_Icon_af7b53eb-bd3b-47a0-a1b3-ea5e6d98a3ad.png",
+            "attribute_text_1": "<strong>Collagen Boost</strong>",
+            "attribute_image_2": "shopify://shop_images/Deep_Hydration_Icon_2.png",
+            "attribute_text_2": "<strong>Deep Hydration</strong>",
+            "attribute_image_3": "shopify://shop_images/Skin_Firming.png",
+            "attribute_text_3": "<strong>Skin Firming</strong>",
+            "attribute_image_4": "shopify://shop_images/Glow_Enhancing_Icon_2.png",
+            "attribute_text_4": "<strong>Glow Enhancing</strong>",
+            "attribute_text_5": "Attribute 5 text"
+          }
         }
       },
       "block_order": [
         "title",
         "description",
         "variant_picker",
-        "buy_buttons"
+        "buy_buttons",
+        "product_attributes_fMFDwn"
       ],
       "settings": {
         "enable_sticky_info": true,
