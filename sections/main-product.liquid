@@ -474,6 +474,36 @@
               {%- when 'variant_picker' -%}
                 {% render 'product-variant-picker', product: product, block: block, product_form_id: product_form_id %}
               {%- when 'buy_buttons' -%}
+                {% style %}
+                  .product-form-container,
+                  .product__info-container .product-form {
+                    margin-bottom: 0;
+                  }
+                  .custom-text-units {
+                    max-width: 44rem;
+                    display: flex;
+                    margin: 0;
+                    justify-content: center;
+                    align-items: center;
+                    gap: 1rem;
+                    font-size: 1rem;
+                    font-family: inherit;
+                    color: #111;
+                  }
+                  @media (min-width: 1024px) {
+                    .custom-text-units {
+                      font-size: 1.3rem;
+                    }
+                  }
+                  .custom-text-units .dot {
+                    width: 1rem;
+                    height: 1rem;
+                    background: #ff66c4;
+                    border-radius: 50%;
+                    display: inline-block;
+                    margin: 0 0.5rem;
+                  }
+                {% endstyle %}
                 {%- render 'buy-buttons',
                   block: block,
                   product: product,
@@ -481,6 +511,13 @@
                   section_id: section.id,
                   show_pickup_availability: true
                 -%}
+                <div class="custom-text-units">
+                  <span>{{ block.settings.text_unit_1 }}</span>
+                  <span class="dot"></span>
+                  <span>{{ block.settings.text_unit_2 }}</span>
+                  <span class="dot"></span>
+                  <span>{{ block.settings.text_unit_3 }}</span>
+                </div>
               {%- when 'rating' -%}
                 {%- if product.metafields.reviews.rating.value != blank -%}
                   <div class="rating-wrapper">
@@ -1008,6 +1045,24 @@
           "default": true,
           "label": "t:sections.main-product.blocks.buy_buttons.settings.show_gift_card_recipient.label",
           "info": "t:sections.main-product.blocks.buy_buttons.settings.show_gift_card_recipient.info"
+        },
+        {
+          "type": "text",
+          "id": "text_unit_1",
+          "label": "Text Unit 1",
+          "default": "Radiant Glow"
+        },
+        {
+          "type": "text",
+          "id": "text_unit_2",
+          "label": "Text Unit 2",
+          "default": "Youthful Skin"
+        },
+        {
+          "type": "text",
+          "id": "text_unit_3",
+          "label": "Text Unit 3",
+          "default": "Instant Lift"
         }
       ]
     },
