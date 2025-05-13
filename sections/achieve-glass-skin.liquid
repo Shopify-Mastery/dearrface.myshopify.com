@@ -383,7 +383,10 @@
               --testimonial-star-color-{{ section.id }}: {{ section.settings.testimonial_star_color }};
             }
           </style>
-          <div class="testimonial-block-{{ section.id }}">
+          <div
+            class="testimonial-block-{{ section.id }}"
+            style="background: {{ section.settings.testimonial_bg_color }}; color: {{ section.settings.testimonial_text_color }};"
+          >
             {% if testimonial_image != blank %}
               <img
                 class="testimonial-block-{{ section.id }}__image"
@@ -467,6 +470,8 @@
     { "type": "richtext", "id": "right_info_3", "label": "Right Attribute 3 Info" },
     { "type": "header", "content": "Testimonial" },
     { "type": "image_picker", "id": "testimonial_image", "label": "Testimonial Image" },
+    { "type": "color", "id": "testimonial_bg_color", "label": "Testimonial Background Color", "default": "#fff" },
+    { "type": "color", "id": "testimonial_text_color", "label": "Testimonial Text Color", "default": "#222" },
     { "type": "color", "id": "testimonial_border_color", "label": "Testimonial Border Color", "default": "#E5E5E5" },
     {
       "type": "color",
