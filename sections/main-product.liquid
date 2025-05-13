@@ -356,7 +356,10 @@
                                 </dt>
                                 <dd>
                                   <span class="price-per-item--current">
-                                    {{- 'products.product.volume_pricing.price_at_each_html' | t: price: variant_price -}}
+                                    {{-
+                                      'products.product.volume_pricing.price_at_each_html'
+                                      | t: price: variant_price
+                                    -}}
                                   </span>
                                 </dd>
                               </dl>
@@ -660,6 +663,93 @@
                 </product-recommendations>
               {%- when 'icon-with-text' -%}
                 {% render 'icon-with-text', block: block %}
+              {%- when 'product-attributes' -%}
+                <div
+                  class="product-block product-block--attributes section-{{ section.id }}-block-{{ block.id }}"
+                  {{ block.shopify_attributes }}
+                >
+                  {% style %}
+                    .section-{{ section.id }}-block-{{ block.id }} {
+                      width: 100%;
+                    }
+                    .section-{{ section.id }}-block-{{ block.id }}__list {
+                      display: flex;
+                      flex-flow: row nowrap;
+                      justify-content: flex-start;
+                      align-items: center;
+                      gap: 1rem;
+                      min-width: 100%;
+                      width: 100%;
+                      max-width: 100%;
+                      overflow-x: hidden;
+                    }
+                    .section-{{ section.id }}-block-{{ block.id }}__attribute {
+                      display: flex;
+                      flex-direction: column;
+                      align-items: center;
+                      row-gap: 1.2rem;
+                    }
+                    .section-{{ section.id }}-block-{{ block.id }}__attribute-image {
+                      width: 4.5rem;
+                      height: 4.5rem;
+                      display: block;
+                      object-fit: contain;
+                      margin: 0;
+                    }
+                    .section-{{ section.id }}-block-{{ block.id }}__attribute-text {
+                      font-size: 1.2rem;
+                      color: rgba(var(--color-foreground), 1);
+                      text-align: center;
+                      margin: 0;
+                      font-family: inherit;
+                    }
+                    @media (min-width: 768px) {
+                      .section-{{ section.id }}-block-{{ block.id }}__attribute-text {
+                        font-size: 1rem;
+                      }
+                    }
+                    @media (min-width: 1024px) {
+                      .section-{{ section.id }}-block-{{ block.id }}__list {
+                        gap: 2rem;
+                      }
+                      .section-{{ section.id }}-block-{{ block.id }}__attribute-image {
+                        width: 5rem;
+                        height: 5rem;
+                      }
+                      .section-{{ section.id }}-block-{{ block.id }}__attribute-text {
+                        font-size: 1.2rem;
+                      }
+                    }
+                    @media (min-width: 1440px) {
+                      .section-{{ section.id }}-block-{{ block.id }}__attribute-image {
+                        width: 6rem;
+                        height: 6rem;
+                      }
+                    }
+                  {% endstyle %}
+                  <div class="product-block__attributes-list section-{{ section.id }}-block-{{ block.id }}__list">
+                    {%- for i in (1..5) -%}
+                      {% assign attribute_image = 'attribute_image_' | append: i %}
+                      {% assign attribute_text = 'attribute_text_' | append: i %}
+                      {% assign attribute_image = block.settings[attribute_image] %}
+                      {% assign attribute_text = block.settings[attribute_text] %}
+                      {%- if attribute_image != blank -%}
+                        <div class="product-block__attribute section-{{ section.id }}-block-{{ block.id }}__attribute">
+                          <img
+                            src="{{ attribute_image | image_url }}"
+                            alt=""
+                            class="product-block__attribute-image section-{{ section.id }}-block-{{ block.id }}__attribute-image"
+                            width="64"
+                            height="64"
+                          >
+                          <div class="product-block__attribute-text section-{{ section.id }}-block-{{ block.id }}__attribute-text">
+                            {{ attribute_text }}
+                          </div>
+                        </div>
+                      {%- endif -%}
+                    {%- endfor -%}
+                  </div>
+                </div>
             {%- endcase -%}
           {%- endfor -%}
           <a href="{{ product.url }}" class="link product__view-details animate-arrow">
@@ -1674,7 +1764,7 @@
         {
           "type": "header",
           "content": "t:sections.main-product.blocks.icon_with_text.settings.pairing_2.label"
-        },        
+        },
         {
           "type": "select",
           "id": "icon_2",
@@ -1874,7 +1964,7 @@
         {
           "type": "header",
           "content": "t:sections.main-product.blocks.icon_with_text.settings.pairing_3.label"
-        },        
+        },
         {
           "type": "select",
           "id": "icon_3",
@@ -2072,6 +2162,47 @@
           "info": "t:sections.main-product.blocks.icon_with_text.settings.heading.info"
         }
       ]
+    },
+    {
+      "type": "product-attributes",
+      "name": "Product attributes",
+      "settings": [
+        { "type": "image_picker", "id": "attribute_image_1", "label": "Attribute 1 image" },
+        {
+          "type": "inline_richtext",
+          "id": "attribute_text_1",
+          "label": "Attribute 1 text",
+          "default": "Attribute 1 text"
+        },
+        { "type": "image_picker", "id": "attribute_image_2", "label": "Attribute 2 image" },
+        {
+          "type": "inline_richtext",
+          "id": "attribute_text_2",
+          "label": "Attribute 2 text",
+          "default": "Attribute 2 text"
+        },
+        { "type": "image_picker", "id": "attribute_image_3", "label": "Attribute 3 image" },
+        {
+          "type": "inline_richtext",
+          "id": "attribute_text_3",
+          "label": "Attribute 3 text",
+          "default": "Attribute 3 text"
+        },
+        { "type": "image_picker", "id": "attribute_image_4", "label": "Attribute 4 image" },
+        {
+          "type": "inline_richtext",
+          "id": "attribute_text_4",
+          "label": "Attribute 4 text",
+          "default": "Attribute 4 text"
+        },
+        { "type": "image_picker", "id": "attribute_image_5", "label": "Attribute 5 image" },
+        {
+          "type": "inline_richtext",
+          "id": "attribute_text_5",
+          "label": "Attribute 5 text",
+          "default": "Attribute 5 text"
+        }
+      ]
     }
   ],
   "settings": [
@@ -2176,7 +2307,7 @@
       ],
       "default": "hide",
       "label": "t:sections.main-product.settings.mobile_thumbnails.label"
-    },    
+    },
     {
       "type": "select",
       "id": "media_position",
