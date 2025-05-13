@@ -138,6 +138,11 @@
                   border-top-right-radius: {{ block.settings.image_radius_tr }}px;
                   border-bottom-right-radius: {{ block.settings.image_radius_br }}px;
                   border-bottom-left-radius: {{ block.settings.image_radius_bl }}px;
+                  {% if block.settings.image_box_shadow_visible %}
+                    box-shadow: {{ block.settings.image_box_shadow_x_offset }}px {{ block.settings.image_box_shadow_y_offset }}px 0 0 {{ block.settings.image_box_shadow_color }};
+                  {% else %}
+                    box-shadow: none;
+                  {% endif %}
                 "
               ></div>
             </div>
@@ -299,6 +304,36 @@
           "step": 1,
           "default": 2,
           "unit": "px"
+        },
+        {
+          "type": "checkbox",
+          "id": "image_box_shadow_visible",
+          "label": "Show image box shadow",
+          "default": false
+        },
+        {
+          "type": "color",
+          "id": "image_box_shadow_color",
+          "label": "Image box shadow color",
+          "default": "rgba(0,0,0,0.08)"
+        },
+        {
+          "type": "range",
+          "id": "image_box_shadow_x_offset",
+          "label": "Image box shadow X offset (px)",
+          "min": -50,
+          "max": 50,
+          "step": 1,
+          "default": 0
+        },
+        {
+          "type": "range",
+          "id": "image_box_shadow_y_offset",
+          "label": "Image box shadow Y offset (px)",
+          "min": -50,
+          "max": 50,
+          "step": 1,
+          "default": 0
         },
         {
           "type": "range",
