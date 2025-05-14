@@ -196,6 +196,7 @@
 }
 
 .ghm-offer-selector ul li label {
+  position: relative;
   min-height: 10rem;
   background-color: #FFF;
   display: -webkit-box;
@@ -221,6 +222,23 @@
   -webkit-transition: 0.3s cubic-bezier(0.17, 0.67, 0.83, 0.67);
   -o-transition: 0.3s cubic-bezier(0.17, 0.67, 0.83, 0.67);
   transition: 0.3s cubic-bezier(0.17, 0.67, 0.83, 0.67);
+}
+
+.ghm-offer-selector ul li label .most-popular-badge {
+  position: absolute;
+  top: -1rem;
+  right: 0;
+  background: #f97fc1;
+  color: #fff;
+  font-weight: bold;
+  font-size: 1rem;
+  padding: 0.5rem 3rem;
+  border-radius: 0.5rem;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+  z-index: 2;
+  display: flex;
+  align-items: center;
+  white-space: nowrap;
 }
 
 .ghm-offer-selector ul li label:hover {
@@ -262,7 +280,7 @@
 .ghm-offer-selector ul input[type="radio"]:focus {
   -webkit-box-shadow: unset;
   box-shadow: unset;
-  border-radius: inherit;
+  border-radius: 50%;
 }
 
 .ghm-offer-selector ul input[type="radio"]:checked {
@@ -971,4 +989,8 @@
     flex-direction: column;
     gap: 2px;
   }
+}
+
+.pricing-container {
+  position: relative;
 }
