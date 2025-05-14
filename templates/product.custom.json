@@ -23,7 +23,7 @@
         "variant_picker": {
           "type": "variant_picker",
           "settings": {
-            "picker_type": "button",
+            "picker_type": "quantity_break",
             "swatch_shape": "circle"
           }
         },
@@ -31,7 +31,10 @@
           "type": "buy_buttons",
           "settings": {
             "show_dynamic_checkout": false,
-            "show_gift_card_recipient": true
+            "show_gift_card_recipient": true,
+            "text_unit_1": "Radiant Glow",
+            "text_unit_2": "Youthful Skin",
+            "text_unit_3": "Instant Lift"
           }
         },
         "collapsible_tab_gT7TmA": {

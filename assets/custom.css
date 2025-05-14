@@ -244,8 +244,9 @@
   width: 24px;
   -moz-appearance: none;
   appearance: none;
-  border: 2px solid #000 !important;
-  border-radius: 99999px;
+  border: 2px solid #FF66C4 !important;
+  /* border-radius: 99999px; */
+  border-radius: 50%;
   -ms-flex-item-align: center;
   -ms-grid-row-align: center;
   align-self: center;
