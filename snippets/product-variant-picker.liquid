@@ -8,9 +8,14 @@
   Usage:
   {% render 'product-variant-picker', product: product, block: block, product_form_id: product_form_id %}
 {% endcomment %}
+{% assign picker_type = block.settings.picker_type %}
 {%- unless product.has_only_default_variant -%}
   <variant-selects
     id="variant-selects-{{ section.id }}"
+    {%- if picker_type == 'quantity_break' -%}
+      class="ghm-offer-selector"
+    {% endif %}
+    style="--break-bg: {{ block.settings.bg_color }}"
     data-section="{{ section.id }}"
     {{ block.shopify_attributes }}
   >
@@ -51,6 +56,25 @@
             block: block,
             picker_type: picker_type
           %}
+        </fieldset>
+      {%- elsif picker_type == 'quantity_break' -%}
+        <fieldset class="js product-form__input product-form__input--pill">
+          {% comment %} <legend class="form__label">{{ option.name }}</legend> {% endcomment %}
+          <div class="horizontal-lines-title">
+            <span>Buy more Save more</span>
+          </div>
+          {%- if picker_type == 'quantity_break' -%}
+            <ul>
+          {% endif %}
+          {% render 'product-variant-options',
+            product: product,
+            option: option,
+            block: block,
+            picker_type: picker_type
+          %}
+          {%- if picker_type == 'quantity_break' -%}
+            </ul>
+          {% endif %}
         </fieldset>
       {%- else -%}
         <div class="product-form__input product-form__input--dropdown">

@@ -39,10 +39,20 @@
     }
     div.global-media-settings, button.thumbnail[aria-current="true"] {
       border: 2px solid #FF66C4;
+      box-shadow: none;
+    }
+
+    div.global-media-settings, button.thumbnail[aria-current]:focus:not(:focus-visible) {
+      box-shadow: none;
     }
 
     button.global-media-settings {
       border: 2px solid #FFFFFF;
+    }
+
+    div.product-form__buttons {
+      width: 100%;
+      max-width: 100%;
     }
   {%- endstyle -%}
 
@@ -480,7 +490,8 @@
                     margin-bottom: 0;
                   }
                   .custom-text-units {
-                    max-width: 44rem;
+                    width: 100%;
+                    max-width: 100%;
                     display: flex;
                     margin: 0;
                     justify-content: center;
@@ -999,6 +1010,10 @@
             {
               "value": "button",
               "label": "t:sections.main-product.blocks.variant_picker.settings.picker_type.options__2.label"
+            },
+            {
+              "value": "quantity_break",
+              "label": "Quantity Break"
             }
           ],
           "default": "button",

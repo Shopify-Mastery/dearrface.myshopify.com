@@ -95,6 +95,80 @@
       {{ value -}}
       {{ label_unavailable }}
     </label>
+  {%- elsif picker_type == 'quantity_break' -%}
+    <li
+      {% if option_disabled %}
+        class="disabled"
+      {% endif %}
+    >
+      <label
+        for="{{ input_id }}"
+      >
+        <div class="bundle-icon-input-container">
+          {% if value.variant.metafields.custom.bundle_icon %}
+            <img
+              src="{{ value.variant.metafields.custom.bundle_icon | img_url: '50x50' }}"
+              alt="Bundle icon"
+              class="bundle-icon"
+            >
+          {% endif %}
+          <input
+            type="radio"
+            id="{{ input_id }}  {{ value.variant.metafields.custom.default_variant }}"
+            name="{{ input_name | escape }}"
+            value="{{ value | escape }}"
+            form="{{ product_form_id }}"
+            {% if value.selected %}
+              checked
+            {% endif %}
+            {% if option_disabled %}
+              class="disabled"
+            {% endif %}
+            {% if option_disabled %}
+              disabled
+            {% endif %}
+            {{ input_dataset }}
+          >
+        </div>
+        <div class="pricing-container">
+          <div
+            class="quantity-container with-flags"
+            {% if value.variant.compare_at_price == blank %}
+              style="margin-bottom: 0; "
+            {% endif %}
+          >
+            <div class="quantity-text-container">
+              <span class="quantity">{{ value }}</span>
+              <span class="quantity-subtext">{{ value.variant.metafields.custom.quantity_subtext }}</span>
+            </div>
+            <div class="right best-seller-flag-space  value_{{ value.variant.metafields.custom.is_best_value }} seller_{{ value.variant.metafields.custom.is_best_seller }}">
+              {% assign main_price = value.variant.price %}
+              {% assign discound = value.variant.compare_at_price | minus: main_price %}
+              {% if value.variant.price < value.variant.compare_at_price %}
+                {% comment %} <span class="badge save-dollar with-flags">Save {{ discound | money }}</span> {% endcomment %}
+              {% endif %}
+              <div class="prices">
+                <span class="final-price">{{ value.variant.price | money }}</span>
+                <span class="compare-price">{{ value.variant.compare_at_price | money }}</span>
+              </div>
+
+              {% if value.variant.metafields.custom.is_best_value or value.variant.metafields.custom.is_best_seller %}
+                <img
+                  alt="best-value-badge"
+                  class="best-value-flag lazyloaded"
+                  {% if value.variant.metafields.custom.is_best_value %}
+                    src="https://cdn.shopify.com/s/files/1/0121/8412/5499/files/best_value_transparent.png?v=1746715289"
+                  {% endif %}
+                  {% if value.variant.metafields.custom.is_best_seller %}
+                    src="https://cdn.shopify.com/s/files/1/0121/8412/5499/files/best_seller_transparent.png?v=1746715290"
+                  {% endif %}
+                >
+              {% endif %}
+            </div>
+          </div>
+        </div>
+      </label>
+    </li>
   {%- elsif picker_type == 'dropdown' or picker_type == 'swatch_dropdown' -%}
     <option
       id="{{ input_id }}"
