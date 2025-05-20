@@ -1,9 +1,0 @@
-[environments.local]
-theme = "146593448101"
-store = "dearrface.myshopify.com"
-password = "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"
-
-[environments.dev]
-theme = "146435604645"
-store = "dearrface.myshopify.com"
-password = "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"
